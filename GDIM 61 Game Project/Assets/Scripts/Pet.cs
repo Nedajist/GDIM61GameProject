@@ -9,7 +9,7 @@ public class Pet : MonoBehaviour
     [SerializeField] public int cost;
     [SerializeField] public List<string> abilityList = new List<string>();
     [SerializeField] protected SpriteRenderer sprite;
-    public void ReceiveDamage(int damage)
+    public virtual void ReceiveDamage(int damage)
     {
         healthPoints -= damage;
         if (healthPoints <= 0)
@@ -18,14 +18,14 @@ public class Pet : MonoBehaviour
         }
     }
 
-    public void DealDamage()
+    public virtual void DealDamage()
     {
 
     }
 
-    public void Die()
+    public virtual void Die()
     {
-        Destroy(transform);
+        Destroy(gameObject);
     }
 
     public virtual void FaceLeft()
@@ -38,4 +38,21 @@ public class Pet : MonoBehaviour
 
     }
 
+    public virtual void EnterPreCombat()
+    {
+
+    }
+
+    public virtual void EnterPreAttack()
+    {
+
+    }
+    public virtual void EnterAttack()
+    {
+
+    }
+    public virtual void EnterPostAttack()
+    {
+
+    }
 }

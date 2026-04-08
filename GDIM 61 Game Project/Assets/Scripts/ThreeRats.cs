@@ -6,6 +6,14 @@ public class ThreeRats : Pet
 {
 
 
+    public override void ReceiveDamage(int damage)
+    {
+        healthPoints -= 1;
+        if (healthPoints <= 0)
+        {
+            Die();
+        }
+    }
 
     public override void FaceLeft()
     {
