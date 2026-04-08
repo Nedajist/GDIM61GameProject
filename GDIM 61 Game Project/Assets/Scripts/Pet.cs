@@ -6,10 +6,9 @@ public class Pet : MonoBehaviour
 {
     [SerializeField] public int healthPoints;
     [SerializeField] public int attack;
-
-    ArrayList ability_list;
-
-
+    [SerializeField] public int cost;
+    [SerializeField] public List<string> abilityList = new List<string>();
+    [SerializeField] protected SpriteRenderer sprite;
     public void ReceiveDamage(int damage)
     {
         healthPoints -= damage;
@@ -29,5 +28,14 @@ public class Pet : MonoBehaviour
         Destroy(transform);
     }
 
+    public virtual void FaceLeft()
+    {
+
+    }
+
+    public virtual void FaceRight()
+    {
+
+    }
 
 }

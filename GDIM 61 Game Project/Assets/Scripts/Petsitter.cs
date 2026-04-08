@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThreeRats : Pet
+public class Petsitter : Pet
 {
 
 
