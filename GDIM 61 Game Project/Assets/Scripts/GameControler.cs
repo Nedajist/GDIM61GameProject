@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour // this is a Singleton
     {
         CullLists(playerTeamList, "player");
         CullLists(enemyTeamList, "enemy");
+
         Pet player_pet = playerTeamList[0].GetComponent<Pet>();
         Pet enemy_pet = enemyTeamList[0].GetComponent<Pet>();
 
