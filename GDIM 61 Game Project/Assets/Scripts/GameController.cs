@@ -59,6 +59,19 @@ public class GameController : MonoBehaviour // this is a Singleton
         switch (newGameState){
             case GameState.PreCombat:
                 currentGameState = GameState.PreCombat;
+
+                foreach (GameObject pet in playerTeamList)
+                {
+                    pet.GetComponent<Pet>().ally = true;
+                }
+
+                foreach (GameObject pet in enemyTeamList)
+                {
+                    pet.GetComponent<Pet>().ally = false;
+                }
+
+
+
                 Debug.Log("ENTERING PRECOMBAT");
                 player_pet.EnterPreCombat();
                 enemy_pet.EnterPreCombat();
