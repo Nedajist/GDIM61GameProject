@@ -17,8 +17,8 @@ public class GameController : MonoBehaviour // this is a Singleton
 {
     public GameState currentGameState = GameState.BuyPhase;
 
-    [SerializeField] public List<GameObject> playerTeamList = new List<GameObject>();
-    [SerializeField] public List<GameObject> enemyTeamList = new List<GameObject>();
+    [SerializeField] public List<GameObject> playerTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerTeamList
+    [SerializeField] public List<GameObject> enemyTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.enemyTeamList
     public static GameController instance = null;
 
     private float _secondsPassed = 0;
