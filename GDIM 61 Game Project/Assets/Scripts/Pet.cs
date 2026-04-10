@@ -9,6 +9,7 @@ public class Pet : MonoBehaviour
     [SerializeField] public int cost;
     [SerializeField] public List<string> abilityList = new List<string>();
     [SerializeField] protected SpriteRenderer sprite;
+
     public virtual void ReceiveDamage(int damage)
     {
         healthPoints -= damage;
@@ -55,4 +56,9 @@ public class Pet : MonoBehaviour
     {
 
     }
+    private void OnMouseOver()
+    {
+        
+    }
 }
+//use a collider to detect if cursor is hovering over animal sprite, then display tooltip with pet stats and abilities. Use OnMouseOver() method to detect hovering and OnMouseExit() to hide tooltip.
