@@ -9,6 +9,7 @@ public class Pet : MonoBehaviour
     [SerializeField] public int cost;
     [SerializeField] public List<string> abilityList = new List<string>();
     [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] public bool ally;
     public virtual void ReceiveDamage(int damage)
     {
         healthPoints -= damage;
