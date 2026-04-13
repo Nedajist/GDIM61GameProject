@@ -898,6 +898,7 @@ MonoBehaviour:
   cost: 2
   abilityList: []
   sprite: {fileID: 206690419}
+  ally: 0
 --- !u!212 &206690419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -996,6 +997,7 @@ GameObject:
   - component: {fileID: 263641449}
   - component: {fileID: 263641448}
   - component: {fileID: 263641447}
+  - component: {fileID: 263641450}
   m_Layer: 0
   m_Name: Petsitter
   m_TagString: Untagged
@@ -1020,6 +1022,7 @@ MonoBehaviour:
   cost: 1
   abilityList: []
   sprite: {fileID: 263641448}
+  ally: 0
 --- !u!212 &263641448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1087,6 +1090,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1317772607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &263641450
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263641446}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.4
 --- !u!1 &278661910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,6 +1908,7 @@ MonoBehaviour:
   cost: 1
   abilityList: []
   sprite: {fileID: 602345997}
+  ally: 0
 --- !u!212 &602345997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2816,6 +2855,7 @@ MonoBehaviour:
   cost: 1
   abilityList: []
   sprite: {fileID: 1111066505}
+  ally: 0
 --- !u!212 &1111066505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4087,6 +4127,7 @@ GameObject:
   - component: {fileID: 1537644154}
   - component: {fileID: 1537644157}
   - component: {fileID: 1537644158}
+  - component: {fileID: 1537644159}
   m_Layer: 0
   m_Name: ThreeRats
   m_TagString: Untagged
@@ -4184,6 +4225,7 @@ MonoBehaviour:
   cost: 1
   abilityList: []
   sprite: {fileID: 1537644154}
+  ally: 0
 --- !u!222 &1537644158
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4192,6 +4234,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537644153}
   m_CullTransparentMesh: 1
+--- !u!58 &1537644159
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537644153}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.94
 --- !u!1 &1582323039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,6 +4636,7 @@ GameObject:
   - component: {fileID: 1778674754}
   - component: {fileID: 1778674753}
   - component: {fileID: 1778674752}
+  - component: {fileID: 1778674755}
   m_Layer: 0
   m_Name: Seagull
   m_TagString: Untagged
@@ -4583,6 +4661,7 @@ MonoBehaviour:
   cost: 2
   abilityList: []
   sprite: {fileID: 1778674753}
+  ally: 0
 --- !u!212 &1778674753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4652,6 +4731,41 @@ Transform:
   - {fileID: 1479774813}
   m_Father: {fileID: 1317772607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1778674755
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778674751}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.87
 --- !u!1 &1830564947
 GameObject:
   m_ObjectHideFlags: 0
@@ -4704,6 +4818,7 @@ MonoBehaviour:
   cost: 3
   abilityList: []
   sprite: {fileID: 1830564950}
+  ally: 0
 --- !u!212 &1830564950
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4767,6 +4882,7 @@ GameObject:
   - component: {fileID: 1855531889}
   - component: {fileID: 1855531888}
   - component: {fileID: 1855531887}
+  - component: {fileID: 1855531890}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -4791,6 +4907,7 @@ MonoBehaviour:
   cost: 3
   abilityList: []
   sprite: {fileID: 1855531888}
+  ally: 0
 --- !u!212 &1855531888
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4860,6 +4977,41 @@ Transform:
   - {fileID: 1993551372}
   m_Father: {fileID: 1317772607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1855531890
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855531886}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.8
 --- !u!1 &1859717143
 GameObject:
   m_ObjectHideFlags: 0

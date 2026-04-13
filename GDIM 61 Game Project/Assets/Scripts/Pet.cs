@@ -89,11 +89,18 @@ public class Pet : MonoBehaviour
 
 
     }
-    public void SetPetOrder()
-    {
-        //use a list and adjust the index of each pet in the list to determine the order of pets in combat. The pet with the lowest index attacks first, and the pet with the highest index attacks last. When a pet is added or removed from combat, adjust the indices of the remaining pets accordingly.
-    }
+}
+    /*
+   // public void OnMouseOver()
+//    {
+ //       Debug.Log("Mouse is Over);")
+  //      if(GameController.instance.currentGameState == GameState.PreCombat)
+    //    {
+      //      
+        }
+   // }
 
 
 }
+*/
 //use a collider to detect if cursor is hovering over animal sprite, then display tooltip with pet stats and abilities. Use OnMouseOver() method to detect hovering and OnMouseExit() to hide tooltip.
