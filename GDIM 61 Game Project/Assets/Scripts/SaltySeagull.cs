@@ -17,4 +17,10 @@ public class SaltySeagull : Pet
     {
         sprite.flipX = true;
     }
+
+    public override void AllyPetEnterAttack()
+    {
+        attack += 1;
+    }
+
 }

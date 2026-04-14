@@ -26,4 +26,15 @@ public class BigBunny : Pet
     {
         sprite.flipX = false;
     }
+
+    public override void AllyDied()
+    {
+        WhoAndWhere();
+        if (enemy_list[0] != null && frozen_turns == 0)
+        {
+            enemy_list[0].GetComponent<Pet>().ReceiveDamage(attack, gameObject.GetComponent<Pet>());
+        }
+
+    }
+
 }

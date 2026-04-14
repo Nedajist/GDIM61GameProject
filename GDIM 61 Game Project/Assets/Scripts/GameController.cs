@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
             case GameState.PreAttack:
                 currentGameState = GameState.PreAttack;
-                Debug.Log("ENTERING PREATTACK");
+                //Debug.Log("ENTERING PREATTACK");
                 player_pet.EnterPreAttack();
                 enemy_pet.EnterPreAttack();
 
@@ -99,20 +99,29 @@ public class GameController : MonoBehaviour // this is a Singleton
 
             case GameState.Attack:
                 currentGameState = GameState.Attack;
-                Debug.Log("ENTERING ATTACK");
-                player_pet.EnterAttack();
-                enemy_pet.EnterAttack();
-                enemy_pet.ReceiveDamage(player_pet.attack);
-                player_pet.ReceiveDamage(enemy_pet.attack);
+                //Debug.Log("ENTERING ATTACK");
 
-                for (int i = 1; i < playerTeamList.Count; i++)
+
+
+                if (player_pet.frozen_turns == 0) // ensures pets aren't frozen before having them attack each other
                 {
-                    playerTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
+
+                    player_pet.EnterAttack();
+                    enemy_pet.ReceiveDamage(player_pet.attack, player_pet);
+                    for (int i = 1; i < playerTeamList.Count; i++)
+                    {
+                        playerTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
+                    }
                 }
 
-                for (int i = 1; i < enemyTeamList.Count; i++)
+                if (enemy_pet.frozen_turns == 0)
                 {
-                    enemyTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
+                    for (int i = 1; i < enemyTeamList.Count; i++)
+                    {
+                        enemyTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
+                    }
+                    enemy_pet.EnterAttack();
+                    player_pet.ReceiveDamage(enemy_pet.attack, enemy_pet);
                 }
 
 
@@ -120,7 +129,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
             case GameState.PostAttack:
                 currentGameState = GameState.PostAttack;
-                Debug.Log("ENTERING POSTATTACK");
+                //Debug.Log("ENTERING POSTATTACK");
                 player_pet.EnterPostAttack();
                 enemy_pet.EnterPostAttack();
 
@@ -138,7 +147,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
             case GameState.PostCombat:
                 currentGameState = GameState.PostCombat;
-                Debug.Log("ENTERING POSTCOMBAT");
+                //Debug.Log("ENTERING POSTCOMBAT");
                 playerTeamList = null;
                 enemyTeamList = null;
                 break;

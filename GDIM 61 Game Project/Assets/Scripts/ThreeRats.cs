@@ -9,7 +9,7 @@ public class ThreeRats : Pet
 
     private GameObject _instantiated_rat;
 
-    public override void ReceiveDamage(int damage)
+    public override void ReceiveDamage(int damage, Pet aggressor)
     {
         healthPoints -= 1;
         if (healthPoints <= 0)

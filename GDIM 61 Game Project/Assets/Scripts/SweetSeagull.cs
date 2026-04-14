@@ -17,4 +17,19 @@ public class SweetSeagull : Pet
     {
         sprite.flipX = true;
     }
+
+    public override void ReceiveDamage(int damage, Pet aggressor)
+    {
+        healthPoints -= 1;
+        if (healthPoints <= 0)
+        {
+            WhoAndWhere();
+            for (int i = 0; i < enemy_list.Count; i++)
+            {
+                enemy_list[i].GetComponent<Pet>().frozen_turns += 2;
+            }
+            Die();
+        }
+    }
+
 }

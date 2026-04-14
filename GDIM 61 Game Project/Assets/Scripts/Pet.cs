@@ -13,31 +13,43 @@ public class Pet : MonoBehaviour
 
 
     protected int current_position = -1;
-    protected List<GameObject> team_list;
+    protected List<GameObject> team_list; // RELATIVE TO THIS PET
     protected Vector3[] team_position_list;
 
-    public virtual void ReceiveDamage(int damage)
+    protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
+    protected Vector3[] enemy_position_list;
+    
+
+
+    public virtual void ReceiveDamage(int damage, Pet aggressor)
     {
         healthPoints -= damage;
         if (healthPoints <= 0)
         {
             Die();
         }
+
+        Debug.Log(aggressor.name);
     }
 
-    public virtual void WhoAndWhere()
+    public virtual void WhoAndWhere() // sets team_list, team_position_list, and current_position within both
     {
 
         if (ally == true)
         {
             team_list = GameController.instance.playerTeamList;
             team_position_list = GameController.instance.playerPositionList;
+
+            enemy_list = GameController.instance.enemyTeamList;
+            team_position_list = GameController.instance.enemyPositionList;
         }
         else
         {
             team_list = GameController.instance.enemyTeamList;
             team_position_list = GameController.instance.enemyPositionList;
 
+            enemy_list = GameController.instance.playerTeamList;
+            team_position_list = GameController.instance.playerPositionList;
         }
 
         for (int i = 0; i < team_list.Count; i++)
@@ -77,7 +89,7 @@ public class Pet : MonoBehaviour
 
     public virtual void EnterPreAttack() // right before the pet attacks
     {
-
+        frozen_turns -= 1;
     }
     public virtual void EnterAttack() // right as the pet attacks
     {
