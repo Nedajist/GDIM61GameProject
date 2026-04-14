@@ -31,9 +31,7 @@ public class ThreeRats : Pet
     public override void Die()
     {
         Destroy(gameObject);
-        int current_position = -1;
-        List<GameObject> team_list;
-        Vector3[] team_position_list;
+        WhoAndWhere();
 
         if (ally == true)
         {
@@ -59,9 +57,33 @@ public class ThreeRats : Pet
             }
 
         }
-        _instantiated_rat = Instantiate(_one_rat, team_position_list[current_position], Quaternion.identity);
-        _instantiated_rat.GetComponent<Pet>().ally = ally;
-        team_list[current_position] = _instantiated_rat;
+
+        SummonRat(current_position); // first rat summon
+
+        if (team_list.Count < 6)
+        {
+            SummonRat(-1); // second rat summon
+
+        }
+
+    }
+
+    void SummonRat(int team_index)
+    {
+
+        if (team_index < 0)
+        {
+            _instantiated_rat = Instantiate(_one_rat, team_position_list[team_list.Count], Quaternion.identity);
+            _instantiated_rat.GetComponent<Pet>().ally = ally;
+            team_list.Add(_instantiated_rat);
+        }
+        else
+        {
+            _instantiated_rat = Instantiate(_one_rat, team_position_list[team_index], Quaternion.identity);
+            _instantiated_rat.GetComponent<Pet>().ally = ally;
+            team_list[team_index] = _instantiated_rat;
+        }
+
 
         if (ally)
         {
@@ -72,24 +94,9 @@ public class ThreeRats : Pet
             _instantiated_rat.GetComponent<Pet>().FaceLeft();
         }
 
-        if (team_list.Count < 6)
-        {
-            _instantiated_rat = Instantiate(_one_rat, team_position_list[team_list.Count], Quaternion.identity);
-            _instantiated_rat.GetComponent<Pet>().ally = ally;
-            team_list.Add(_instantiated_rat);
-
-            if (ally)
-            {
-                _instantiated_rat.GetComponent<Pet>().FaceRight();
-            }
-            else
-            {
-                _instantiated_rat.GetComponent<Pet>().FaceLeft();
-            }
-
-        }
 
     }
+
 
 
 }

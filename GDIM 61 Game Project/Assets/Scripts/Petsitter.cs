@@ -16,4 +16,16 @@ public class Petsitter : Pet
     {
         sprite.flipX = true;
     }
+
+    public override void AllyPetEnterPostAttack()
+    {
+        WhoAndWhere();
+        
+
+
+
+
+    }
+
+
 }

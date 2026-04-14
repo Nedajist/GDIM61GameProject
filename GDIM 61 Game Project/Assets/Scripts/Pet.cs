@@ -12,6 +12,10 @@ public class Pet : MonoBehaviour
     [SerializeField] public int frozen_turns = 0;
 
 
+    protected int current_position = -1;
+    protected List<GameObject> team_list;
+    protected Vector3[] team_position_list;
+
     public virtual void ReceiveDamage(int damage)
     {
         healthPoints -= damage;
@@ -20,6 +24,36 @@ public class Pet : MonoBehaviour
             Die();
         }
     }
+
+    public virtual void WhoAndWhere()
+    {
+
+        if (ally == true)
+        {
+            team_list = GameController.instance.playerTeamList;
+            team_position_list = GameController.instance.playerPositionList;
+        }
+        else
+        {
+            team_list = GameController.instance.enemyTeamList;
+            team_position_list = GameController.instance.enemyPositionList;
+
+        }
+
+        for (int i = 0; i < team_list.Count; i++)
+        {
+            if (team_list[i].GetInstanceID() == gameObject.GetInstanceID())
+            {
+                current_position = i;
+            }
+            else
+            {
+                team_list[i].GetComponent<Pet>().AllyDied();
+            }
+
+        }
+    }
+
 
     public virtual void DealDamage()
     {
