@@ -89,7 +89,11 @@ public class Pet : MonoBehaviour
 
     public virtual void EnterPreAttack() // right before the pet attacks
     {
-        frozen_turns -= 1;
+        Debug.Log(frozen_turns);
+        if (frozen_turns > 0)
+        {
+            frozen_turns -= 1;
+        }
     }
     public virtual void EnterAttack() // right as the pet attacks
     {
