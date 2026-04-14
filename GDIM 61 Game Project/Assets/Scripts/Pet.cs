@@ -40,11 +40,6 @@ public class Pet : MonoBehaviour
 
     }
 
-    public virtual void EnterPreCombat() // right after combat first starts
-    {
-
-    }
-
     public virtual void EnterPreAttack() // right before the pet attacks
     {
 
@@ -62,12 +57,7 @@ public class Pet : MonoBehaviour
         
     }
 
-    public virtual void AllyDied()
-    {
-
-    }
-
-    public virtual void AllyPetEnterPreCombat()
+    public virtual void AllyDied() 
     {
 
     }
@@ -88,7 +78,7 @@ public class Pet : MonoBehaviour
     {
 
 
-    }
+    }s
 }
     /*
    // public void OnMouseOver()

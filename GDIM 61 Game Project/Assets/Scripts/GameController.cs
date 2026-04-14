@@ -73,8 +73,8 @@ public class GameController : MonoBehaviour // this is a Singleton
 
 
                 Debug.Log("ENTERING PRECOMBAT");
-                player_pet.EnterPreCombat();
-                enemy_pet.EnterPreCombat();
+                // player_pet.EnterPreCombat(); NOTE: since there are no pet abilities which activate pre-combat, I've removed those methods. 
+                // enemy_pet.EnterPreCombat();
                 break;
 
             case GameState.PreAttack:
