@@ -3780,7 +3780,7 @@ MonoBehaviour:
   healthPoints: 6
   attack: 1
   cost: 5
-  sprite: {fileID: 0}
+  sprite: {fileID: 1139740223}
   ally: 0
   frozen_turns: 0
 --- !u!212 &1139740223
@@ -5990,9 +5990,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.032304823, y: 0}
   serializedVersion: 2
-  m_Radius: 1.87
+  m_Radius: 1.288498
 --- !u!1 &1830564947
 GameObject:
   m_ObjectHideFlags: 0
@@ -6372,9 +6372,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.11306971, y: 0}
   serializedVersion: 2
-  m_Radius: 1.8
+  m_Radius: 1.3638737
 --- !u!1 &1859717143
 GameObject:
   m_ObjectHideFlags: 0
@@ -7372,7 +7372,7 @@ MonoBehaviour:
   healthPoints: 6
   attack: 1
   cost: 5
-  sprite: {fileID: 0}
+  sprite: {fileID: 2068425641}
   ally: 1
   frozen_turns: 0
 --- !u!212 &2068425641
@@ -7459,9 +7459,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.12922287, y: -0.06461114}
   serializedVersion: 2
-  m_Radius: 1.8
+  m_Radius: 1.412332
 --- !u!1 &2077244827
 GameObject:
   m_ObjectHideFlags: 0

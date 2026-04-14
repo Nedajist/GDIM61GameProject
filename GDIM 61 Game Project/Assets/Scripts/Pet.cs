@@ -10,6 +10,7 @@ public class Pet : MonoBehaviour
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] public bool ally;
     [SerializeField] public int frozen_turns = 0;
+    private bool petClicked = false;
 
 
     protected int current_position = -1;
@@ -21,10 +22,6 @@ public class Pet : MonoBehaviour
     
 void Update()
 {
-        if (Input.anyKeyDown)
-        {
-            Debug.Log("key down");
-        }
     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
@@ -33,36 +30,56 @@ void Update()
     {
         if (hit.transform == transform)
         {
-            Debug.Log("Hit: " + hit.transform.name);
-            Debug.Log("This: " + transform.name);
-
-            if (GameController.instance.currentGameState == GameState.PreCombat)
-                {
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
+            sprite.color = Color.blue;
+            //detect left click
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Pet clicked: " + gameObject.name);
+                petClicked = true;
+            }
+            if(petClicked == true)
                     {
-                        GameController.instance.ChangeOrder(this, 0); Debug.Log("Key pressed while hovering over pet");
-                    } 
-                    if (Input.GetKeyDown(KeyCode.Alpha2))
-                    {
-                        GameController.instance.ChangeOrder(this, 1); Debug.Log("Key pressed while hovering over pet");
-                    } 
-                    if (Input.GetKeyDown(KeyCode.Alpha3))
-                    {
-                        GameController.instance.ChangeOrder(this, 2); Debug.Log("Key pressed while hovering over pet");
-                    } 
-                    if (Input.GetKeyDown(KeyCode.Alpha4))
-                    {
-                        GameController.instance.ChangeOrder(this, 3); Debug.Log("Key pressed while hovering over pet");
-                    } 
-                    if (Input.GetKeyDown(KeyCode.Alpha5))
-                    {
-                        GameController.instance.ChangeOrder(this, 4); Debug.Log("Key pressed while hovering over pet");
-                    } 
-                    if (Input.GetKeyDown(KeyCode.Alpha6))
-                    {
-                        GameController.instance.ChangeOrder(this, 5); Debug.Log("Key pressed while hovering over pet");
-                    } 
-                }
+                        if(Input.GetKeyDown(KeyCode.Alpha1))
+                        {
+                            GameController.instance.ChangeOrder(this, 0);
+                                Debug.Log("Changing order of " + gameObject.name + " to position 1");
+                            petClicked = false;
+                        }
+                        if(Input.GetKeyDown(KeyCode.Alpha2))
+                        {
+                            GameController.instance.ChangeOrder(this, 1);
+                                Debug.Log("Changing order of " + gameObject.name + " to position 2");
+                            petClicked = false;
+                        }
+                        if(Input.GetKeyDown(KeyCode.Alpha3))
+                        {
+                            GameController.instance.ChangeOrder(this, 2);
+                                Debug.Log("Changing order of " + gameObject.name + " to position 3");
+                            petClicked = false;
+                        }
+                        if(Input.GetKeyDown(KeyCode.Alpha4))
+                        {
+                            GameController.instance.ChangeOrder(this, 3);
+                                Debug.Log("Changing order of " + gameObject.name + " to position 4");
+                            petClicked = false;
+                        }
+                        if(Input.GetKeyDown(KeyCode.Alpha5))
+                        {
+                            GameController.instance.ChangeOrder(this, 4);
+                                Debug.Log("Changing order of " + gameObject.name + " to position 5");
+                            petClicked = false;
+                        }
+                        if(Input.GetKeyDown(KeyCode.Alpha6))
+                        {
+                            GameController.instance.ChangeOrder(this, 5);
+                                Debug.Log("Changing order of " + gameObject.name + " to position 6");
+                            petClicked = false;
+                        }
+                    }
+        }
+        else
+        {
+             sprite.color = Color.white;
         }
     }
 }
