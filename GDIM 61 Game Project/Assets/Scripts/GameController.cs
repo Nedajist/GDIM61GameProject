@@ -243,49 +243,23 @@ public class GameController : MonoBehaviour // this is a Singleton
         yield return new WaitForSeconds(duration);
     }
 
-   public void ChangeOrder()
-    {
-        //player hovers over pet and clicks a digit
-        //digit corresponds to list position (i - 1)
-        ///////
-        /// //create a reference to on mousover from pet script
-        int newIndex;
+public void ChangeOrder(MonoBehaviour pet, int newIndex)
+{
+    int currentIndex = playerTeamList.IndexOf(pet.gameObject);
 
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            newIndex = 0;
-            playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
-            Debug.Log("Pet Position:" + newIndex + 1);
-        }
-        else if (Input.GetKey(KeyCode.Alpha2))
-        {
-            newIndex = 1;
-            playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
-            Debug.Log("Pet Position:" + newIndex + 1);
-        }
-        else if (Input.GetKey(KeyCode.Alpha3))
-        {
-            newIndex = 2;
-            playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
-            Debug.Log("Pet Position:" + newIndex + 1);
-        }
-        else if (Input.GetKey(KeyCode.Alpha4))
-        {
-            newIndex = 3;
-            playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
-            Debug.Log("Pet Position:" + newIndex + 1);
-        }
-        else if (Input.GetKey(KeyCode.Alpha5))
-        {
-            newIndex = 4;
-            playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
-            Debug.Log("Pet Position:" + newIndex + 1);
-        }
-        else if (Input.GetKey(KeyCode.Alpha6))
-        {
-            newIndex = 5;
-            playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
-            Debug.Log("Pet Position:" + newIndex + 1);
-        }
+    if (currentIndex == -1) return;
+
+    // Swap positions in the list
+    GameObject temp = playerTeamList[newIndex];
+    playerTeamList[newIndex] = playerTeamList[currentIndex];
+    playerTeamList[currentIndex] = temp;
+
+    // Update positions visually
+    for (int i = 0; i < playerTeamList.Count; i++)
+    {
+        playerTeamList[i].transform.position = playerPositionList[i];
     }
+
+    Debug.Log("Moved pet to position: " + (newIndex + 1));
+}
 }

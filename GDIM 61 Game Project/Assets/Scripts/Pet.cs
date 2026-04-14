@@ -35,7 +35,12 @@ void Update()
 
             if (GameController.instance.currentGameState == GameState.PreCombat)
                 {
-                    GameController.instance.ChangeOrder();
+                    if (Input.GetKeyDown(KeyCode.Alpha1)) GameController.instance.ChangeOrder(this, 0);
+                    if (Input.GetKeyDown(KeyCode.Alpha2)) GameController.instance.ChangeOrder(this, 1);
+                    if (Input.GetKeyDown(KeyCode.Alpha3)) GameController.instance.ChangeOrder(this, 2);
+                    if (Input.GetKeyDown(KeyCode.Alpha4)) GameController.instance.ChangeOrder(this, 3);
+                    if (Input.GetKeyDown(KeyCode.Alpha5)) GameController.instance.ChangeOrder(this, 4);
+                    if (Input.GetKeyDown(KeyCode.Alpha6)) GameController.instance.ChangeOrder(this, 5);
                 }
         }
     }
