@@ -21,26 +21,47 @@ public class Pet : MonoBehaviour
     
 void Update()
 {
+        if (Input.anyKeyDown)
+        {
+            Debug.Log("key down");
+        }
     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
     if (hit.collider != null)
     {
-        Debug.Log("Hit: " + hit.transform.name);
-
-        if (hit.transform == transform && ally)
+        if (hit.transform == transform)
         {
-            Debug.Log("Mouse over");
+            Debug.Log("Hit: " + hit.transform.name);
+            Debug.Log("This: " + transform.name);
 
             if (GameController.instance.currentGameState == GameState.PreCombat)
                 {
-                    if (Input.GetKeyDown(KeyCode.Alpha1)) GameController.instance.ChangeOrder(this, 0);
-                    if (Input.GetKeyDown(KeyCode.Alpha2)) GameController.instance.ChangeOrder(this, 1);
-                    if (Input.GetKeyDown(KeyCode.Alpha3)) GameController.instance.ChangeOrder(this, 2);
-                    if (Input.GetKeyDown(KeyCode.Alpha4)) GameController.instance.ChangeOrder(this, 3);
-                    if (Input.GetKeyDown(KeyCode.Alpha5)) GameController.instance.ChangeOrder(this, 4);
-                    if (Input.GetKeyDown(KeyCode.Alpha6)) GameController.instance.ChangeOrder(this, 5);
+                    if (Input.GetKeyDown(KeyCode.Alpha1))
+                    {
+                        GameController.instance.ChangeOrder(this, 0); Debug.Log("Key pressed while hovering over pet");
+                    } 
+                    if (Input.GetKeyDown(KeyCode.Alpha2))
+                    {
+                        GameController.instance.ChangeOrder(this, 1); Debug.Log("Key pressed while hovering over pet");
+                    } 
+                    if (Input.GetKeyDown(KeyCode.Alpha3))
+                    {
+                        GameController.instance.ChangeOrder(this, 2); Debug.Log("Key pressed while hovering over pet");
+                    } 
+                    if (Input.GetKeyDown(KeyCode.Alpha4))
+                    {
+                        GameController.instance.ChangeOrder(this, 3); Debug.Log("Key pressed while hovering over pet");
+                    } 
+                    if (Input.GetKeyDown(KeyCode.Alpha5))
+                    {
+                        GameController.instance.ChangeOrder(this, 4); Debug.Log("Key pressed while hovering over pet");
+                    } 
+                    if (Input.GetKeyDown(KeyCode.Alpha6))
+                    {
+                        GameController.instance.ChangeOrder(this, 5); Debug.Log("Key pressed while hovering over pet");
+                    } 
                 }
         }
     }
@@ -59,7 +80,6 @@ void Update()
 
     public virtual void WhoAndWhere() // sets team_list, team_position_list, and current_position within both
     {
-
         if (ally == true)
         {
             team_list = GameController.instance.playerTeamList;
@@ -76,7 +96,6 @@ void Update()
             enemy_list = GameController.instance.playerTeamList;
             team_position_list = GameController.instance.playerPositionList;
         }
-
         for (int i = 0; i < team_list.Count; i++)
         {
             if (team_list[i].GetInstanceID() == gameObject.GetInstanceID())
@@ -87,7 +106,6 @@ void Update()
             {
                 team_list[i].GetComponent<Pet>().AllyDied();
             }
-
         }
     }
 

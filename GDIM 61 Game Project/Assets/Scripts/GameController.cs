@@ -233,9 +233,6 @@ public class GameController : MonoBehaviour // this is a Singleton
                 petList[i].GetComponent<Pet>().AllyDied();
             }
         }
-
-
-
     }
 
     IEnumerator Pause(float duration)
@@ -246,15 +243,13 @@ public class GameController : MonoBehaviour // this is a Singleton
 public void ChangeOrder(MonoBehaviour pet, int newIndex)
 {
     int currentIndex = playerTeamList.IndexOf(pet.gameObject);
-
     if (currentIndex == -1) return;
 
-    // Swap positions in the list
-    GameObject temp = playerTeamList[newIndex];
-    playerTeamList[newIndex] = playerTeamList[currentIndex];
-    playerTeamList[currentIndex] = temp;
+    GameObject movedPet = playerTeamList[currentIndex];
 
-    // Update positions visually
+    playerTeamList.RemoveAt(currentIndex);
+    playerTeamList.Insert(newIndex, movedPet);
+
     for (int i = 0; i < playerTeamList.Count; i++)
     {
         playerTeamList[i].transform.position = playerPositionList[i];
