@@ -7,9 +7,10 @@ public class Pet : MonoBehaviour
     [SerializeField] public int healthPoints;
     [SerializeField] public int attack;
     [SerializeField] public int cost;
-    [SerializeField] public List<string> abilityList = new List<string>();
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] public bool ally;
+    [SerializeField] public bool frozen = false;
+
 
     public virtual void ReceiveDamage(int damage)
     {
