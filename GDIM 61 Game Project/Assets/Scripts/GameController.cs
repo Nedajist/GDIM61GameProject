@@ -243,7 +243,7 @@ public class GameController : MonoBehaviour // this is a Singleton
         yield return new WaitForSeconds(duration);
     }
 
-    void ChangeOrder()
+   public void ChangeOrder()
     {
         //player hovers over pet and clicks a digit
         //digit corresponds to list position (i - 1)
@@ -255,31 +255,37 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             newIndex = 0;
             playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
+            Debug.Log("Pet Position:" + newIndex + 1);
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
             newIndex = 1;
             playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
+            Debug.Log("Pet Position:" + newIndex + 1);
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
             newIndex = 2;
             playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
+            Debug.Log("Pet Position:" + newIndex + 1);
         }
         else if (Input.GetKey(KeyCode.Alpha4))
         {
             newIndex = 3;
             playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
+            Debug.Log("Pet Position:" + newIndex + 1);
         }
         else if (Input.GetKey(KeyCode.Alpha5))
         {
             newIndex = 4;
             playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
+            Debug.Log("Pet Position:" + newIndex + 1);
         }
         else if (Input.GetKey(KeyCode.Alpha6))
         {
             newIndex = 5;
             playerTeamList[newIndex].transform.position = playerPositionList[newIndex];
+            Debug.Log("Pet Position:" + newIndex + 1);
         }
     }
 }

@@ -1356,7 +1356,7 @@ MonoBehaviour:
   attack: 1
   cost: 1
   sprite: {fileID: 263641448}
-  ally: 0
+  ally: 1
   frozen_turns: 0
 --- !u!212 &263641448
 SpriteRenderer:
@@ -3677,7 +3677,7 @@ MonoBehaviour:
   sprite: {fileID: 1111066505}
   ally: 0
   frozen_turns: 0
-  _one_rat: {fileID: 3058562365343414902, guid: 79b7735b4ee43ff47b758ca449019b91, type: 3}
+  _one_rat: {fileID: 0}
 --- !u!212 &1111066505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5450,9 +5450,9 @@ MonoBehaviour:
   attack: 1
   cost: 1
   sprite: {fileID: 1537644154}
-  ally: 0
+  ally: 1
   frozen_turns: 0
-  _one_rat: {fileID: 3058562365343414902, guid: 79b7735b4ee43ff47b758ca449019b91, type: 3}
+  _one_rat: {fileID: 0}
 --- !u!222 &1537644158
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5887,7 +5887,7 @@ MonoBehaviour:
   attack: 2
   cost: 4
   sprite: {fileID: 1778674753}
-  ally: 0
+  ally: 1
   frozen_turns: 0
 --- !u!212 &1778674753
 SpriteRenderer:
@@ -6269,7 +6269,7 @@ MonoBehaviour:
   attack: 3
   cost: 3
   sprite: {fileID: 1855531888}
-  ally: 0
+  ally: 1
   frozen_turns: 0
 --- !u!212 &1855531888
 SpriteRenderer:
@@ -7332,6 +7332,7 @@ GameObject:
   - component: {fileID: 2068425639}
   - component: {fileID: 2068425641}
   - component: {fileID: 2068425640}
+  - component: {fileID: 2068425642}
   m_Layer: 0
   m_Name: Sweet Seagull
   m_TagString: Untagged
@@ -7372,7 +7373,7 @@ MonoBehaviour:
   attack: 1
   cost: 5
   sprite: {fileID: 0}
-  ally: 0
+  ally: 1
   frozen_turns: 0
 --- !u!212 &2068425641
 SpriteRenderer:
@@ -7426,6 +7427,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2068425642
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068425638}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.8
 --- !u!1 &2077244827
 GameObject:
   m_ObjectHideFlags: 0

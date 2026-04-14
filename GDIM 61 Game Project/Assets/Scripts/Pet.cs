@@ -19,7 +19,27 @@ public class Pet : MonoBehaviour
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
     
+void Update()
+{
+    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+    RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+    if (hit.collider != null)
+    {
+        Debug.Log("Hit: " + hit.transform.name);
+
+        if (hit.transform == transform && ally)
+        {
+            Debug.Log("Mouse over");
+
+            if (GameController.instance.currentGameState == GameState.PreCombat)
+                {
+                    GameController.instance.ChangeOrder();
+                }
+        }
+    }
+}
 
     public virtual void ReceiveDamage(int damage, Pet aggressor)
     {
@@ -103,10 +123,6 @@ public class Pet : MonoBehaviour
     {
 
     }
-    private void OnMouseOver()
-    {
-        
-    }
 
     public virtual void AllyDied() 
     {
@@ -135,17 +151,5 @@ public class Pet : MonoBehaviour
 
 
 }
-    /*
-   // public void OnMouseOver()
-//    {
- //       Debug.Log("Mouse is Over);")
-  //      if(GameController.instance.currentGameState == GameState.PreCombat)
-    //    {
-      //      
-        }
-   // }
 
-
-}
-*/
 //use a collider to detect if cursor is hovering over animal sprite, then display tooltip with pet stats and abilities. Use OnMouseOver() method to detect hovering and OnMouseExit() to hide tooltip.
