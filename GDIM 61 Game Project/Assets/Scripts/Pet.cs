@@ -78,7 +78,11 @@ public class Pet : MonoBehaviour
     {
 
 
-    }s
+    }
+
+
+
+
 }
     /*
    // public void OnMouseOver()
