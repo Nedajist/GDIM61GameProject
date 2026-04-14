@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
-    private Vector3[] playerPositionList = { new Vector3(-0.5f, 0, 0), new Vector3(-1.8f, 0, 0), new Vector3(-3.2f, 0, 0), new Vector3(-4.62f, 0, 0), new Vector3(-6.08f, 0, 0), new Vector3(-7.37f, 0, 0) };
-    private Vector3[] enemyPositionList = { new Vector3(1.05f, 0, 0), new Vector3(2.59f, 0, 0), new Vector3(4.03f, 0, 0), new Vector3(5.22f, 0, 0), new Vector3(6.24f, 0, 0), new Vector3(7.3f, 0, 0) };
+    public Vector3[] playerPositionList = { new Vector3(-0.5f, 0, 0), new Vector3(-1.8f, 0, 0), new Vector3(-3.2f, 0, 0), new Vector3(-4.62f, 0, 0), new Vector3(-6.08f, 0, 0), new Vector3(-7.37f, 0, 0) };
+    public Vector3[] enemyPositionList = { new Vector3(1.05f, 0, 0), new Vector3(2.59f, 0, 0), new Vector3(4.03f, 0, 0), new Vector3(5.22f, 0, 0), new Vector3(6.24f, 0, 0), new Vector3(7.3f, 0, 0) };
 
     private void Awake()
     {
@@ -83,6 +83,18 @@ public class GameController : MonoBehaviour // this is a Singleton
                 Debug.Log("ENTERING PREATTACK");
                 player_pet.EnterPreAttack();
                 enemy_pet.EnterPreAttack();
+
+                for (int i = 1; i <playerTeamList.Count; i++)
+                {
+                    playerTeamList[i].GetComponent<Pet>().AllyPetEnterPreAttack();
+                }
+
+                for (int i = 1; i < enemyTeamList.Count; i++)
+                {
+                    enemyTeamList[i].GetComponent<Pet>().AllyPetEnterPreAttack();
+                }
+
+
                 break;
 
             case GameState.Attack:
@@ -93,6 +105,17 @@ public class GameController : MonoBehaviour // this is a Singleton
                 enemy_pet.ReceiveDamage(player_pet.attack);
                 player_pet.ReceiveDamage(enemy_pet.attack);
 
+                for (int i = 1; i < playerTeamList.Count; i++)
+                {
+                    playerTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
+                }
+
+                for (int i = 1; i < enemyTeamList.Count; i++)
+                {
+                    enemyTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
+                }
+
+
                 break;
 
             case GameState.PostAttack:
@@ -100,6 +123,17 @@ public class GameController : MonoBehaviour // this is a Singleton
                 Debug.Log("ENTERING POSTATTACK");
                 player_pet.EnterPostAttack();
                 enemy_pet.EnterPostAttack();
+
+                for (int i = 1; i < playerTeamList.Count; i++)
+                {
+                    playerTeamList[i].GetComponent<Pet>().AllyPetEnterPostAttack();
+                }
+
+                for (int i = 1; i < enemyTeamList.Count; i++)
+                {
+                    enemyTeamList[i].GetComponent<Pet>().AllyPetEnterPostAttack();
+                }
+
                 break;
 
             case GameState.PostCombat:
@@ -151,14 +185,18 @@ public class GameController : MonoBehaviour // this is a Singleton
             }
         }
     }
-    void CullLists(List<GameObject> petList, string side)
+    void CullLists(List<GameObject> petList, string side) // removes dead pets 
     {
+        int deathCount = 0;
+
+
         for (int i =0; i < petList.Count; i++)
         {
             if (petList[i] == null)
             {
                 petList.RemoveAt(i);
                 i -= 1;
+                deathCount += 1;
             }
         }
 
@@ -177,6 +215,18 @@ public class GameController : MonoBehaviour // this is a Singleton
                 petList[i].transform.position = enemyPositionList[i];
             }
         }
+
+
+        for (int x = 0; x < deathCount; x++) // alerts all pets of a team that an ally has fallen
+        {
+            for (int i = 0; i < petList.Count; i++)
+            {
+                petList[i].GetComponent<Pet>().AllyDied();
+            }
+        }
+
+
+
     }
 
     IEnumerator Pause(float duration)

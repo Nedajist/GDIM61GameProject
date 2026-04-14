@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ThreeRats : Pet
 {
+    [SerializeField] GameObject _one_rat;
 
+    private GameObject _instantiated_rat;
 
     public override void ReceiveDamage(int damage)
     {
@@ -24,4 +27,69 @@ public class ThreeRats : Pet
     {
         sprite.flipX = true;
     }
+
+    public override void Die()
+    {
+        Destroy(gameObject);
+        int current_position = -1;
+        List<GameObject> team_list;
+        Vector3[] team_position_list;
+
+        if (ally == true)
+        {
+            team_list = GameController.instance.playerTeamList;
+            team_position_list = GameController.instance.playerPositionList;
+        }
+        else
+        {
+            team_list = GameController.instance.enemyTeamList;
+            team_position_list = GameController.instance.enemyPositionList;
+
+        }
+
+        for (int i = 0; i < team_list.Count; i ++)
+        {
+            if (team_list[i].GetInstanceID() == gameObject.GetInstanceID())
+            {
+                current_position = i;
+            }
+            else
+            {
+                team_list[i].GetComponent<Pet>().AllyDied();
+            }
+
+        }
+        _instantiated_rat = Instantiate(_one_rat, team_position_list[current_position], Quaternion.identity);
+        _instantiated_rat.GetComponent<Pet>().ally = ally;
+        team_list[current_position] = _instantiated_rat;
+
+        if (ally)
+        {
+            _instantiated_rat.GetComponent<Pet>().FaceRight();
+        }
+        else
+        {
+            _instantiated_rat.GetComponent<Pet>().FaceLeft();
+        }
+
+        if (team_list.Count < 6)
+        {
+            _instantiated_rat = Instantiate(_one_rat, team_position_list[team_list.Count], Quaternion.identity);
+            _instantiated_rat.GetComponent<Pet>().ally = ally;
+            team_list.Add(_instantiated_rat);
+
+            if (ally)
+            {
+                _instantiated_rat.GetComponent<Pet>().FaceRight();
+            }
+            else
+            {
+                _instantiated_rat.GetComponent<Pet>().FaceLeft();
+            }
+
+        }
+
+    }
+
+
 }

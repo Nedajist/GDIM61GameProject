@@ -9,7 +9,7 @@ public class Pet : MonoBehaviour
     [SerializeField] public int cost;
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] public bool ally;
-    [SerializeField] public bool frozen = false;
+    [SerializeField] public int frozen_turns = 0;
 
 
     public virtual void ReceiveDamage(int damage)
@@ -60,7 +60,7 @@ public class Pet : MonoBehaviour
 
     public virtual void AllyDied() 
     {
-
+        
     }
 
     public virtual void AllyPetEnterPreAttack()
