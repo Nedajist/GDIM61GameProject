@@ -12,14 +12,25 @@ public class Pet : MonoBehaviour
     [SerializeField] public int frozen_turns = 0;
     private bool petClicked = false;
 
-
     protected int current_position = -1;
     protected List<GameObject> team_list; // RELATIVE TO THIS PET
     protected Vector3[] team_position_list;
 
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
-    
+    protected TMPro.TextMeshPro healthText;
+    protected TMPro.TextMeshPro attackText;
+   /* void Start()
+    {
+        healthText = transform.Find("Health").GetComponent<TMPro.TextMeshPro>();
+        attackText = transform.Find("Attack").GetComponent<TMPro.TextMeshPro>();
+
+        healthText.text = healthPoints.ToString();
+        attackText.text = attack.ToString();
+
+        WhoAndWhere();
+    }
+    */
 void Update()
 {
     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
