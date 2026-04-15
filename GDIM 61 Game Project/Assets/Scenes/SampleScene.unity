@@ -1059,7 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 709353371}
   m_Layer: 0
-  m_Name: Tool Tip Prefab
+  m_Name: Tool Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
