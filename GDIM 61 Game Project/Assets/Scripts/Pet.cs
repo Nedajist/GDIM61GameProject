@@ -10,6 +10,7 @@ public class Pet : MonoBehaviour
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] public bool ally;
     [SerializeField] public int frozen_turns = 0;
+    [SerializeField] protected GameObject petTooltipPrefab;
     private bool petClicked = false;
 
     protected int current_position = -1;
@@ -20,7 +21,7 @@ public class Pet : MonoBehaviour
     protected Vector3[] enemy_position_list;
     protected TMPro.TextMeshPro healthText;
     protected TMPro.TextMeshPro attackText;
-   /* void Start()
+   /*void Start()
     {
         healthText = transform.Find("Health").GetComponent<TMPro.TextMeshPro>();
         attackText = transform.Find("Attack").GetComponent<TMPro.TextMeshPro>();
@@ -29,8 +30,10 @@ public class Pet : MonoBehaviour
         attackText.text = attack.ToString();
 
         WhoAndWhere();
+
     }
     */
+    
 void Update()
 {
     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
