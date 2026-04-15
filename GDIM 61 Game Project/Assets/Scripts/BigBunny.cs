@@ -11,12 +11,6 @@ public class BigBunny : Pet
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void FaceLeft()
     {
         sprite.flipX = true;
