@@ -242,6 +242,10 @@ public class GameController : MonoBehaviour // this is a Singleton
 
 public void ChangeOrder(MonoBehaviour pet, int newIndex)
 {
+    if(newIndex > playerTeamList.Count - 1)
+        {
+            return; // Invalid index, do nothing
+        }
     int currentIndex = playerTeamList.IndexOf(pet.gameObject);
     if (currentIndex == -1) return;
 
