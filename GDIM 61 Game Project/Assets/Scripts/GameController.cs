@@ -18,12 +18,14 @@ public class GameController : MonoBehaviour // this is a Singleton
     public GameState currentGameState = GameState.BuyPhase;
 
     [SerializeField] public List<GameObject> playerTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerTeamList
+    [SerializeField] public List<GameObject> playerShopList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerShopList
     [SerializeField] public List<GameObject> enemyTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.enemyTeamList
     public static GameController instance = null;
 
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
     public Vector3[] playerPositionList = { new Vector3(-0.5f, 0, 0), new Vector3(-1.8f, 0, 0), new Vector3(-3.2f, 0, 0), new Vector3(-4.62f, 0, 0), new Vector3(-6.08f, 0, 0), new Vector3(-7.37f, 0, 0) };
+    public Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0) };
     public Vector3[] enemyPositionList = { new Vector3(1.05f, 0, 0), new Vector3(2.59f, 0, 0), new Vector3(4.03f, 0, 0), new Vector3(5.22f, 0, 0), new Vector3(6.24f, 0, 0), new Vector3(7.3f, 0, 0) };
 
     private void Awake()
