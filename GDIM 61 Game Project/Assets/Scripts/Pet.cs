@@ -30,8 +30,8 @@ void Update()
     {
         if (hit.transform == transform)
         {
-            sprite.color = Color.blue;
-            /*UIController.instance.ShowStats(healthPoints, attack);*/
+            sprite.color = Color.grey;
+            UIController.Instance.ShowStats(healthPoints, attack);
             //detect left click
             if (Input.GetMouseButtonDown(0))
             {
@@ -40,6 +40,8 @@ void Update()
             }
             if(petClicked == true)
                     {
+                        sprite.color = Color.yellow;
+
                         if(Input.GetKeyDown(KeyCode.Alpha1))
                         {
                             GameController.instance.ChangeOrder(this, 0);
