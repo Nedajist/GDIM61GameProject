@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public static UIController instance = null;
+    private static UIController instance;
+    public static UIController Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIController>();
+                if (instance == null)
+                {
+                    GameObject singletonObject = new GameObject();
+                    instance = singletonObject.AddComponent<UIController>();
+                    singletonObject.name = typeof(UIController).ToString() + " (Singleton)";
+                }
+            }
+            return instance;
+        }
+    }
     private void Awake()
     {
         if (instance == null)
@@ -16,15 +33,15 @@ public class UIController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    /*
+    
     public void ShowStats(int health, int attack)
     {
-        TMPro.TextMeshProUGUI healthText = GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI healthText = GetComponentInChildren<TMPro.TextMeshProUGUI>();
         TMPro.TextMeshProUGUI attackText = GetComponentInChildren<TMPro.TextMeshProUGUI>();
         healthText.text = health.ToString();
         attackText.text = attack.ToString();
         
         Debug.Log("Health: " + health + " Attack: " + attack);
     }
-    */
+    
 }
