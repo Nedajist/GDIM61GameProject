@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /*
     public void ShowStats(int health, int attack)
     {
         TMPro.TextMeshProUGUI healthText = GetComponent<TMPro.TextMeshProUGUI>();
@@ -25,4 +26,5 @@ public class UIController : MonoBehaviour
         
         Debug.Log("Health: " + health + " Attack: " + attack);
     }
+    */
 }
