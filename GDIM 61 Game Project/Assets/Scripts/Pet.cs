@@ -31,7 +31,7 @@ void Update()
         if (hit.transform == transform)
         {
             sprite.color = Color.blue;
-            UIController.instance.ShowStats(healthPoints, attack);
+            /*UIController.instance.ShowStats(healthPoints, attack);*/
             //detect left click
             if (Input.GetMouseButtonDown(0))
             {
