@@ -19,20 +19,6 @@ public class Pet : MonoBehaviour
 
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
-    protected TMPro.TextMeshPro healthText;
-    protected TMPro.TextMeshPro attackText;
-   /*void Start()
-    {
-        healthText = transform.Find("Health").GetComponent<TMPro.TextMeshPro>();
-        attackText = transform.Find("Attack").GetComponent<TMPro.TextMeshPro>();
-
-        healthText.text = healthPoints.ToString();
-        attackText.text = attack.ToString();
-
-        WhoAndWhere();
-
-    }
-    */
     
 void Update()
 {
@@ -45,6 +31,7 @@ void Update()
         if (hit.transform == transform)
         {
             sprite.color = Color.blue;
+            UIController.instance.ShowStats(healthPoints, attack);
             //detect left click
             if (Input.GetMouseButtonDown(0))
             {
