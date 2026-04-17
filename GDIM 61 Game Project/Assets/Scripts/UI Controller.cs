@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private TMPro.TextMeshProUGUI healthText;
+    [SerializeField] private TMPro.TextMeshProUGUI attackText;
     private static UIController instance;
     public static UIController Instance
     {
@@ -36,8 +38,6 @@ public class UIController : MonoBehaviour
     
     public void ShowStats(int health, int attack)
     {
-        TMPro.TextMeshProUGUI healthText = GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        TMPro.TextMeshProUGUI attackText = GetComponentInChildren<TMPro.TextMeshProUGUI>();
         healthText.text = health.ToString();
         attackText.text = attack.ToString();
         
