@@ -93,7 +93,6 @@ void Update()
             Die();
         }
 
-        Debug.Log(aggressor.name);
     }
 
     public virtual void WhoAndWhere() // sets team_list, team_position_list, and current_position within both
@@ -119,10 +118,6 @@ void Update()
             if (team_list[i].GetInstanceID() == gameObject.GetInstanceID())
             {
                 current_position = i;
-            }
-            else
-            {
-                team_list[i].GetComponent<Pet>().AllyDied();
             }
         }
     }
@@ -150,7 +145,6 @@ void Update()
 
     public virtual void EnterPreAttack() // right before the pet attacks
     {
-        Debug.Log(frozen_turns);
         if (frozen_turns > 0)
         {
             frozen_turns -= 1;

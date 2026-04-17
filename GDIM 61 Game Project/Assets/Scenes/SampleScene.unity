@@ -580,6 +580,7 @@ MonoBehaviour:
   - {fileID: 263641446}
   - {fileID: 1537644153}
   - {fileID: 2068425638}
+  playerShopList: []
   enemyTeamList:
   - {fileID: 1111066502}
   - {fileID: 602345994}
@@ -593,6 +594,13 @@ MonoBehaviour:
   - {x: -4.62, y: 0, z: 0}
   - {x: -6.08, y: 0, z: 0}
   - {x: -7.37, y: 0, z: 0}
+  playerShopPositionList:
+  - {x: -1, y: -2.5, z: 0}
+  - {x: -2.3, y: -2.5, z: 0}
+  - {x: -3.7, y: -2.5, z: 0}
+  - {x: -5.12, y: -2.5, z: 0}
+  - {x: -6.58, y: -2.5, z: 0}
+  - {x: -7.87, y: -2.5, z: 0}
   enemyPositionList:
   - {x: 1.05, y: 0, z: 0}
   - {x: 2.59, y: 0, z: 0}
@@ -1231,7 +1239,7 @@ MonoBehaviour:
   ally: 0
   frozen_turns: 0
   petTooltipPrefab: {fileID: 0}
-  _one_rat: {fileID: 0}
+  _one_rat: {fileID: 3058562365343414902, guid: 79b7735b4ee43ff47b758ca449019b91, type: 3}
 --- !u!212 &1111066505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1943,7 +1951,7 @@ MonoBehaviour:
   ally: 1
   frozen_turns: 0
   petTooltipPrefab: {fileID: 0}
-  _one_rat: {fileID: 0}
+  _one_rat: {fileID: 3058562365343414902, guid: 79b7735b4ee43ff47b758ca449019b91, type: 3}
 --- !u!222 &1537644158
 CanvasRenderer:
   m_ObjectHideFlags: 0

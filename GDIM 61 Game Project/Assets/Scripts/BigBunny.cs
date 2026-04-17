@@ -23,6 +23,7 @@ public class BigBunny : Pet
 
     public override void AllyDied()
     {
+        //Debug.Log("Ally of big bunny died! Big bunny attacks!");
         WhoAndWhere();
         if (enemy_list[0] != null && frozen_turns == 0)
         {

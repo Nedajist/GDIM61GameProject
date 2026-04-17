@@ -104,16 +104,15 @@ public class GameController : MonoBehaviour // this is a Singleton
                 //Debug.Log("ENTERING ATTACK");
 
 
-
                 if (player_pet.frozen_turns == 0) // ensures pets aren't frozen before having them attack each other
                 {
 
-                    player_pet.EnterAttack();
-                    enemy_pet.ReceiveDamage(player_pet.attack, player_pet);
                     for (int i = 1; i < playerTeamList.Count; i++)
                     {
                         playerTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
                     }
+                    player_pet.EnterAttack();
+                    enemy_pet.ReceiveDamage(player_pet.attack, player_pet);
                 }
 
                 if (enemy_pet.frozen_turns == 0)
@@ -203,7 +202,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
         for (int i =0; i < petList.Count; i++)
         {
-            if (petList[i] == null)
+            if (petList[i] == null || petList[i].GetComponent<Pet>().healthPoints <= 0)
             {
                 petList.RemoveAt(i);
                 i -= 1;
@@ -227,9 +226,10 @@ public class GameController : MonoBehaviour // this is a Singleton
             }
         }
 
-
+        
         for (int x = 0; x < deathCount; x++) // alerts all pets of a team that an ally has fallen
         {
+            //Debug.Log("all pets alerted of death");
             for (int i = 0; i < petList.Count; i++)
             {
                 petList[i].GetComponent<Pet>().AllyDied();
