@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI healthText;
     [SerializeField] private TMPro.TextMeshProUGUI attackText;
+    [SerializeField] private TMPro.TextMeshProUGUI abilityText;
     private static UIController instance;
     public static UIController Instance
     {
@@ -36,12 +37,21 @@ public class UIController : MonoBehaviour
         }
     }
     
-    public void ShowStats(int health, int attack)
+    public void ShowStats(int health, int attack, string ability)
     {
         healthText.text = health.ToString();
         attackText.text = attack.ToString();
+
+        abilityText.text = ability;
         
         Debug.Log("Health: " + health + " Attack: " + attack);
+    }
+    public void HideStats()
+    {
+        healthText.text = "-";
+        attackText.text = "-";
+
+        abilityText.text = "Hover over an enemy, click, and press a digit key to rearrange team.";
     }
     
 }

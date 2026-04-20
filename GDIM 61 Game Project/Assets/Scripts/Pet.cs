@@ -19,6 +19,7 @@ public class Pet : MonoBehaviour
 
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
+    protected string abilityText;
     
 void Update()
 {
@@ -30,8 +31,10 @@ void Update()
     {
         if (hit.transform == transform)
         {
+            ReturnAbilityText();
+            UIController.Instance.ShowStats(healthPoints, attack, abilityText);
+
             sprite.color = Color.grey;
-            UIController.Instance.ShowStats(healthPoints, attack);
             //detect left click
             if (Input.GetMouseButtonDown(0))
             {
@@ -45,44 +48,41 @@ void Update()
                         if(Input.GetKeyDown(KeyCode.Alpha1))
                         {
                             GameController.instance.ChangeOrder(this, 0);
-                                Debug.Log("Changing order of " + gameObject.name + " to position 1");
                             petClicked = false;
                         }
                         if(Input.GetKeyDown(KeyCode.Alpha2))
                         {
                             GameController.instance.ChangeOrder(this, 1);
-                                Debug.Log("Changing order of " + gameObject.name + " to position 2");
                             petClicked = false;
                         }
                         if(Input.GetKeyDown(KeyCode.Alpha3))
                         {
                             GameController.instance.ChangeOrder(this, 2);
-                                Debug.Log("Changing order of " + gameObject.name + " to position 3");
                             petClicked = false;
                         }
                         if(Input.GetKeyDown(KeyCode.Alpha4))
                         {
                             GameController.instance.ChangeOrder(this, 3);
-                                Debug.Log("Changing order of " + gameObject.name + " to position 4");
                             petClicked = false;
                         }
                         if(Input.GetKeyDown(KeyCode.Alpha5))
                         {
                             GameController.instance.ChangeOrder(this, 4);
-                                Debug.Log("Changing order of " + gameObject.name + " to position 5");
                             petClicked = false;
                         }
                         if(Input.GetKeyDown(KeyCode.Alpha6))
                         {
                             GameController.instance.ChangeOrder(this, 5);
-                                Debug.Log("Changing order of " + gameObject.name + " to position 6");
                             petClicked = false;
                         }
                     }
         }
         else
         {
-             sprite.color = Color.white;
+            ReturnAbilityText();
+           // UIController.Instance.HideStats();
+
+            sprite.color = Color.white;
         }
     }
 }
@@ -185,7 +185,10 @@ void Update()
     }
 
 
-
+    protected virtual string ReturnAbilityText()
+    {
+        return abilityText;
+    }
 
 }
 
