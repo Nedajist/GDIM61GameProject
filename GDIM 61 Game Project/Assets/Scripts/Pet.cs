@@ -79,10 +79,12 @@ void Update()
         }
         else
         {
-            ReturnAbilityText();
-           // UIController.Instance.HideStats();
+            UIController.Instance.HideStats();
 
             sprite.color = Color.white;
+
+            petClicked = false;
+            Debug.Log("not hovering");
         }
     }
 }

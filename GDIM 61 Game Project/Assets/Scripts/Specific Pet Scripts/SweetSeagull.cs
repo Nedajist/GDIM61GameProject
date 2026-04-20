@@ -31,5 +31,10 @@ public class SweetSeagull : Pet
             Die();
         }
     }
+    protected override string ReturnAbilityText()
+    {
+        abilityText = "Sweet Seagull - Frosting Spin: When this pet dies, all enemy pets are frozen for 2 turns";
+        return abilityText;
+    }
 
 }

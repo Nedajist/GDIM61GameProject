@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 1804254302}
   attackText: {fileID: 1324254275}
-  abilityText: {fileID: 0}
+  abilityText: {fileID: 939373865}
 --- !u!1 &405178577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,8 +1174,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282080477
+  m_fontColor: {r: 0.86522907, g: 0.361512, b: 0.23204921, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
