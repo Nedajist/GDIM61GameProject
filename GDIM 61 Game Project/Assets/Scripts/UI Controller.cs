@@ -7,6 +7,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI healthText;
     [SerializeField] private TMPro.TextMeshProUGUI attackText;
     [SerializeField] private TMPro.TextMeshProUGUI abilityText;
+    [SerializeField] public TMPro.TextMeshProUGUI balanceText;
+
     private static UIController instance;
     public static UIController Instance
     {
@@ -44,7 +46,7 @@ public class UIController : MonoBehaviour
 
         abilityText.text = ability;
         
-        Debug.Log("Health: " + health + " Attack: " + attack);
+        //Debug.Log("Health: " + health + " Attack: " + attack);
     }
     public void HideStats()
     {

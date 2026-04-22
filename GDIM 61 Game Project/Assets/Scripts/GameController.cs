@@ -15,7 +15,7 @@ public enum GameState
 
 public class GameController : MonoBehaviour // this is a Singleton 
 {
-    public GameState currentGameState = GameState.BuyPhase;
+    public GameState currentGameState;
 
     [SerializeField] public List<GameObject> playerTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerTeamList
     [SerializeField] public List<GameObject> playerShopList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerShopList
@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour // this is a Singleton
     public Vector3[] playerPositionList = { new Vector3(-0.5f, 0, 0), new Vector3(-1.8f, 0, 0), new Vector3(-3.2f, 0, 0), new Vector3(-4.62f, 0, 0), new Vector3(-6.08f, 0, 0), new Vector3(-7.37f, 0, 0) };
     public Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0) };
     public Vector3[] enemyPositionList = { new Vector3(1.05f, 0, 0), new Vector3(2.59f, 0, 0), new Vector3(4.03f, 0, 0), new Vector3(5.22f, 0, 0), new Vector3(6.24f, 0, 0), new Vector3(7.3f, 0, 0) };
+    public int balance = 15;
+    public UIController UI;
 
     private void Awake()
     {
@@ -38,12 +40,14 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             Destroy(gameObject);
         }
+        UI = GameObject.FindAnyObjectByType<UIController>();
+        TransitionGameState(GameState.BuyPhase);
     }
 
 
     public void CommenceBattleButtonPressed()
     {
-        if (currentGameState == GameState.BuyPhase)
+        if (currentGameState == GameState.BuyPhase && playerTeamList.Count > 0)
         {
             TransitionGameState(GameState.PreCombat);
         }
@@ -59,8 +63,17 @@ public class GameController : MonoBehaviour // this is a Singleton
 
         Debug.Log("LEAVING" + currentGameState.ToString());
         switch (newGameState){
+            case GameState.BuyPhase:
+                currentGameState = GameState.BuyPhase;
+                for (int i = 0; i < playerShopList.Count; i++)
+                {
+                    playerShopList[i].transform.position = playerShopPositionList[i];
+                }
+                break;
             case GameState.PreCombat:
                 currentGameState = GameState.PreCombat;
+
+                PruneAllyTeamList();
 
                 foreach (GameObject pet in playerTeamList)
                 {
@@ -199,10 +212,18 @@ public class GameController : MonoBehaviour // this is a Singleton
     {
         int deathCount = 0;
 
+        if (petList.Count == 0)
+        {
+            return;
+        }
 
         for (int i =0; i < petList.Count; i++)
         {
-            if (petList[i] == null || petList[i].GetComponent<Pet>().healthPoints <= 0)
+            if (petList[i].GetComponent<Pet>() == null)
+            {
+                continue;
+            }
+            else if (petList[i] == null || petList[i].GetComponent<Pet>().healthPoints <= 0)
             {
                 petList.RemoveAt(i);
                 i -= 1;
@@ -237,30 +258,53 @@ public class GameController : MonoBehaviour // this is a Singleton
         }
     }
 
+    private void PruneAllyTeamList() //deletes placeholder pets before combat
+    {
+        for (int i = 0; i < playerTeamList.Count; i++)
+        {
+            if (i >= playerTeamList.Count)
+            {
+                return;
+            }
+
+            if (playerTeamList[i].GetComponent<Pet>() == null)
+            {
+                playerTeamList.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
     IEnumerator Pause(float duration)
     {
         yield return new WaitForSeconds(duration);
     }
 
-public void ChangeOrder(MonoBehaviour pet, int newIndex)
-{
-    if(newIndex > playerTeamList.Count - 1)
-        {
-            return; // Invalid index, do nothing
-        }
-    int currentIndex = playerTeamList.IndexOf(pet.gameObject);
-    if (currentIndex == -1) return;
-
-    GameObject movedPet = playerTeamList[currentIndex];
-
-    playerTeamList.RemoveAt(currentIndex);
-    playerTeamList.Insert(newIndex, movedPet);
-
-    for (int i = 0; i < playerTeamList.Count; i++)
+    public void ChangeOrder(MonoBehaviour pet, int newIndex)
     {
-        playerTeamList[i].transform.position = playerPositionList[i];
-    }
+        if(newIndex > playerTeamList.Count - 1)
+            {
+                return; // Invalid index, do nothing
+            }
+        int currentIndex = playerTeamList.IndexOf(pet.gameObject);
+        if (currentIndex == -1) return;
 
-    Debug.Log("Moved pet to position: " + (newIndex + 1));
-}
+        GameObject movedPet = playerTeamList[currentIndex];
+
+        playerTeamList.RemoveAt(currentIndex);
+        playerTeamList.Insert(newIndex, movedPet);
+
+        if (playerTeamList.Count == 7) // deletes placeholder pet
+        {
+            playerTeamList.RemoveAt(6);
+        }
+
+        for (int i = 0; i < playerTeamList.Count; i++)
+        {
+            playerTeamList[i].transform.position = playerPositionList[i];
+        }
+
+
+        Debug.Log("Moved pet to position: " + (newIndex + 1));
+    }
 }

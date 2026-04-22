@@ -11,6 +11,7 @@ public class Pet : MonoBehaviour
     [SerializeField] public bool ally;
     [SerializeField] public int frozen_turns = 0;
     [SerializeField] protected GameObject petTooltipPrefab;
+    public bool in_shop = false;
     private bool petClicked = false;
 
     protected int current_position = -1;
@@ -19,63 +20,72 @@ public class Pet : MonoBehaviour
 
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
-    protected string abilityText;
+    protected string abilityText = "Temp";
     
-void Update()
-{
-    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-    RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-
-    if (hit.collider != null)
+    void Update()
     {
-        if (hit.transform == transform)
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+        if (hit.collider != null)
         {
-            ReturnAbilityText();
-            UIController.Instance.ShowStats(healthPoints, attack, abilityText);
-
-            sprite.color = Color.grey;
-            //detect left click
-            if (Input.GetMouseButtonDown(0))
+            if (hit.transform == transform)
             {
-                Debug.Log("Pet clicked: " + gameObject.name);
-                petClicked = true;
-            }
-            if(petClicked == true)
-                    {
-                        sprite.color = Color.yellow;
+                Debug.Log(transform);
+                ReturnAbilityText();
+                UIController.Instance.ShowStats(healthPoints, attack, abilityText);
+                sprite.color = Color.grey;
+                //detect left click
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Pet clicked: " + gameObject.name);
+                    petClicked = true;
+                }
 
-                        if(Input.GetKeyDown(KeyCode.Alpha1))
-                        {
-                            GameController.instance.ChangeOrder(this, 0);
-                            petClicked = false;
-                        }
-                        if(Input.GetKeyDown(KeyCode.Alpha2))
-                        {
-                            GameController.instance.ChangeOrder(this, 1);
-                            petClicked = false;
-                        }
-                        if(Input.GetKeyDown(KeyCode.Alpha3))
-                        {
-                            GameController.instance.ChangeOrder(this, 2);
-                            petClicked = false;
-                        }
-                        if(Input.GetKeyDown(KeyCode.Alpha4))
-                        {
-                            GameController.instance.ChangeOrder(this, 3);
-                            petClicked = false;
-                        }
-                        if(Input.GetKeyDown(KeyCode.Alpha5))
-                        {
-                            GameController.instance.ChangeOrder(this, 4);
-                            petClicked = false;
-                        }
-                        if(Input.GetKeyDown(KeyCode.Alpha6))
-                        {
-                            GameController.instance.ChangeOrder(this, 5);
-                            petClicked = false;
-                        }
+                if (petClicked == true)
+                {
+                    sprite.color = Color.yellow;
+
+                    if (Input.GetKeyDown(KeyCode.Alpha1))
+                    {
+                        PurchaseCheck();
+                        GameController.instance.ChangeOrder(this, 0);
+                        petClicked = false;
                     }
+                    if (Input.GetKeyDown(KeyCode.Alpha2))
+                    {
+                        PurchaseCheck();
+                        GameController.instance.ChangeOrder(this, 1);
+                        petClicked = false;
+                    }
+                    if (Input.GetKeyDown(KeyCode.Alpha3))
+                    {
+                        PurchaseCheck();
+                        GameController.instance.ChangeOrder(this, 2);
+                        petClicked = false;
+                    }
+                    if (Input.GetKeyDown(KeyCode.Alpha4))
+                    {
+                        GameController.instance.ChangeOrder(this, 3);
+                        petClicked = false;
+                        PurchaseCheck();
+                    }
+                    if (Input.GetKeyDown(KeyCode.Alpha5))
+                    {
+                        PurchaseCheck();
+                        GameController.instance.ChangeOrder(this, 4);
+                        petClicked = false;
+                    }
+                    if (Input.GetKeyDown(KeyCode.Alpha6))
+                    {
+                        PurchaseCheck();
+                        GameController.instance.ChangeOrder(this, 5);
+                        petClicked = false;
+                    }
+                }
+            }
+
         }
         else
         {
@@ -84,10 +94,9 @@ void Update()
             sprite.color = Color.white;
 
             petClicked = false;
-            Debug.Log("not hovering");
+            //Debug.Log("not hovering");
         }
     }
-}
 
     public virtual void ReceiveDamage(int damage, Pet aggressor)
     {
@@ -126,7 +135,16 @@ void Update()
         }
     }
 
-
+    private void PurchaseCheck() // updates balance text, adds pet to playerteamlist 
+    {
+        if (in_shop == true)
+        {
+            GameController.instance.balance -= cost;
+            GameController.instance.UI.balanceText.text = "Balance: " + GameController.instance.balance;
+            GameController.instance.playerTeamList.Add(transform.gameObject);
+            in_shop = false;
+        }
+    }
     public virtual void DealDamage()
     {
 

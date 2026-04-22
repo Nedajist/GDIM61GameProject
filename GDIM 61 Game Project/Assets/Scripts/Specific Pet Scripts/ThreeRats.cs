@@ -105,6 +105,10 @@ public class ThreeRats : Pet
 
     }
 
-
+    protected override string ReturnAbilityText()
+    {
+        abilityText = "Swarm - Upon death, create two 1 / 1 copies of itself without this ability";
+        return abilityText;
+    }
 
 }
