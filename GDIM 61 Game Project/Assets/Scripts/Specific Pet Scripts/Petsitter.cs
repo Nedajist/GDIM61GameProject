@@ -9,12 +9,12 @@ public class Petsitter : Pet
 
     public override void FaceLeft()
     {
-        sprite.flipX = false;
+        sprite.flipX = true;
     }
 
     public override void FaceRight()
     {
-        sprite.flipX = true;
+        sprite.flipX = false;
     }
 
     public override void AllyPetEnterPostAttack()
