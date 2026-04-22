@@ -219,9 +219,9 @@ public class GameController : MonoBehaviour // this is a Singleton
 
         for (int i =0; i < petList.Count; i++)
         {
-            if (petList[i].GetComponent<Pet>() == null)
+            if (currentGameState == GameState.BuyPhase)
             {
-                continue;
+                break;
             }
             else if (petList[i] == null || petList[i].GetComponent<Pet>().healthPoints <= 0)
             {
@@ -235,7 +235,14 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             for (int i = 0; i < petList.Count; i++)
             {
-                petList[i].transform.position = playerPositionList[i];
+                if (petList[i] == null)
+                {
+                    continue;
+                }
+                else
+                {
+                    petList[i].transform.position = playerPositionList[i];
+                }
             }
         }
 
@@ -243,7 +250,14 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             for (int i = 0; i < petList.Count; i++)
             {
-                petList[i].transform.position = enemyPositionList[i];
+                if (petList[i] == null)
+                {
+                    continue;
+                }
+                else
+                {
+                    petList[i].transform.position = enemyPositionList[i];
+                }
             }
         }
 
