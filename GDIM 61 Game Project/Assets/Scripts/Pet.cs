@@ -24,6 +24,16 @@ public class Pet : MonoBehaviour
     
     void Update()
     {
+        /*
+
+        NEW COMBAT
+        physics based bey-blades sim
+        - player clicks on pet
+        - player moves cursor
+        - update method sets the transform of the pet to match the cursor each frame
+        - player clicks again, and the pet stops following
+
+        */
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
@@ -100,10 +110,27 @@ public class Pet : MonoBehaviour
 
     public virtual void ReceiveDamage(int damage, Pet aggressor)
     {
+        //damage sfx
+        int previousHealthPoints = healthPoints;
+        bool startTimer = false; 
+        float time; 
         healthPoints -= damage;
+        if(healthPoints < previousHealthPoints)
+        {
+            sprite.color = Color.red;
+            startTimer = true;
+        }
         if (healthPoints <= 0)
         {
             Die();
+        }
+        
+        if(startTimer == true)
+        {
+            void Update()
+            {
+                //timer
+            }
         }
 
     }
