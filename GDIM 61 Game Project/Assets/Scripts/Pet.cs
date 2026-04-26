@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Pet : MonoBehaviour
@@ -22,6 +24,7 @@ public class Pet : MonoBehaviour
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
     protected string abilityText = "Temp";
+    private float timeRemaining = 0.5;
     
     void Update()
     {
@@ -32,12 +35,13 @@ public class Pet : MonoBehaviour
         - player clicks on pet
         - player moves cursor
         - update method sets the transform of the pet to match the cursor each frame
-        - player clicks again, and the pet stops following
 
         */
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         bool isClicked = false;
+
+       
         if (hit.collider != null)
         {
             if (hit.transform == transform)
@@ -52,7 +56,11 @@ public class Pet : MonoBehaviour
         {
             transform.position = mousePos;
         }
+        
+
+        
 /*
+//OLD COMBAT SYSTEM
         if (hit.collider != null)
         {
             if (hit.transform == transform)
@@ -122,31 +130,24 @@ public class Pet : MonoBehaviour
             //Debug.Log("not hovering");
         }
         */
+        
     }
 
     public virtual void ReceiveDamage(int damage, Pet aggressor)
     {
         //damage sfx
         int previousHealthPoints = healthPoints;
-        bool startTimer = false; 
-        float time; 
         healthPoints -= damage;
-        if(healthPoints < previousHealthPoints)
-        {
-            sprite.color = Color.red;
-            startTimer = true;
-        }
         if (healthPoints <= 0)
         {
             Die();
         }
         
-        if(startTimer == true)
+
+        if (damage > 0)
         {
-            void Update()
-            {
-                //timer
-            }
+            sprite.color = Color.red;
+            DamageFlashTimer();
         }
 
     }
@@ -253,6 +254,18 @@ public class Pet : MonoBehaviour
         return abilityText;
     }
 
+    private void DamageFlashTimer()
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        if (timeRemaining <= 0)
+        {
+            sprite.color = Color.white;
+            timeRemaining = 0.5;
+        }
+    }
+
 }
 
-//use a collider to detect if cursor is hovering over animal sprite, then display tooltip with pet stats and abilities. Use OnMouseOver() method to detect hovering and OnMouseExit() to hide tooltip.
