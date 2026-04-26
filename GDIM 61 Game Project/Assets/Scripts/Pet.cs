@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Pet : MonoBehaviour
@@ -35,9 +36,23 @@ public class Pet : MonoBehaviour
 
         */
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-
+        bool isClicked = false;
+        if (hit.collider != null)
+        {
+            if (hit.transform == transform)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    isClicked = true;
+                }
+            }
+        }
+        if (isClicked == true)
+        {
+            transform.position = mousePos;
+        }
+/*
         if (hit.collider != null)
         {
             if (hit.transform == transform)
@@ -106,6 +121,7 @@ public class Pet : MonoBehaviour
             petClicked = false;
             //Debug.Log("not hovering");
         }
+        */
     }
 
     public virtual void ReceiveDamage(int damage, Pet aggressor)
