@@ -18,25 +18,23 @@ public class SweetSeagull : Pet
         _sprite.flipX = false;
     }
 
-    public override void ReceiveDamage(int damage, Pet aggressor)
+    public override void AllyAttacked()
     {
-        healthPoints -= 1;
+        StartCoroutine(FlashColor(0.1f, 0.1f, Color.yellow));
+        speedMultiplier += 0.1f;
+        attack += 0.3f;
+    }
 
-        if (damage > 0)
+    public override void Die()
+    {
+        base.Die();
+        foreach (GameObject pet in enemyList)
         {
-            StartCoroutine(FlashColor(0.1f, 0.1f, Color.red));
-        }
-
-        if (healthPoints <= 0)
-        {
-            GameController.instance.CullLists(enemyList);
-            for (int i = 0; i < enemyList.Count; i++)
-            {
-                enemyList[i].GetComponent<Pet>().secondsFrozen += 2;
-            }
-            Die();
+            pet.GetComponent<Pet>().StartCoroutine(pet.GetComponent<Pet>().Freeze(2f));
         }
     }
+
+
     protected override string ReturnAbilityText()
     {
         _abilityText = "Sweet Seagull - Frosting Spin: When this pet dies, all enemy pets are frozen for 2 turns";

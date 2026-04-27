@@ -22,5 +22,22 @@ public class Petsitter : Pet
         return _abilityText;
     }
 
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+        Pet petCollider = collision.transform.GetComponent<Pet>();
+
+        if (GameController.instance.currentGameState == GameState.Combat)
+        {
+            if (petCollider != null && petCollider.petSide == petSide)
+            {
+                petCollider.healthPoints += 1;
+                petCollider.StartCoroutine(petCollider.FlashColor(0.1f, 0.1f, Color.green));
+            }
+        }
+    }
+
+
+
 
 }

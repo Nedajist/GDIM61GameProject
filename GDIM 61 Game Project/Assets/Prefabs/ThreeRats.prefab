@@ -103,7 +103,7 @@ MonoBehaviour:
   healthPoints: 3
   attack: 1
   cost: 1
-  speed: 5
+  speed: 2
   petSide: 0
   secondsFrozen: 0
   _rb: {fileID: 8075890894901261080}

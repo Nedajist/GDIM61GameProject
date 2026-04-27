@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
         }
     }
     
-    public void ShowStats(int health, int attack, string ability)
+    public void ShowStats(float health, float attack, string ability)
     {
         healthText.text = health.ToString();
         attackText.text = attack.ToString();

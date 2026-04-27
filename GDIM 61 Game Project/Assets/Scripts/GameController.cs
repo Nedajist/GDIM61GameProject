@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour // this is a Singleton
     [SerializeField] public List<GameObject> playerTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerTeamList
     [SerializeField] public List<GameObject> playerShopList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerShopList
     [SerializeField] public List<GameObject> enemyTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.enemyTeamList
+    [SerializeField] GameObject dividingWall;
     public static GameController instance = null;
 
     private float _secondsPassed = 0;
@@ -72,8 +73,8 @@ public class GameController : MonoBehaviour // this is a Singleton
                 break;
             case GameState.PreCombat:
                 currentGameState = GameState.PreCombat;
-
-                PruneAllyTeamList();
+                dividingWall.SetActive(false);
+                UIController.Instance.HideStats();
 
                 foreach (GameObject pet in playerTeamList)
                 {
@@ -85,6 +86,8 @@ public class GameController : MonoBehaviour // this is a Singleton
                 foreach (GameObject pet in enemyTeamList)
                 {
                     pet.GetComponent<Pet>().petSide = Side.ai;
+                    pet.GetComponent<Pet>().teamList = enemyTeamList;
+                    pet.GetComponent<Pet>().enemyList = playerTeamList;
                 }
 
                 foreach (GameObject pet in playerShopList)
@@ -157,21 +160,6 @@ public class GameController : MonoBehaviour // this is a Singleton
         }
     }
 
-    private void PruneAllyTeamList() //deletes placeholder pets before combat
-    {
-        for (int i = 0; i < playerTeamList.Count; i++)
-        {
-            if (i >= playerTeamList.Count)
-            {
-                return;
-            }
 
-            if (playerTeamList[i].GetComponent<Pet>() == null)
-            {
-                playerTeamList.RemoveAt(i);
-                i--;
-            }
-        }
-    }
 
 }

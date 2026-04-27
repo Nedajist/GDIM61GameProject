@@ -7,7 +7,7 @@ public class ThreeRats : Pet
 {
     [SerializeField] GameObject _one_rat;
 
-    private GameObject _instantiated_rat;
+    private GameObject instantiatedRat;
     bool alive = true; // to prevent infinite recursion via big bunny ability chaining
 
 
@@ -33,18 +33,21 @@ public class ThreeRats : Pet
 
     void SummonRat(Vector3 position)
     {
-        _instantiated_rat = Instantiate(_one_rat, position, Quaternion.identity);
-        _instantiated_rat.GetComponent<Pet>().petSide = petSide;
+        instantiatedRat = Instantiate(_one_rat, position, Quaternion.identity);
+        Pet rat = instantiatedRat.GetComponent<Pet>();
 
+        rat.petSide = petSide;
+        rat.enemyList = enemyList;
+        rat.teamList = teamList;
         //Debug.Log("Rat summoned!");
 
         if (petSide == Side.player)
         {
-            _instantiated_rat.GetComponent<Pet>().FaceRight();
+            rat.FaceRight();
         }
         else
         {
-            _instantiated_rat.GetComponent<Pet>().FaceLeft();
+            rat.FaceLeft();
         }
 
     }
