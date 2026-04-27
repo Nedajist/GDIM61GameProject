@@ -24,6 +24,7 @@ public class Pet : MonoBehaviour
     [SerializeField] protected GameObject petTooltipPrefab;
     [SerializeField] protected float _secondsBetweenMovement;
     public bool bought = false;
+    public float maxHealthPoints;
     public List<GameObject> teamList; // RELATIVE TO THIS PET
     public List<GameObject> enemyList; // RELATIVE TO THIS PETs
     public float speedMultiplier = 1f;
@@ -38,8 +39,12 @@ public class Pet : MonoBehaviour
     private float timeRemaining = 0.5f;
     private Color originalColor;
 
-    
-    
+
+    private void Awake()
+    {
+        maxHealthPoints = healthPoints;
+
+    }
 
     public virtual void Start()
     {
