@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3468614f2a82b544a7807f12c9061ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 1
+  healthPoints: 5
   attack: 1
   cost: 1
   speed: 2
@@ -642,6 +642,8 @@ MonoBehaviour:
   _healthBar: {fileID: 8176555283717921354}
   _lazyBar: {fileID: 6684654959773047564}
   _rate_of_change: 2
+  _barCanvas: {fileID: 1156494021757175153}
+  _healthBarImage: {fileID: 5218694718563108036}
 --- !u!58 &2278416031313544285
 CircleCollider2D:
   m_ObjectHideFlags: 0

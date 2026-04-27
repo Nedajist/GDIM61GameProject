@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77642d93c58bd8746adefe760a419707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 1
+  healthPoints: 5
   attack: 1
   cost: 0
   speed: 2
@@ -131,6 +131,8 @@ MonoBehaviour:
   _healthBar: {fileID: 7866076431918447021}
   _lazyBar: {fileID: 5833673742862197858}
   _rate_of_change: 2
+  _barCanvas: {fileID: 5005461813529903955}
+  _healthBarImage: {fileID: 5548854268543624416}
 --- !u!50 &7446889119156223005
 Rigidbody2D:
   serializedVersion: 4

@@ -8,7 +8,11 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Slider _healthBar;
     [SerializeField] private Slider _lazyBar;
     [SerializeField] private float _rate_of_change;
-    
+    [SerializeField] GameObject _barCanvas;
+
+    [SerializeField] private Image _healthBarImage;
+
+
 
     private float _currentHealth;
     private float _maxHealth;
@@ -21,12 +25,12 @@ public class HealthBar : MonoBehaviour
         _currentPet = transform.GetComponent<Pet>();
         if (_currentPet.petSide == Side.player)
         {
-            _healthBar.image.color = Color.green;
+            _healthBarImage.color = Color.green;
 
         }
         else
         {
-            _healthBar.image.color = Color.yellow;
+            _healthBarImage.color = Color.yellow;
         }
 
         _healthBar.maxValue = _maxHealth;
@@ -39,6 +43,10 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        _barCanvas.transform.position = transform.position + new Vector3(0, 1f, 0);
+        _barCanvas.transform.rotation = Quaternion.identity;
+
         _currentHealth = _currentPet.healthPoints;
         _maxHealth = _currentPet.maxHealthPoints;
 
