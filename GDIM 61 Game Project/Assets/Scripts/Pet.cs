@@ -24,7 +24,7 @@ public class Pet : MonoBehaviour
     protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
     protected Vector3[] enemy_position_list;
     protected string abilityText = "Temp";
-    private float timeRemaining = 0.5;
+    private float timeRemaining = 0.5f;
     
     void Update()
     {
@@ -263,7 +263,7 @@ public class Pet : MonoBehaviour
         if (timeRemaining <= 0)
         {
             sprite.color = Color.white;
-            timeRemaining = 0.5;
+            timeRemaining = 0.5f;
         }
     }
 
