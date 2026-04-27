@@ -9,12 +9,12 @@ public class OneRat : Pet
 
     public override void FaceLeft()
     {
-        sprite.flipX = false;
+        _sprite.flipX = false;
     }
 
     public override void FaceRight()
     {
-        sprite.flipX = true;
+        _sprite.flipX = true;
     }
 
  

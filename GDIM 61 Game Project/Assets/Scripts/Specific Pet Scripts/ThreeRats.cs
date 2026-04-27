@@ -10,29 +10,15 @@ public class ThreeRats : Pet
     private GameObject _instantiated_rat;
     bool alive = true; // to prevent infinite recursion via big bunny ability chaining
 
-    public override void ReceiveDamage(int damage, Pet aggressor)
-    {
-        if (alive == false)
-        {
-            return;
-        }
-        //Debug.Log("rat received damage!");
-        healthPoints -= 1;
-        if (healthPoints <= 0)
-        {
-            //Debug.Log("dying rat");
-            Die();
-        }
-    }
 
     public override void FaceLeft()
     {
-        sprite.flipX = false;
+        _sprite.flipX = false;
     }
 
     public override void FaceRight()
     {
-        sprite.flipX = true;
+        _sprite.flipX = true;
     }
 
     public override void Die()
@@ -40,60 +26,19 @@ public class ThreeRats : Pet
         alive = false;
         //Debug.Log("Die called");
         Destroy(gameObject);
-        WhoAndWhere();
-
-        if (ally == true)
-        {
-            team_list = GameController.instance.playerTeamList;
-            team_position_list = GameController.instance.playerPositionList;
-        }
-        else
-        {
-            team_list = GameController.instance.enemyTeamList;
-            team_position_list = GameController.instance.enemyPositionList;
-
-        }
-
-        for (int i = 0; i < team_list.Count; i ++)
-        {
-            if (team_list[i].GetInstanceID() == gameObject.GetInstanceID())
-            {
-                current_position = i;
-            }
-            else
-            {
-                team_list[i].GetComponent<Pet>().AllyDied();
-            }
-
-        }
-
-        SummonRat(current_position); // first rat summon
-
-        if (team_list.Count < 6)
-        {
-            SummonRat(-1); // second rat summon
-        }
+        SummonRat(transform.position + new Vector3(1, 1, 0)); // first rat summon
+        SummonRat(transform.position + new Vector3(-1, -1, 0)); // first rat summon
 
     }
 
-    void SummonRat(int team_index)
+    void SummonRat(Vector3 position)
     {
-        Debug.Log("Rat summoned!");
-        if (team_index < 0) //summons rat at end of list
-        {
-            _instantiated_rat = Instantiate(_one_rat, team_position_list[team_list.Count], Quaternion.identity);
-            _instantiated_rat.GetComponent<Pet>().ally = ally;
-            team_list.Add(_instantiated_rat);
-        }
-        else // summons rat at dead many rats position
-        {
-            _instantiated_rat = Instantiate(_one_rat, team_position_list[team_index], Quaternion.identity);
-            _instantiated_rat.GetComponent<Pet>().ally = ally;
-            team_list[team_index] = _instantiated_rat;
-        }
+        _instantiated_rat = Instantiate(_one_rat, position, Quaternion.identity);
+        _instantiated_rat.GetComponent<Pet>().petSide = petSide;
 
+        //Debug.Log("Rat summoned!");
 
-        if (ally)
+        if (petSide == Side.player)
         {
             _instantiated_rat.GetComponent<Pet>().FaceRight();
         }
@@ -102,13 +47,12 @@ public class ThreeRats : Pet
             _instantiated_rat.GetComponent<Pet>().FaceLeft();
         }
 
-
     }
 
     protected override string ReturnAbilityText()
     {
-        abilityText = "Swarm - Upon death, create two 1 / 1 copies of itself without this ability";
-        return abilityText;
+        _abilityText = "Swarm - Upon death, create two 1 / 1 copies of itself without this ability";
+        return _abilityText;
     }
 
 }

@@ -7,9 +7,7 @@ public enum GameState
 {
     BuyPhase, // User is still buying stuff
     PreCombat, // User has pressed the "commence" button
-    PreAttack, // Combat has started, two pets are preparing to attack each other 
-    Attack, // two pets are simultaneously attacking now
-    PostAttack, // both pets have finished attacking
+    Combat, // Combat has started, the two sides have begun to move
     PostCombat // a victor has emerged. One team has been eliminated. This will transition into buy phase. 
 }
 
@@ -24,9 +22,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
-    public Vector3[] playerPositionList = { new Vector3(-0.5f, 0, 0), new Vector3(-1.8f, 0, 0), new Vector3(-3.2f, 0, 0), new Vector3(-4.62f, 0, 0), new Vector3(-6.08f, 0, 0), new Vector3(-7.37f, 0, 0) };
     public Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0) };
-    public Vector3[] enemyPositionList = { new Vector3(1.05f, 0, 0), new Vector3(2.59f, 0, 0), new Vector3(4.03f, 0, 0), new Vector3(5.22f, 0, 0), new Vector3(6.24f, 0, 0), new Vector3(7.3f, 0, 0) };
     public int balance = 15;
     public UIController UI;
 
@@ -55,20 +51,24 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     private void TransitionGameState(GameState newGameState)
     {
-        CullLists(playerTeamList, "player");
-        CullLists(enemyTeamList, "enemy");
 
-        Pet player_pet = playerTeamList[0].GetComponent<Pet>();
-        Pet enemy_pet = enemyTeamList[0].GetComponent<Pet>();
-
-        Debug.Log("LEAVING" + currentGameState.ToString());
+        Debug.Log("Switching from " + currentGameState + " to " + newGameState);
         switch (newGameState){
             case GameState.BuyPhase:
                 currentGameState = GameState.BuyPhase;
+
+
                 for (int i = 0; i < playerShopList.Count; i++)
                 {
                     playerShopList[i].transform.position = playerShopPositionList[i];
                 }
+
+                for (int i = 0; i < enemyTeamList.Count; i++)
+                {
+                    enemyTeamList[i].transform.GetComponent<Pet>().FaceLeft();
+                }
+
+
                 break;
             case GameState.PreCombat:
                 currentGameState = GameState.PreCombat;
@@ -77,86 +77,27 @@ public class GameController : MonoBehaviour // this is a Singleton
 
                 foreach (GameObject pet in playerTeamList)
                 {
-                    pet.GetComponent<Pet>().ally = true;
+                    pet.GetComponent<Pet>().petSide = Side.player;
+                    pet.GetComponent<Pet>().teamList = playerTeamList;
+                    pet.GetComponent<Pet>().enemyList = enemyTeamList; 
                 }
 
                 foreach (GameObject pet in enemyTeamList)
                 {
-                    pet.GetComponent<Pet>().ally = false;
+                    pet.GetComponent<Pet>().petSide = Side.ai;
                 }
 
+                foreach (GameObject pet in playerShopList)
+                {
+                    Destroy(pet);
+                }
 
-
-                Debug.Log("ENTERING PRECOMBAT");
-                // player_pet.EnterPreCombat(); NOTE: since there are no pet abilities which activate pre-combat, I've removed those methods. 
-                // enemy_pet.EnterPreCombat();
+                TransitionGameState(GameState.Combat);
 
                 break;
 
-            case GameState.PreAttack:
-                currentGameState = GameState.PreAttack;
-                //Debug.Log("ENTERING PREATTACK");
-                player_pet.EnterPreAttack();
-                enemy_pet.EnterPreAttack();
-
-                for (int i = 1; i <playerTeamList.Count; i++)
-                {
-                    playerTeamList[i].GetComponent<Pet>().AllyPetEnterPreAttack();
-                }
-
-                for (int i = 1; i < enemyTeamList.Count; i++)
-                {
-                    enemyTeamList[i].GetComponent<Pet>().AllyPetEnterPreAttack();
-                }
-
-
-                break;
-
-            case GameState.Attack:
-                currentGameState = GameState.Attack;
-                //Debug.Log("ENTERING ATTACK");
-
-
-                if (player_pet.frozen_turns == 0) // ensures pets aren't frozen before having them attack each other
-                {
-
-                    for (int i = 1; i < playerTeamList.Count; i++)
-                    {
-                        playerTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
-                    }
-                    player_pet.EnterAttack();
-                    enemy_pet.ReceiveDamage(player_pet.attack, player_pet);
-                }
-
-                if (enemy_pet.frozen_turns == 0)
-                {
-                    for (int i = 1; i < enemyTeamList.Count; i++)
-                    {
-                        enemyTeamList[i].GetComponent<Pet>().AllyPetEnterAttack();
-                    }
-                    enemy_pet.EnterAttack();
-                    player_pet.ReceiveDamage(enemy_pet.attack, enemy_pet);
-                }
-
-
-                break;
-
-            case GameState.PostAttack:
-                currentGameState = GameState.PostAttack;
-                //Debug.Log("ENTERING POSTATTACK");
-                player_pet.EnterPostAttack();
-                enemy_pet.EnterPostAttack();
-
-                for (int i = 1; i < playerTeamList.Count; i++)
-                {
-                    playerTeamList[i].GetComponent<Pet>().AllyPetEnterPostAttack();
-                }
-
-                for (int i = 1; i < enemyTeamList.Count; i++)
-                {
-                    enemyTeamList[i].GetComponent<Pet>().AllyPetEnterPostAttack();
-                }
-
+            case GameState.Combat:
+                currentGameState = GameState.Combat;
                 break;
 
             case GameState.PostCombat:
@@ -179,36 +120,10 @@ public class GameController : MonoBehaviour // this is a Singleton
     // Update is called once per frame
     void Update()
     {
-        _secondsPassed += Time.deltaTime;
-        if (_secondsPassed > _delayBetweenCombatPhases)
-        {
-            _secondsPassed = 0;
-            switch (currentGameState)
-            {
-                case GameState.PreCombat:
-                    TransitionGameState(GameState.PreAttack);
-                    break;
-                case GameState.PreAttack:
-                    TransitionGameState(GameState.Attack);
-                    break;
-                case GameState.Attack:
-                    TransitionGameState(GameState.PostAttack);
-                    break;
-                case GameState.PostAttack:
-                    if (playerTeamList.Count == 0 || enemyTeamList.Count == 0)
-                    {
-                        TransitionGameState(GameState.PostCombat);
 
-                    }
-                    else
-                    {
-                        TransitionGameState(GameState.PreAttack);
-                    }
-                    break;
-            }
-        }
+        
     }
-    void CullLists(List<GameObject> petList, string side) // removes dead pets 
+    public void CullLists(List<GameObject> petList) // removes dead pets 
     {
         int deathCount = 0;
 
@@ -228,36 +143,6 @@ public class GameController : MonoBehaviour // this is a Singleton
                 petList.RemoveAt(i);
                 i -= 1;
                 deathCount += 1;
-            }
-        }
-
-        if (side == "player")
-        {
-            for (int i = 0; i < petList.Count; i++)
-            {
-                if (petList[i] == null)
-                {
-                    continue;
-                }
-                else
-                {
-                    petList[i].transform.position = playerPositionList[i];
-                }
-            }
-        }
-
-        if (side == "enemy")
-        {
-            for (int i = 0; i < petList.Count; i++)
-            {
-                if (petList[i] == null)
-                {
-                    continue;
-                }
-                else
-                {
-                    petList[i].transform.position = enemyPositionList[i];
-                }
             }
         }
 
@@ -289,36 +174,4 @@ public class GameController : MonoBehaviour // this is a Singleton
         }
     }
 
-    IEnumerator Pause(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-    }
-
-    public void ChangeOrder(MonoBehaviour pet, int newIndex)
-    {
-        if(newIndex > playerTeamList.Count - 1)
-            {
-                return; // Invalid index, do nothing
-            }
-        int currentIndex = playerTeamList.IndexOf(pet.gameObject);
-        if (currentIndex == -1) return;
-
-        GameObject movedPet = playerTeamList[currentIndex];
-
-        playerTeamList.RemoveAt(currentIndex);
-        playerTeamList.Insert(newIndex, movedPet);
-
-        if (playerTeamList.Count == 7) // deletes placeholder pet
-        {
-            playerTeamList.RemoveAt(6);
-        }
-
-        for (int i = 0; i < playerTeamList.Count; i++)
-        {
-            playerTeamList[i].transform.position = playerPositionList[i];
-        }
-
-
-        Debug.Log("Moved pet to position: " + (newIndex + 1));
-    }
 }

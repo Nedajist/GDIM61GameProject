@@ -7,23 +7,19 @@ public class SaltySeagull : Pet
 
     public override void FaceLeft()
     {
-        sprite.flipX = true;
+        _sprite.flipX = true;
     }
 
     public override void FaceRight()
     {
-        sprite.flipX = false;
+        _sprite.flipX = false;
     }
 
-    public override void AllyPetEnterAttack()
-    {
-        attack += 1;
-    }
 
     protected override string ReturnAbilityText()
     {
-        abilityText = "Wind dance - + 1 ATK after an ally attacks";
-        return abilityText;
+        _abilityText = "Wind dance - + 1 ATK after an ally attacks";
+        return _abilityText;
     }
 
 }

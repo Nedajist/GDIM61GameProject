@@ -5,27 +5,47 @@ using System.Threading;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
+public enum Side
+{
+    player, 
+    ai
+}
+
 public class Pet : MonoBehaviour
 {
     [SerializeField] public int healthPoints;
     [SerializeField] public int attack;
     [SerializeField] public int cost;
-    [SerializeField] protected SpriteRenderer sprite;
-    [SerializeField] public bool ally;
-    [SerializeField] public int frozen_turns = 0;
+    [SerializeField] public float speed;
+    [SerializeField] public Side petSide;
+    [SerializeField] public float secondsFrozen = 0;
+    [SerializeField] protected Rigidbody2D _rb;
+    [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected GameObject petTooltipPrefab;
-    public bool in_shop = false;
-    private bool petClicked = false;
+    [SerializeField] protected float _secondsBetweenMovement;
+    public bool bought = false;
+    public List<GameObject> teamList; // RELATIVE TO THIS PET
+    public List<GameObject> enemyList; // RELATIVE TO THIS PETs
+    public float speedMultiplier = 1f;
+    public float speedBoostPerCollision = 0.2f;
 
-    protected int current_position = -1;
-    protected List<GameObject> team_list; // RELATIVE TO THIS PET
-    protected Vector3[] team_position_list;
+    private bool _movementActivated = false;
 
-    protected List<GameObject> enemy_list; // RELATIVE TO THIS PET
-    protected Vector3[] enemy_position_list;
-    protected string abilityText = "Temp";
+
+    protected int _currentPosition = -1;
+    protected string _abilityText = "Temp";
     private float timeRemaining = 0.5f;
+    private Color originalColor;
+    private float _movementTimer;
+
     
+    
+
+    public virtual void Start()
+    {
+        SetColor();
+    }
+
     void Update()
     {
         /*
@@ -37,18 +57,20 @@ public class Pet : MonoBehaviour
         - update method sets the transform of the pet to match the cursor each frame
 
         */
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         bool isClicked = false;
 
        
-        if (hit.collider != null)
+        if (hit.collider != null & petSide == Side.player && GameController.instance.currentGameState == GameState.BuyPhase)
         {
             if (hit.transform == transform)
             {
                 if (Input.GetMouseButton(0))
                 {
                     isClicked = true;
+                    PurchaseCheck();
                 }
             }
         }
@@ -56,82 +78,57 @@ public class Pet : MonoBehaviour
         {
             transform.position = mousePos;
         }
-        
 
-        
-/*
-//OLD COMBAT SYSTEM
-        if (hit.collider != null)
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if (GameController.instance.currentGameState == GameState.Combat)
         {
-            if (hit.transform == transform)
+            _movementTimer -= Time.fixedDeltaTime;
+            if (_movementTimer <= 0)
             {
-                Debug.Log(transform);
-                ReturnAbilityText();
-                UIController.Instance.ShowStats(healthPoints, attack, abilityText);
-                sprite.color = Color.grey;
-                //detect left click
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Debug.Log("Pet clicked: " + gameObject.name);
-                    petClicked = true;
-                }
+                _movementTimer = _secondsBetweenMovement;
+                Vector2 randomVector2 = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                randomVector2 = randomVector2.normalized;
+                _rb.velocity = (randomVector2 * speed * speedMultiplier);       
+            }
+        }
 
-                if (petClicked == true)
-                {
-                    sprite.color = Color.yellow;
+    }
 
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
-                    {
-                        PurchaseCheck();
-                        GameController.instance.ChangeOrder(this, 0);
-                        petClicked = false;
-                    }
-                    if (Input.GetKeyDown(KeyCode.Alpha2))
-                    {
-                        PurchaseCheck();
-                        GameController.instance.ChangeOrder(this, 1);
-                        petClicked = false;
-                    }
-                    if (Input.GetKeyDown(KeyCode.Alpha3))
-                    {
-                        PurchaseCheck();
-                        GameController.instance.ChangeOrder(this, 2);
-                        petClicked = false;
-                    }
-                    if (Input.GetKeyDown(KeyCode.Alpha4))
-                    {
-                        GameController.instance.ChangeOrder(this, 3);
-                        petClicked = false;
-                        PurchaseCheck();
-                    }
-                    if (Input.GetKeyDown(KeyCode.Alpha5))
-                    {
-                        PurchaseCheck();
-                        GameController.instance.ChangeOrder(this, 4);
-                        petClicked = false;
-                    }
-                    if (Input.GetKeyDown(KeyCode.Alpha6))
-                    {
-                        PurchaseCheck();
-                        GameController.instance.ChangeOrder(this, 5);
-                        petClicked = false;
-                    }
-                }
+
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        Pet collidingPet = collision.transform.GetComponent<Pet>();
+
+        _movementTimer = _secondsBetweenMovement; // resets auto move timer 
+        speedMultiplier += speedBoostPerCollision;
+
+        if (collidingPet != null) // colliding with pet confirmed
+        {
+            if (collidingPet.petSide != petSide)
+            {
+                collidingPet.ReceiveDamage(attack, transform.GetComponent<Pet>());
             }
 
         }
-        else
+
+
+        if (GameController.instance.currentGameState == GameState.Combat) // knockback
         {
-            UIController.Instance.HideStats();
+            Vector2 lineFromCollider = (Vector2)transform.position - collision.contacts[0].point;
+            lineFromCollider = lineFromCollider.normalized;
+            _rb.velocity = (lineFromCollider * speedMultiplier);
 
-            sprite.color = Color.white;
-
-            petClicked = false;
-            //Debug.Log("not hovering");
         }
-        */
-        
+       
+
+
+
     }
+
 
     public virtual void ReceiveDamage(int damage, Pet aggressor)
     {
@@ -146,57 +143,28 @@ public class Pet : MonoBehaviour
 
         if (damage > 0)
         {
-            sprite.color = Color.red;
-            DamageFlashTimer();
+            StartCoroutine(FlashColor(0.1f, 0.1f, Color.red));
         }
 
-    }
 
-    public virtual void WhoAndWhere() // sets team_list, team_position_list, and current_position within both
-    {
-        if (ally == true)
-        {
-            team_list = GameController.instance.playerTeamList;
-            team_position_list = GameController.instance.playerPositionList;
-
-            enemy_list = GameController.instance.enemyTeamList;
-            team_position_list = GameController.instance.enemyPositionList;
-        }
-        else
-        {
-            team_list = GameController.instance.enemyTeamList;
-            team_position_list = GameController.instance.enemyPositionList;
-
-            enemy_list = GameController.instance.playerTeamList;
-            team_position_list = GameController.instance.playerPositionList;
-        }
-        for (int i = 0; i < team_list.Count; i++)
-        {
-            if (team_list[i].GetInstanceID() == gameObject.GetInstanceID())
-            {
-                current_position = i;
-            }
-        }
     }
 
     private void PurchaseCheck() // updates balance text, adds pet to playerteamlist 
     {
-        if (in_shop == true)
+        if (bought == false)
         {
             GameController.instance.balance -= cost;
             GameController.instance.UI.balanceText.text = "Balance: " + GameController.instance.balance;
             GameController.instance.playerTeamList.Add(transform.gameObject);
-            in_shop = false;
+            GameController.instance.playerShopList.Remove(transform.gameObject);
+            bought = true;
         }
     }
-    public virtual void DealDamage()
-    {
 
-    }
 
     public virtual void Die()
     {
-        Destroy(gameObject);
+        StartCoroutine(FadeAway(1));
     }
 
     public virtual void FaceLeft()
@@ -209,49 +177,16 @@ public class Pet : MonoBehaviour
 
     }
 
-    public virtual void EnterPreAttack() // right before the pet attacks
-    {
-        if (frozen_turns > 0)
-        {
-            frozen_turns -= 1;
-        }
-    }
-    public virtual void EnterAttack() // right as the pet attacks
-    {
-
-    }
-    public virtual void EnterPostAttack() // right after the pet attacks
-    {
-
-    }
 
     public virtual void AllyDied() 
     {
         
     }
 
-    public virtual void AllyPetEnterPreAttack()
-    {
-
-
-    }
-
-    public virtual void AllyPetEnterAttack()
-    {
-
-
-    }
-
-    public virtual void AllyPetEnterPostAttack()
-    {
-
-
-    }
-
 
     protected virtual string ReturnAbilityText()
     {
-        return abilityText;
+        return _abilityText;
     }
 
     private void DamageFlashTimer()
@@ -262,10 +197,59 @@ public class Pet : MonoBehaviour
         }
         if (timeRemaining <= 0)
         {
-            sprite.color = Color.white;
+            _sprite.color = Color.white;
             timeRemaining = 0.5f;
         }
     }
+
+    protected void FreezeVelocity()
+    {
+        _rb.velocity = Vector3.zero;
+    }
+
+    protected IEnumerator FlashColor(float easeInDuration, float easeOutDuration, Color newColor)
+    {
+        float easeInTimer = easeInDuration;
+        float easeOutTimer = easeInDuration;
+
+        while (easeInTimer > 0)
+        {
+            easeInTimer -= Time.fixedDeltaTime;
+            _sprite.color = Color.Lerp(originalColor, newColor, 1 - (easeInTimer / easeInDuration));
+            yield return new WaitForFixedUpdate();
+        }
+
+        while (easeOutTimer > 0)
+        {
+            easeOutTimer -= Time.fixedDeltaTime;
+            _sprite.color = Color.Lerp(newColor, originalColor, 1 - (easeOutTimer / easeOutDuration));
+            yield return new WaitForFixedUpdate();
+        }
+        yield return null;
+    }
+
+    protected IEnumerator FadeAway(float duration)
+    {
+        float timer = duration;
+        _rb.simulated = false; // disabled rigidbody
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            _sprite.color = Color.Lerp(_sprite.color, new Color(Color.red.r, Color.red.b, Color.red.g, timer / duration), timer / duration);
+            yield return new WaitForFixedUpdate();
+        }
+        Destroy(gameObject);
+    }
+
+
+
+
+    protected void SetColor()
+    {
+        originalColor = _sprite.color;
+    }
+
+
 
 }
 
