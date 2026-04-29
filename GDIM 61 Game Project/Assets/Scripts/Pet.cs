@@ -181,6 +181,12 @@ public class Pet : MonoBehaviour
 
     }
 
+    public void ReceiveHealing(float amount)
+    {
+        healthPoints += amount;
+        maxHealthPoints += amount;
+        transform.GetComponent<HealthBar>().UpdateBarScales();
+    }
 
     public virtual void ReceiveDamage(float damage, Pet aggressor)
     {

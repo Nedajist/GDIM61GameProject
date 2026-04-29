@@ -31,8 +31,7 @@ public class Petsitter : Pet
         {
             if (petCollider != null && petCollider.petSide == petSide)
             {
-                petCollider.healthPoints += 1;
-                petCollider.maxHealthPoints += 1;
+                petCollider.ReceiveHealing(3);
                 petCollider.StartCoroutine(petCollider.FlashColor(0.1f, 0.1f, Color.green));
             }
         }

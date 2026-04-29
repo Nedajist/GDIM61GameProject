@@ -364,6 +364,7 @@ MonoBehaviour:
   _healthBar: {fileID: 3484836785725788157}
   _lazyBar: {fileID: 680648492462509062}
   _rate_of_change: 2
+  _barBackground: {fileID: 4363723729257229140}
   _barCanvas: {fileID: 7699062499662462884}
   _healthBarImage: {fileID: 5376734351124261340}
 --- !u!222 &506121960957908327

@@ -131,6 +131,7 @@ MonoBehaviour:
   _healthBar: {fileID: 7866076431918447021}
   _lazyBar: {fileID: 5833673742862197858}
   _rate_of_change: 2
+  _barBackground: {fileID: 5468888684792400065}
   _barCanvas: {fileID: 5005461813529903955}
   _healthBarImage: {fileID: 5548854268543624416}
 --- !u!50 &7446889119156223005
@@ -577,7 +578,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0089, y: 0.0004, z: 0}
-  m_LocalScale: {x: 1.0150459, y: 1.1756005, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6879421991161415134}
