@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,10 +21,13 @@ public class HealthBar : MonoBehaviour
     private Pet _currentPet;
 
     private float _standardHealthPointSize = 15;
+    private Vector3 _originalScale;
 
     // Start is called before the first frame update
     void Start()
     {
+        _originalScale = _barCanvas.transform.localScale;
+
         _currentPet = transform.GetComponent<Pet>();
         if (_currentPet.petSide == Side.player)
         {
@@ -83,4 +87,25 @@ public class HealthBar : MonoBehaviour
         _lazyBar.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(barScale, 0.25f);
         _barBackground.transform.localScale = new Vector3(barScale, 1, 1);
     }
+
+    public IEnumerator TempSizeChange(float easeIn, float easeOut, float scaleIncrease)
+    {
+        float duration = easeIn;
+        while (duration > 0)
+        {
+            duration -= Time.fixedDeltaTime;
+            _barCanvas.transform.localScale = Vector3.Lerp(_originalScale, new Vector3(_originalScale.x + scaleIncrease, _originalScale.y + scaleIncrease, 0), 1 - duration/easeIn);
+            yield return new WaitForFixedUpdate();
+        }
+
+        duration = easeOut;
+        Vector3 newScale = transform.localScale;
+        while (duration > 0)
+        {
+            duration -= Time.fixedDeltaTime;
+            _barCanvas.transform.localScale = Vector3.Lerp(newScale, _originalScale, 1 - duration / easeIn);
+            yield return new WaitForFixedUpdate();
+        }
+    }
+    
 }

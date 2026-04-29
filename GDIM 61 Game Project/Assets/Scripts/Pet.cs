@@ -211,6 +211,7 @@ public class Pet : MonoBehaviour
         if (damage > 0)
         {
             StartCoroutine(FlashColor(0.1f, 0.1f, Color.red));
+            transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }
 
 
