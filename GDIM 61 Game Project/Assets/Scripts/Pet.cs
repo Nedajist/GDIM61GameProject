@@ -207,7 +207,7 @@ public class Pet : MonoBehaviour
         if (bought == false)
         {
             GameController.instance.balance -= cost;
-            GameController.instance.UI.balanceText.text = "Balance: " + GameController.instance.balance;
+            GameController.instance.UI.balanceText.text = GameController.instance.balance.ToString();
             GameController.instance.playerTeamList.Add(transform.gameObject);
             GameController.instance.playerShopList.Remove(transform.gameObject);
             bought = true;
