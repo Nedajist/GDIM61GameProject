@@ -23,12 +23,9 @@ public class ThreeRats : Pet
 
     public override void Die()
     {
-        alive = false;
-        //Debug.Log("Die called");
-        Destroy(gameObject);
+        base.Die();
         SummonRat(transform.position + new Vector3(1, 1, 0)); // first rat summon
         SummonRat(transform.position + new Vector3(-1, -1, 0)); // first rat summon
-
     }
 
     void SummonRat(Vector3 position)
@@ -54,7 +51,7 @@ public class ThreeRats : Pet
 
     protected override string ReturnAbilityText()
     {
-        _abilityText = "Swarm - Upon death, create two 1 / 1 copies of itself without this ability";
+        _abilityText = "Swarm - Upon death, create two 5 / 1 copies of itself without this ability";
         return _abilityText;
     }
 

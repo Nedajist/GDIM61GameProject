@@ -307,12 +307,15 @@ public class Pet : MonoBehaviour
             {
                 petObject.GetComponent<Pet>().AllyDied();
             }
-
         }
-
 
         Destroy(gameObject);
         teamList.Remove(transform.gameObject); // deletes self from teamlist 
+
+        GameController.instance.CheckForVictor();
+
+
+
     }
 
     protected IEnumerator MouseDetect()

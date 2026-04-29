@@ -164,4 +164,20 @@ public class GameController : MonoBehaviour // this is a Singleton
 
 
 
+    public void CheckForVictor()
+    {
+        if (playerTeamList.Count == 0)
+        {
+            Time.timeScale = 0;
+        }
+
+        else if (enemyTeamList.Count == 0)
+        {
+            Time.timeScale = 0;
+        }
+
+    }
+
+
+
 }

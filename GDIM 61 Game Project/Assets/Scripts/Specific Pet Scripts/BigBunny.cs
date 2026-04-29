@@ -28,7 +28,7 @@ public class BigBunny : Pet
 
     protected override string ReturnAbilityText()
     {
-        _abilityText = "Big Bunny - Jump kick: when a team member dies, bunny immediately attacks the closest enemy";
+        _abilityText = "Big Bunny - Jump kick: when a team member dies, bunny immediately charges towards the closest enemy";
         return _abilityText;
     }
 }
