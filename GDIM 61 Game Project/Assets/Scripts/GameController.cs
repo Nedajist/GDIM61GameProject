@@ -166,14 +166,16 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     public void CheckForVictor()
     {
-        if (playerTeamList.Count == 0)
+        if (playerTeamList.Count == 0) // even if its a draw, the player still loses 
         {
             Time.timeScale = 0;
+            UIController.Instance.PlayerLost();
         }
 
         else if (enemyTeamList.Count == 0)
         {
             Time.timeScale = 0;
+            UIController.Instance.PlayerWon();
         }
 
     }

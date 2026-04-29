@@ -115,7 +115,7 @@ MonoBehaviour:
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0.3
 --- !u!114 &1316088129228636243
 MonoBehaviour:
   m_ObjectHideFlags: 0

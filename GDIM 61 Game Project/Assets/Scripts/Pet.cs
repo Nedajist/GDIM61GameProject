@@ -102,6 +102,10 @@ public class Pet : MonoBehaviour
 
     protected void SetVelocityTowardsRandomEnemy()
     {
+        if (enemyList.Count == 0)
+        {
+            return;
+        }
         GameController.instance.CullLists(enemyList);
         Vector2 randomVector2 = enemyList[Random.Range(0, enemyList.Count)].transform.position - transform.position;
         randomVector2 = randomVector2.normalized;
@@ -110,6 +114,11 @@ public class Pet : MonoBehaviour
 
     protected void SetVelocityTowardsNearestEnemy()
     {
+        if (enemyList.Count == 0)
+        {
+            return;
+        }
+
         GameController.instance.CullLists(enemyList);
         GameObject nearestEnemy = enemyList[0];
         foreach (GameObject enemy in enemyList)
@@ -338,8 +347,12 @@ public class Pet : MonoBehaviour
 
                     if (Input.GetMouseButton(0))
                     {
-                        isClicked = true;
-                        PurchaseCheck();
+                        if (cost <= GameController.instance.balance || bought == true)
+                        {
+
+                            isClicked = true;
+                            PurchaseCheck();
+                        }
                     }
                 }
 

@@ -465,10 +465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df32a481d10133d4e90da09be49b5484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 30
+  healthPoints: 15
   attack: 1
-  cost: 5
-  speed: 2
+  cost: 4
+  speed: 2.5
   petSide: 0
   _rb: {fileID: 4333545161564414174}
   _sprite: {fileID: 6633788089192072924}
@@ -479,7 +479,7 @@ MonoBehaviour:
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0.06
 --- !u!114 &7380202094772679247
 MonoBehaviour:
   m_ObjectHideFlags: 0

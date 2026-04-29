@@ -614,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 5
   attack: 1
-  cost: 1
+  cost: 3
   speed: 2
   petSide: 0
   _rb: {fileID: 8641579665017193340}
@@ -626,7 +626,7 @@ MonoBehaviour:
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0.1
 --- !u!114 &6249938899421204844
 MonoBehaviour:
   m_ObjectHideFlags: 0

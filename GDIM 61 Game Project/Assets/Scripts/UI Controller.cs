@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject _petHealthIcon;
     [SerializeField] GameObject _petAttackIcon;
     [SerializeField] GameObject _petCostIcon;
+    [SerializeField] GameObject _nextLevelButton;
+    [SerializeField] GameObject _retryLevelButton;
+
+    [SerializeField] public int nextLevelSceneIndex;
 
 
     private static UIController instance;
@@ -71,6 +77,29 @@ public class UIController : MonoBehaviour
             _petAttackIcon.SetActive(false);
             _commenceBattleButton.SetActive(false);
         }
+        GameController.instance.CommenceBattleButtonPressed();
+    }
+
+    public void PlayerWon()
+    {
+        _nextLevelButton.SetActive(true);
+    }
+
+    public void PlayerLost()
+    {
+        _retryLevelButton.SetActive(true);
+    }
+
+    public void NextLevelButtonPressed()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(nextLevelSceneIndex);
+    }
+
+    public void RetryLevelButtonPressed()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(nextLevelSceneIndex - 1);
     }
 
 }

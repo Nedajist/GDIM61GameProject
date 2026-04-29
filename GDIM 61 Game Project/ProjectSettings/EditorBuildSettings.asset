@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start Menu.unity
+    guid: 721ab8c58f0b8dc4caec22cfe833925f
+  - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Sunny Seaside.unity
+    guid: 6e30e3f83bf49254fba7b88779e62a62
   m_configObjects: {}

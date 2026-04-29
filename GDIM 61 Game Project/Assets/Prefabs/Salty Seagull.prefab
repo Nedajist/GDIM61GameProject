@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 5987966235036616998}
   - component: {fileID: 8660405840948376501}
   m_Layer: 0
-  m_Name: Seagull
+  m_Name: Salty Seagull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 20
   attack: 2
-  cost: 4
+  cost: 5
   speed: 2
   petSide: 0
   _rb: {fileID: 8660405840948376501}
@@ -541,7 +541,7 @@ MonoBehaviour:
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0.15
 --- !u!114 &8075181766541697659
 MonoBehaviour:
   m_ObjectHideFlags: 0

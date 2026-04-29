@@ -31,6 +31,7 @@ public class ThreeRats : Pet
     void SummonRat(Vector3 position)
     {
         instantiatedRat = Instantiate(_one_rat, position, Quaternion.identity);
+        teamList.Add(instantiatedRat);
         Pet rat = instantiatedRat.GetComponent<Pet>();
 
         rat.petSide = petSide;
