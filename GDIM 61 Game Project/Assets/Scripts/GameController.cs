@@ -80,7 +80,8 @@ public class GameController : MonoBehaviour // this is a Singleton
                 {
                     pet.GetComponent<Pet>().petSide = Side.player;
                     pet.GetComponent<Pet>().teamList = playerTeamList;
-                    pet.GetComponent<Pet>().enemyList = enemyTeamList; 
+                    pet.GetComponent<Pet>().enemyList = enemyTeamList;
+                    pet.GetComponent<HealthBar>().ShowHealthBar();
                 }
 
                 foreach (GameObject pet in enemyTeamList)
@@ -88,6 +89,7 @@ public class GameController : MonoBehaviour // this is a Singleton
                     pet.GetComponent<Pet>().petSide = Side.ai;
                     pet.GetComponent<Pet>().teamList = enemyTeamList;
                     pet.GetComponent<Pet>().enemyList = playerTeamList;
+                    pet.GetComponent<HealthBar>().ShowHealthBar();
                 }
 
                 foreach (GameObject pet in playerShopList)

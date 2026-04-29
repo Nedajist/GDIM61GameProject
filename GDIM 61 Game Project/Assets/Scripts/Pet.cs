@@ -65,7 +65,6 @@ public class Pet : MonoBehaviour
 
         */
 
-
         if (GameController.instance.currentGameState == GameState.Combat)
         {
             _movementTimer -= Time.fixedDeltaTime;
@@ -325,7 +324,7 @@ public class Pet : MonoBehaviour
                 {
 
                     ReturnAbilityText();
-                    UIController.Instance.ShowStats(healthPoints, attack, _abilityText);
+                    UIController.Instance.ShowStats(healthPoints, attack, cost, _abilityText);
                     _sprite.color = Color.grey;
 
                     if (Input.GetMouseButton(0))

@@ -7,7 +7,13 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI healthText;
     [SerializeField] private TMPro.TextMeshProUGUI attackText;
     [SerializeField] private TMPro.TextMeshProUGUI abilityText;
+    [SerializeField] private TMPro.TextMeshProUGUI costText;
     [SerializeField] public TMPro.TextMeshProUGUI balanceText;
+    [SerializeField] GameObject _commenceBattleButton;
+    [SerializeField] GameObject _petHealthIcon;
+    [SerializeField] GameObject _petAttackIcon;
+    [SerializeField] GameObject _petCostIcon;
+
 
     private static UIController instance;
     public static UIController Instance
@@ -39,11 +45,11 @@ public class UIController : MonoBehaviour
         }
     }
     
-    public void ShowStats(float health, float attack, string ability)
+    public void ShowStats(float health, float attack, float cost, string ability)
     {
         healthText.text = health.ToString();
         attackText.text = attack.ToString();
-
+        costText.text = cost.ToString();
         abilityText.text = ability;
         
         //Debug.Log("Health: " + health + " Attack: " + attack);
@@ -56,4 +62,15 @@ public class UIController : MonoBehaviour
         abilityText.text = "Hover over an enemy, click, and press a digit key to rearrange team.";
     }
     
+    public void CommenceBattleButtonPressed()
+    {
+        if (GameController.instance.playerTeamList.Count > 0)
+        {
+            _petHealthIcon.SetActive(false);
+            _petCostIcon.SetActive(false);
+            _petAttackIcon.SetActive(false);
+            _commenceBattleButton.SetActive(false);
+        }
+    }
+
 }

@@ -64,4 +64,9 @@ public class HealthBar : MonoBehaviour
             _lazyBar.value = _healthBar.value;
         }
     }
+
+    public void ShowHealthBar()
+    {
+        _barCanvas.SetActive(true);
+    }
 }
