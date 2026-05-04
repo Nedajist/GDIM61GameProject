@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour // this is a Singleton
     [SerializeField] public List<GameObject> playerShopList = new List<GameObject>(); // all pet classes can access this through GameController.instance.playerShopList
     [SerializeField] public List<GameObject> enemyTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.enemyTeamList
     [SerializeField] GameObject dividingWall;
+    [SerializeField] GameObject rectangleDrawer;
     public static GameController instance = null;
 
     private float _secondsPassed = 0;
@@ -103,6 +104,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
             case GameState.Combat:
                 currentGameState = GameState.Combat;
+                rectangleDrawer.SetActive(true);
                 break;
 
             case GameState.PostCombat:

@@ -12,15 +12,12 @@ public enum Side
     ai
 }
 
-public class Pet : MonoBehaviour
+public class Pet : Entity
 {
-    [SerializeField] public float healthPoints;
     [SerializeField] public float attack;
     [SerializeField] public int cost;
     [SerializeField] public float speed;
     [SerializeField] public Side petSide;
-    [SerializeField] protected Rigidbody2D _rb;
-    [SerializeField] protected SpriteRenderer _sprite;
     [SerializeField] protected GameObject petTooltipPrefab;
     [SerializeField] protected float _secondsBetweenMovement;
     public bool bought = false;
@@ -37,7 +34,6 @@ public class Pet : MonoBehaviour
     protected string _abilityText = "Temp";
     protected float _movementTimer = 0f;
     private float timeRemaining = 0.5f;
-    private Color originalColor;
 
 
     private void Awake()
@@ -51,7 +47,6 @@ public class Pet : MonoBehaviour
         SetColor();
         StartCoroutine(MouseDetect());
     }
-
 
     protected virtual void FixedUpdate()
     {
@@ -145,9 +140,14 @@ public class Pet : MonoBehaviour
         }
 
         Pet collidingPet = collision.transform.GetComponent<Pet>();
-
+        Rectangle collidingRectangle = collision.transform.GetComponent<Rectangle>();
         _movementTimer = _secondsBetweenMovement; // resets auto move timer 
         speedMultiplier += speedBoostPerCollision;
+
+        if (collidingRectangle != null) // colliding with drawn rectangle confirmed
+        {
+            collidingRectangle.ReceiveDamage(attack, transform.GetComponent<Pet>());
+        }
 
         if (collidingPet != null) // colliding with pet confirmed
         {
@@ -174,7 +174,6 @@ public class Pet : MonoBehaviour
 
         }
 
-
         if (Random.Range(1, 4) > 1) // deflects
         {
             Vector2 lineFromCollider = (Vector2)transform.position - collision.contacts[0].point;
@@ -197,7 +196,7 @@ public class Pet : MonoBehaviour
         transform.GetComponent<HealthBar>().UpdateBarScales();
     }
 
-    public virtual void ReceiveDamage(float damage, Pet aggressor)
+    public override void ReceiveDamage(float damage, Pet aggressor)
     {
         //damage sfx
         float previousHealthPoints = healthPoints;
@@ -279,28 +278,8 @@ public class Pet : MonoBehaviour
         _rb.velocity = Vector3.zero;
     }
 
-    public IEnumerator FlashColor(float easeInDuration, float easeOutDuration, Color newColor)
-    {
-        float easeInTimer = easeInDuration;
-        float easeOutTimer = easeInDuration;
 
-        while (easeInTimer > 0)
-        {
-            easeInTimer -= Time.fixedDeltaTime;
-            _sprite.color = Color.Lerp(originalColor, newColor, 1 - (easeInTimer / easeInDuration));
-            yield return new WaitForFixedUpdate();
-        }
-
-        while (easeOutTimer > 0)
-        {
-            easeOutTimer -= Time.fixedDeltaTime;
-            _sprite.color = Color.Lerp(newColor, originalColor, 1 - (easeOutTimer / easeOutDuration));
-            yield return new WaitForFixedUpdate();
-        }
-        yield return null;
-    }
-
-    protected IEnumerator FadeAway(float duration)
+    protected override IEnumerator FadeAway(float duration)
     {
         float timer = duration;
         _rb.simulated = false; // disabled rigidbody
@@ -391,10 +370,7 @@ public class Pet : MonoBehaviour
 
 
 
-    protected void SetColor()
-    {
-        originalColor = _sprite.color;
-    }
+
 
 
 
