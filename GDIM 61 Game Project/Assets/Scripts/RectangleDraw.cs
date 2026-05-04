@@ -12,6 +12,7 @@ public class RectangleDraw : MonoBehaviour
 {
     [SerializeField] GameObject _rectangle;
 
+
     private DrawState _currentDrawState;
     private GameObject _currentRectangle;
     private Vector3 _startingMouseCoordinates;
@@ -25,7 +26,6 @@ public class RectangleDraw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_currentDrawState);
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && _currentDrawState == DrawState.Drawing)
         {
@@ -51,8 +51,15 @@ public class RectangleDraw : MonoBehaviour
         if (_currentDrawState == DrawState.Drawing) // if user is drawing and thus has a rectangle already created 
         {
             Vector3 mousePosition = GetMouseWorldPosition();
-            _currentRectangle.transform.localScale = new Vector3(_startingMouseCoordinates.x - mousePosition.x, _startingMouseCoordinates.y - mousePosition.y, 0);
+            Vector3 lineToMouse = Vector3.Normalize(mousePosition - _currentRectangle.transform.position);
+            float angle = Mathf.Atan2(lineToMouse.y, lineToMouse.x) * Mathf.Rad2Deg;
+
+            Quaternion rotationToMouse = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            _currentRectangle.transform.rotation = rotationToMouse;
+            _currentRectangle.transform.localScale = new Vector3( Vector3.Distance(_startingMouseCoordinates, mousePosition), 0.5f, 0);
             _currentRectangle.transform.position = new Vector3((_startingMouseCoordinates.x + mousePosition.x) / 2, (_startingMouseCoordinates.y + mousePosition.y) / 2, 0);
+
         }
 
     }

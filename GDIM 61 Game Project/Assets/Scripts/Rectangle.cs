@@ -39,7 +39,6 @@ public class Rectangle : Entity
             originalColor = new Color(originalColor.r, originalColor.g, originalColor.b, healthPoints / maxHealthPoints);
             _sprite.color = originalColor;
             StartCoroutine(FlashColor(0.1f, 0.1f, Color.red));
-            transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }
 
     }
