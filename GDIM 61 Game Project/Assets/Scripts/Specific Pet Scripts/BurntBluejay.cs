@@ -8,10 +8,11 @@ public class BurntBluejay : Pet
     [SerializeField] private float maxTime = 3f;
     [SerializeField] private float launchForce = 3f;
     private float timeRemaining;
+    private float fireBallTime;
     protected override void Start()
     {
         base.Start();
-        timeRemaining = maxTime;
+        fireBallTime = maxTime;
     }
     public override void FaceLeft()
     {
@@ -30,8 +31,8 @@ public class BurntBluejay : Pet
     }
     void Fireball()
     {
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining >= 0)
+        fireBallTime -= Time.deltaTime;
+        if (fireBallTime >= 0)
         {
             GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();

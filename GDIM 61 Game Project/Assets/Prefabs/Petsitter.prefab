@@ -612,13 +612,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3468614f2a82b544a7807f12c9061ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 5
+  healthPoints: 10
+  _sprite: {fileID: 3691366947254446675}
+  _rb: {fileID: 8641579665017193340}
   attack: 1
   cost: 3
   speed: 2
   petSide: 0
-  _rb: {fileID: 8641579665017193340}
-  _sprite: {fileID: 3691366947254446675}
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
   bought: 0

@@ -21,7 +21,7 @@ public class Hyaena : Pet
         Pet collidingPet = collision.transform.GetComponent<Pet>();
         float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); 
 
-        if (collidingPet.petSide != petSide && approaching >= 0)
+        if (collidingPet != null && collidingPet.petSide != petSide && approaching >= 0)
         {
             maxHealthPoints += 5f;
             healthPoints += 5f;

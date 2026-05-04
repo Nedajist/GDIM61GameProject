@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatCar : Pet
+public class NorthernNarwhal : Pet
 {
+    private bool isCharging = false;
     public override void FaceLeft()
     {
         _sprite.flipX = true;
@@ -18,7 +19,19 @@ public class CatCar : Pet
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        Freeze(1f);
+        Spearhead(isCharging);
     }
-
+    void Spearhead(bool charge)
+    {
+        if (charge == false)
+        {
+            speed *= 10f;
+            charge = true;
+        }
+        else
+        {
+            speed /= 10f;
+            charge = false;
+        }
+    }
 }

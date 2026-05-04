@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : Pet
+public class VampyreBat : Pet
 {
     public override void FaceLeft()
     {
@@ -21,7 +21,7 @@ public class NewBehaviourScript : Pet
         Pet collidingPet = collision.transform.GetComponent<Pet>();
         float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); 
 
-        if (collidingPet.petSide != petSide && approaching >= 0)
+        if (collidingPet != null && collidingPet.petSide != petSide && approaching >= 0)
         {
             healthPoints += attack;
         }
