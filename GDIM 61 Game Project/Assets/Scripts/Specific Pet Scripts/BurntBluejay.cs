@@ -8,7 +8,7 @@ public class BurntBluejay : Pet
     [SerializeField] private float maxTime = 3f;
     [SerializeField] private float launchForce = 3f;
     private float timeRemaining;
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         timeRemaining = maxTime;

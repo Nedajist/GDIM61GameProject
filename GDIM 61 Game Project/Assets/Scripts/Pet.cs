@@ -36,13 +36,13 @@ public class Pet : Entity
     private float timeRemaining = 0.5f;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         maxHealthPoints = healthPoints;
 
     }
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         SetColor();
         StartCoroutine(MouseDetect());
