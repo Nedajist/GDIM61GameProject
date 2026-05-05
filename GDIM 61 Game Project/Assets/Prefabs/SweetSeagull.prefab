@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 3206365357895240507}
   - component: {fileID: 4333545161564414174}
   m_Layer: 0
-  m_Name: Sweet Seagull
+  m_Name: SweetSeagull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,19 +466,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 15
-  attack: 1
+  _sprite: {fileID: 6633788089192072924}
+  _rb: {fileID: 4333545161564414174}
+  attack: 7.0000014
   cost: 4
   speed: 2.5
   petSide: 0
-  _rb: {fileID: 4333545161564414174}
-  _sprite: {fileID: 6633788089192072924}
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
-  bought: 0
+  bought: 1
   maxHealthPoints: 0
-  teamList: []
-  enemyList: []
-  speedMultiplier: 1
+  teamList:
+  - {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
+  - {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+  - {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}
+  - {fileID: 4698949654344002711}
+  enemyList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speedMultiplier: 2.9999993
   speedBoostPerCollision: 0.06
 --- !u!114 &7380202094772679247
 MonoBehaviour:

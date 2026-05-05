@@ -334,18 +334,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 15
+  _sprite: {fileID: 9072203941384291121}
+  _rb: {fileID: 8075890894901261080}
   attack: 1
   cost: 2
   speed: 2
   petSide: 0
-  _rb: {fileID: 8075890894901261080}
-  _sprite: {fileID: 9072203941384291121}
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
-  bought: 0
+  bought: 1
   maxHealthPoints: 0
-  teamList: []
-  enemyList: []
+  teamList:
+  - {fileID: 5856242518791799300}
+  - {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+  - {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}
+  enemyList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speedMultiplier: 1
   speedBoostPerCollision: 0.15
   _one_rat: {fileID: 3058562365343414902, guid: 79b7735b4ee43ff47b758ca449019b91, type: 3}

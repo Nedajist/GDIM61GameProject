@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddb78cea98a5c6419ea19c12c787cab, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  playerSavedTeamList:
+  - ThreeRats
+  - Petsitter
+  - SaltySeagull
+  - BigBunny
+  - SweetSeagull
+  playerTempTeamList: []
+  allPetsList:
+  - {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}
+  - {fileID: 2918224791993148690, guid: 791f40df965030b45a5869a5e8a042df, type: 3}
+  - {fileID: 1198655688962832618, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
+  - {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+  - {fileID: 783773343582935779, guid: 9f506bb0ffaf55740bea01378eea85a8, type: 3}
+  - {fileID: 8387082334784373310, guid: 8e5301a256e85df44b608c42eafcc349, type: 3}
+  - {fileID: 4698949654344002711, guid: d40ac6ce35485974086b918026c17fef, type: 3}
+  - {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
+  - {fileID: 2382846805434273690, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+  playerCoinBalance: 3
+  startingPlayerBalance: 20

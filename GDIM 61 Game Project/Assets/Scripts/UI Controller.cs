@@ -60,7 +60,7 @@ public class UIController : MonoBehaviour
 
     public void UpdateCoinBalanceText()
     {
-        coinBalanceText.text = GameController.instance.coinBalance.ToString();
+        coinBalanceText.text = GameController.instance.saveData.playerCoinBalance.ToString();
     }
 
     public void UpdateBuildingBalanceText()

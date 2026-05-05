@@ -78,6 +78,11 @@ public class HealthBar : MonoBehaviour
         _barCanvas.SetActive(true);
     }
 
+    public void HideHealthBar()
+    {
+        _barCanvas.SetActive(false);
+    }
+
     public void UpdateBarScales()
     {
 

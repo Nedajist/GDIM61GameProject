@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -39,7 +40,6 @@ public class Pet : Entity
     protected virtual void Awake()
     {
         maxHealthPoints = healthPoints;
-
     }
 
     protected virtual void Start()
@@ -97,11 +97,9 @@ public class Pet : Entity
 
     protected void SetVelocityTowardsRandomEnemy()
     {
-        if (enemyList.Count == 0)
-        {
-            return;
-        }
         GameController.instance.CullLists(enemyList);
+        if (enemyList.Count == 0) return;
+
         Vector2 randomVector2 = enemyList[Random.Range(0, enemyList.Count)].transform.position - transform.position;
         randomVector2 = randomVector2.normalized;
         _rb.velocity = (randomVector2 * speed * speedMultiplier);
@@ -218,12 +216,14 @@ public class Pet : Entity
 
     private void PurchaseCheck() // updates balance text, adds pet to playerteamlist 
     {
+        Debug.Log(bought);
         if (bought == false)
         {
-            GameController.instance.coinBalance -= cost;
+            GameController.instance.saveData.playerCoinBalance -= cost;
             UIController.Instance.UpdateCoinBalanceText();
             GameController.instance.playerTeamList.Add(transform.gameObject);
             GameController.instance.playerShopList.Remove(transform.gameObject);
+            GameController.instance.saveData.playerSavedTeamList.Add(name);
             bought = true;
         }
     }
@@ -327,7 +327,7 @@ public class Pet : Entity
 
                     if (Input.GetMouseButton(0))
                     {
-                        if (cost <= GameController.instance.coinBalance || bought == true)
+                        if (cost <= GameController.instance.saveData.playerCoinBalance || bought == true)
                         {
 
                             isClicked = true;

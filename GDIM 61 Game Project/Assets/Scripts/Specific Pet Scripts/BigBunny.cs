@@ -20,6 +20,7 @@ public class BigBunny : Pet
 
     public override void AllyDied()
     {
+        if (transform == null) return;
         StartCoroutine(FlashColor(0.1f, 0.1f, Color.blue));
         speedMultiplier += 0.1f;
         _movementTimer = _secondsBetweenMovement;

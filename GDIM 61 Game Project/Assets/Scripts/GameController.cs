@@ -20,12 +20,15 @@ public class GameController : MonoBehaviour // this is a Singleton
     [SerializeField] public List<GameObject> enemyTeamList = new List<GameObject>(); // all pet classes can access this through GameController.instance.enemyTeamList
     [SerializeField] GameObject dividingWall;
     [SerializeField] GameObject rectangleDrawer;
+    [SerializeField] bool _firstLevel;
+
+    public PlayerData saveData;
     public static GameController instance = null;
 
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
     public Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0) };
-    public int coinBalance = 15;
+    public int levelCompleteCoinBonus = 5;
     public int buildingBalance = 3;
 
     public UIController UI;
@@ -40,8 +43,14 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             Destroy(gameObject);
         }
+
+        if (_firstLevel) saveData.ResetEverything();
+
+        saveData.InstantiateSavedPlayerTeam();
+
         UI = GameObject.FindAnyObjectByType<UIController>();
         TransitionGameState(GameState.BuyPhase);
+
     }
 
 
@@ -180,6 +189,7 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             Time.timeScale = 0;
             UIController.Instance.PlayerWon();
+            saveData.LevelBeaten();
         }
 
     }
