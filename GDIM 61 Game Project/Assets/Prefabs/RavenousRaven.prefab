@@ -106,7 +106,7 @@ MonoBehaviour:
   _rb: {fileID: -183616805731933954}
   attack: 7
   cost: 7
-  speed: 3
+  speed: 2
   petSide: 0
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2

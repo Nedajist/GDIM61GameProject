@@ -4437,6 +4437,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4176916796077556892}
     - target: {fileID: 2159994686020608035, guid: 791f40df965030b45a5869a5e8a042df, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159994686020608035, guid: 791f40df965030b45a5869a5e8a042df, type: 3}
       propertyPath: _sprite
       value: 
       objectReference: {fileID: 4176916796077556894}

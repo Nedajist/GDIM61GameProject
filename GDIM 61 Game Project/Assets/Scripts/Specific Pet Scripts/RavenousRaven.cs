@@ -20,7 +20,7 @@ public class RavenousRaven : Pet
         attack *= ravenousMultiplier;
     }
 
-    public override void ReceiveDamage(float damage, Pet aggressor)
+    public override void ReceiveDamage(float damage)
     {
         //damage sfx
         float previousHealthPoints = healthPoints;
@@ -33,14 +33,6 @@ public class RavenousRaven : Pet
 
         if (damage > 0)
         {
-
-            if (aggressor)
-            {
-                speed *= ravenousMultiplier;
-                attack *= ravenousMultiplier;
-            }
-
-            StartCoroutine(FlashColor(0.1f, 0.1f, Color.magenta));
             transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }
 

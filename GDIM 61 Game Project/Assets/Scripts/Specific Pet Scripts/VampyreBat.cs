@@ -18,7 +18,7 @@ public class VampyreBat : Pet
     {
         if (other)
         {
-            other.ReceiveDamage(attack, this);
+            other.ReceiveDamage(attack);
             ReceiveHealing(attack);
             GameController.instance.CullLists(teamList);
             AlertAlliesOfAttack();

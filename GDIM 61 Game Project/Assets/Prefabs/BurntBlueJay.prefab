@@ -279,7 +279,7 @@ MonoBehaviour:
   enemyList: []
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
-  fireballPrefab: {fileID: 0}
+  fireballPrefab: {fileID: 5977031208853036577, guid: ca93f7846d405a64c843c40e8de4983e, type: 3}
   maxTime: 3
   launchForce: 3
 --- !u!114 &1318169174792890982

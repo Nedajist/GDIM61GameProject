@@ -23,7 +23,7 @@ public class Rectangle : Entity
         _collider.isTrigger = false;
         placed = true;
     }
-    public override void ReceiveDamage(float damage, Pet aggressor)
+    public override void ReceiveDamage(float damage)
     {
         //damage sfx
         float previousHealthPoints = healthPoints;

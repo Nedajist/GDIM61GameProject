@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour // Pet and Rectangle inherits from this
         originalColor = _sprite.color;
     }
 
-    public virtual void ReceiveDamage(float damage, Pet aggressor)
+    public virtual void ReceiveDamage(float damage)
     {
         //damage sfx
         float previousHealthPoints = healthPoints;

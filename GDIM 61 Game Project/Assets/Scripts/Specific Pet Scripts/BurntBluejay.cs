@@ -5,13 +5,13 @@ using UnityEngine;
 public class BurntBluejay : Pet
 {
     [SerializeField] private GameObject fireballPrefab;
-    [SerializeField] private float maxTime = 3f;
     [SerializeField] private float launchForce = 3f;
-    private float fireBallTime;
+    [SerializeField] private float fireballCooldown = 2f;
+    private float fireballTimer;
     protected override void Start()
     {
         base.Start();
-        fireBallTime = maxTime;
+        fireballTimer = fireballCooldown;
     }
     public override void FaceLeft()
     {
@@ -30,13 +30,13 @@ public class BurntBluejay : Pet
     }
     void Fireball()
     {
-        fireBallTime -= Time.deltaTime;
-        if (fireBallTime >= 0)
+        fireballTimer -= Time.deltaTime;
+        if (fireballTimer <= 0)
         {
-            GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-            Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-            Vector2 randomDirection  = Random.insideUnitCircle.normalized;
-            rb.velocity = randomDirection * launchForce;
+            GameObject fireballObject = Instantiate(fireballPrefab, transform.position + transform.right * 2, Quaternion.identity);
+            Projectile fireball = fireballObject.GetComponent<Projectile>();
+            fireball.side = petSide;
+            fireballTimer = fireballCooldown;
         }
     }
 

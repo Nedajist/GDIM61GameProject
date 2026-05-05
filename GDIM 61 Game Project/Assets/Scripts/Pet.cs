@@ -109,14 +109,22 @@ public class Pet : Entity
         }
 
         GameController.instance.CullLists(enemyList);
-        GameObject nearestEnemy = enemyList[0];
+        GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemyList)
         {
+            if (nearestEnemy == null && enemy != null)
+            {
+                nearestEnemy = enemy;
+                continue;
+            }
+
             if (Vector3.Distance(enemy.transform.position, transform.position) < Vector3.Distance(nearestEnemy.transform.position, transform.position))
             {
                 nearestEnemy = enemy;
             }
         }
+
+        if (nearestEnemy == null) return;
 
         GameController.instance.CullLists(enemyList);
         Vector2 randomVector2 = nearestEnemy.transform.position - transform.position;
@@ -140,7 +148,7 @@ public class Pet : Entity
 
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
         {
-            collidingRectangle.ReceiveDamage(attack, this);
+            collidingRectangle.ReceiveDamage(attack);
         }
 
         if (collidingPet != null) // colliding with pet confirmed
@@ -178,7 +186,7 @@ public class Pet : Entity
     {
         if (other.petSide != petSide)
         {
-            other.ReceiveDamage(attack, this);
+            other.ReceiveDamage(attack);
             GameController.instance.CullLists(teamList);
             AlertAlliesOfAttack();
         }
@@ -202,7 +210,7 @@ public class Pet : Entity
         }
     }
 
-    public override void ReceiveDamage(float damage, Pet aggressor)
+    public override void ReceiveDamage(float damage)
     {
         //damage sfx
         float previousHealthPoints = healthPoints;
@@ -218,9 +226,8 @@ public class Pet : Entity
             StartCoroutine(FlashColor(0.1f, 0.1f, Color.red));
             transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }
-
-
     }
+
 
     private void PurchaseCheck() // updates balance text, adds pet to playerteamlist 
     {
