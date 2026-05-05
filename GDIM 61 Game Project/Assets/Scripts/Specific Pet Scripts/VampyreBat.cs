@@ -13,19 +13,16 @@ public class VampyreBat : Pet
     {
         _sprite.flipX = true;
     }
-    protected override void OnCollisionEnter2D(Collision2D collision)
+
+    protected override void DamageCheck(Pet other)
     {
-        base.OnCollisionEnter2D(collision);
-
-        Vector2 lineToCollider = collision.contacts[0].point - (Vector2) transform.position;
-        Pet collidingPet = collision.transform.GetComponent<Pet>();
-        float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); 
-
-        if (collidingPet != null && collidingPet.petSide == petSide && approaching >= 0)
+        if (other)
         {
+            other.ReceiveDamage(attack, this);
             ReceiveHealing(attack);
-            collidingPet.ReceiveDamage(attack, this);
+            GameController.instance.CullLists(teamList);
             AlertAlliesOfAttack();
+            StartCoroutine(FlashColor(0.15f, 0.15f, Color.yellow));
         }
     }
 

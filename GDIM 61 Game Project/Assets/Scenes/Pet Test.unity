@@ -4092,13 +4092,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6571450703316807945, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
-      propertyPath: petSide
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_Name
       value: Petsitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913392353884623725, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: petSide
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

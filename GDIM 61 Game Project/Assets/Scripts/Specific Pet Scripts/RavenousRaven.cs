@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RavenousRaven : Pet
 {
-    [SerializeField] private float ravenousMultiplier = 1.1f;
+    [SerializeField] private float ravenousMultiplier = 1.05f;
     public override void FaceLeft()
     {
         _sprite.flipX = false;
@@ -13,45 +13,37 @@ public class RavenousRaven : Pet
     {
         _sprite.flipX = true;
     }
-    protected override void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (GameController.instance.currentGameState != GameState.Combat) // no speed enhancements or timer resets if not in combat
-        {
-            return;
-        }
-
-        Pet collidingPet = collision.transform.GetComponent<Pet>();
-        Rectangle collidingRectangle = collision.transform.GetComponent<Rectangle>();
-        _movementTimer = _secondsBetweenMovement; // resets auto move timer 
-        speedMultiplier += speedBoostPerCollision;
-
-        if (collidingRectangle != null) // colliding with drawn rectangle confirmed
-        {
-            collidingRectangle.ReceiveDamage(attack, transform.GetComponent<Pet>());
-        }
-
-        if (collidingPet != null) // colliding with pet confirmed
-        {
-            Vector2 lineToCollider = collision.contacts[0].point - (Vector2)transform.position;
-            lineToCollider = lineToCollider.normalized;
-
-            float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); // linetocollider is moving from THIS object to the OTHER object. If the dot product between linetocollider and the OTHER object's relative velocity is negative, the OTHER object is not moving towards THIS object (i think) 
-
-            if (collidingPet.petSide != petSide && approaching < 0)
-            {
-                collidingPet.ReceiveDamage(attack, transform.GetComponent<Pet>());
-                GameController.instance.CullLists(teamList);
-                RapidAcceleration();
-                AlertAlliesOfAttack();
-            }
-
-        }
-    }
     void RapidAcceleration()
     {
         StartCoroutine(FlashColor(0.1f, 0.1f, Color.magenta));
         speed *= ravenousMultiplier;
         attack *= ravenousMultiplier;
+    }
+
+    public override void ReceiveDamage(float damage, Pet aggressor)
+    {
+        //damage sfx
+        float previousHealthPoints = healthPoints;
+        healthPoints -= damage;
+        if (healthPoints <= 0)
+        {
+            Die();
+        }
+
+
+        if (damage > 0)
+        {
+
+            if (aggressor)
+            {
+                speed *= ravenousMultiplier;
+                attack *= ravenousMultiplier;
+            }
+
+            StartCoroutine(FlashColor(0.1f, 0.1f, Color.magenta));
+            transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
+        }
+
     }
 
     protected override string ReturnAbilityText()

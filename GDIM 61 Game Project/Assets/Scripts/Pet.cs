@@ -140,7 +140,7 @@ public class Pet : Entity
 
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
         {
-            collidingRectangle.ReceiveDamage(attack, transform.GetComponent<Pet>());
+            collidingRectangle.ReceiveDamage(attack, this);
         }
 
         if (collidingPet != null) // colliding with pet confirmed
@@ -150,12 +150,9 @@ public class Pet : Entity
 
             float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); // linetocollider is moving from THIS object to the OTHER object. If the dot product between linetocollider and the OTHER object's relative velocity is negative, the OTHER object is not moving towards THIS object (i think) 
 
-            if (collidingPet.petSide != petSide && approaching < 0)
+            if (approaching < 0)
             {
-                collidingPet.ReceiveDamage(attack, transform.GetComponent<Pet>());
-
-                GameController.instance.CullLists(teamList);
-                AlertAlliesOfAttack();
+                DamageCheck(collidingPet);
 
             }
 
@@ -174,6 +171,17 @@ public class Pet : Entity
 
 
 
+    }
+
+
+    protected virtual void DamageCheck (Pet other) // given other pet that this pet has collided into, evaluates whether or not it should recieve dmg + if any of this pet's special abilities will activate
+    {
+        if (other.petSide != petSide)
+        {
+            other.ReceiveDamage(attack, this);
+            GameController.instance.CullLists(teamList);
+            AlertAlliesOfAttack();
+        }
     }
 
     public void ReceiveHealing(float amount)

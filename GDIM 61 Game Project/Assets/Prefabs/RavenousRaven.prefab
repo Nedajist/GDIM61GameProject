@@ -116,7 +116,7 @@ MonoBehaviour:
   enemyList: []
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
-  ravenousMultiplier: 1.1
+  ravenousMultiplier: 1.05
 --- !u!114 &3809229667694809478
 MonoBehaviour:
   m_ObjectHideFlags: 0

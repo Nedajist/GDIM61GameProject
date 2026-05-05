@@ -361,7 +361,7 @@ MonoBehaviour:
   petSide: 0
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
-  bought: 1
+  bought: 0
   maxHealthPoints: 0
   teamList:
   - {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
