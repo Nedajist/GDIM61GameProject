@@ -21,9 +21,17 @@ public class VampyreBat : Pet
         Pet collidingPet = collision.transform.GetComponent<Pet>();
         float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); 
 
-        if (collidingPet != null && collidingPet.petSide != petSide && approaching >= 0)
+        if (collidingPet != null && collidingPet.petSide == petSide && approaching >= 0)
         {
-            healthPoints += attack;
+            ReceiveHealing(attack);
+            collidingPet.ReceiveDamage(attack, this);
+            AlertAlliesOfAttack();
         }
+    }
+
+    protected override string ReturnAbilityText()
+    {
+        _abilityText = "Vampyre Bat - Omnomnom: Attacks allies and enemies. Heals for all damage dealt.";
+        return _abilityText;
     }
 }

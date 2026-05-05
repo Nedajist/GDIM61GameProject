@@ -7,7 +7,6 @@ public class BurntBluejay : Pet
     [SerializeField] private GameObject fireballPrefab;
     [SerializeField] private float maxTime = 3f;
     [SerializeField] private float launchForce = 3f;
-    private float timeRemaining;
     private float fireBallTime;
     protected override void Start()
     {
@@ -16,11 +15,11 @@ public class BurntBluejay : Pet
     }
     public override void FaceLeft()
     {
-        _sprite.flipX = false;
+        _sprite.flipX = true;
     }
     public override void FaceRight()
     {
-        _sprite.flipX = true;
+        _sprite.flipX = false;
     }
     void Update()
     {
@@ -40,4 +39,11 @@ public class BurntBluejay : Pet
             rb.velocity = randomDirection * launchForce;
         }
     }
+
+    protected override string ReturnAbilityText()
+    {
+        _abilityText = "Burnt Bluejay - Flaming Spirit: lobs fireballs at enemies";
+        return _abilityText;
+    }
+
 }

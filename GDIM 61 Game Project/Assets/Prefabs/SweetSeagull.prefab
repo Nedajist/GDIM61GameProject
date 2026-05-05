@@ -468,7 +468,7 @@ MonoBehaviour:
   healthPoints: 15
   _sprite: {fileID: 6633788089192072924}
   _rb: {fileID: 4333545161564414174}
-  attack: 7.0000014
+  attack: 2
   cost: 4
   speed: 2.5
   petSide: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speedMultiplier: 2.9999993
+  speedMultiplier: 1
   speedBoostPerCollision: 0.06
 --- !u!114 &7380202094772679247
 MonoBehaviour:

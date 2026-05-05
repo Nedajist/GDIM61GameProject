@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8306630638338259195}
   - component: {fileID: 1208323399934278147}
   - component: {fileID: -7604570970650699629}
+  - component: {fileID: 3809229667694809478}
   - component: {fileID: -183616805731933954}
   - component: {fileID: 5783463103912333283}
   m_Layer: 0
@@ -103,8 +104,8 @@ MonoBehaviour:
   healthPoints: 20
   _sprite: {fileID: 1208323399934278147}
   _rb: {fileID: -183616805731933954}
-  attack: 3
-  cost: 0
+  attack: 7
+  cost: 7
   speed: 3
   petSide: 0
   petTooltipPrefab: {fileID: 0}
@@ -115,7 +116,25 @@ MonoBehaviour:
   enemyList: []
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
-  ravenousMultiplier: 1.5
+  ravenousMultiplier: 1.1
+--- !u!114 &3809229667694809478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783773343582935779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a42f4c175704a34d8c88e124a3761df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 7396364773149632563}
+  _lazyBar: {fileID: 3118615403275457967}
+  _rate_of_change: 2
+  _barBackground: {fileID: 4606934571928899347}
+  _barCanvas: {fileID: 7106864615619906608}
+  _healthBarImage: {fileID: 5351665499216650603}
 --- !u!50 &-183616805731933954
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +150,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

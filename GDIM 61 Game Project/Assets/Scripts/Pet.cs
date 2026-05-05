@@ -37,15 +37,11 @@ public class Pet : Entity
     private float timeRemaining = 0.5f;
 
 
-    protected virtual void Awake()
-    {
-        maxHealthPoints = healthPoints;
-    }
-
     protected virtual void Start()
     {
         SetColor();
         StartCoroutine(MouseDetect());
+        maxHealthPoints = healthPoints;
     }
 
     protected virtual void FixedUpdate()
@@ -159,14 +155,7 @@ public class Pet : Entity
                 collidingPet.ReceiveDamage(attack, transform.GetComponent<Pet>());
 
                 GameController.instance.CullLists(teamList);
-                foreach (GameObject petObject in teamList)
-                {
-                    if (petObject.transform.GetInstanceID() != transform.GetInstanceID())
-                    {
-                        petObject.GetComponent<Pet>().AllyAttacked();
-                    }
-
-                }
+                AlertAlliesOfAttack();
 
             }
 
@@ -192,6 +181,17 @@ public class Pet : Entity
         healthPoints += amount;
         maxHealthPoints += amount;
         transform.GetComponent<HealthBar>().UpdateBarScales();
+    }
+
+    public void AlertAlliesOfAttack()
+    {
+        foreach (GameObject petObject in teamList)
+        {
+            if (petObject.transform.GetInstanceID() != transform.GetInstanceID())
+            {
+                petObject.GetComponent<Pet>().AllyAttacked();
+            }
+        }
     }
 
     public override void ReceiveDamage(float damage, Pet aggressor)

@@ -23,8 +23,13 @@ public class Hyaena : Pet
 
         if (collidingPet != null && collidingPet.petSide != petSide && approaching >= 0)
         {
-            maxHealthPoints += 5f;
-            healthPoints += 5f;
+            ReceiveHealing(5);
         }
+    }
+
+    protected override string ReturnAbilityText()
+    {
+        _abilityText = "Hyaena - Pack: Every time this animal attacks, it summons a little friend";
+        return _abilityText;
     }
 }

@@ -372,7 +372,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speedMultiplier: 1.6000001
+  speedMultiplier: 1
   speedBoostPerCollision: 0.15
 --- !u!114 &704186692905677020
 MonoBehaviour:

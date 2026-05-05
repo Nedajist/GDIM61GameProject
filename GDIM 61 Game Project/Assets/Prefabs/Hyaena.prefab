@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5825991793212861376}
   - component: {fileID: 2431337850806243857}
   - component: {fileID: -5455209975910855790}
+  - component: {fileID: 8990025617929868832}
   - component: {fileID: -22623424007582610}
   - component: {fileID: -8785819223328911121}
   m_Layer: 0
@@ -115,6 +116,24 @@ MonoBehaviour:
   enemyList: []
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
+--- !u!114 &8990025617929868832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198655688962832618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a42f4c175704a34d8c88e124a3761df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 1036080690026766143}
+  _lazyBar: {fileID: 2175180186232752560}
+  _rate_of_change: 2
+  _barBackground: {fileID: 4507804758981444832}
+  _barCanvas: {fileID: 8022820927749861306}
+  _healthBarImage: {fileID: 5499634192447248938}
 --- !u!50 &-22623424007582610
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +149,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

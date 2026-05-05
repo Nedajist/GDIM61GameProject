@@ -1148,6 +1148,9 @@ MonoBehaviour:
   - {fileID: 263641446}
   - {fileID: 1778674751}
   - {fileID: 1855531886}
+  - {fileID: 418271967}
+  - {fileID: 3772665782093960673}
+  - {fileID: 420673219}
   - {fileID: 2068425638}
   enemyTeamList:
   - {fileID: 418677565}
@@ -1156,22 +1159,25 @@ MonoBehaviour:
   - {fileID: 178926896}
   dividingWall: {fileID: 609010107}
   rectangleDrawer: {fileID: 1257108570}
-  _firstLevel: 0
+  _firstLevel: 1
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
-  playerShopPositionList:
-  - {x: -1, y: -2.5, z: 0}
-  - {x: -2.3, y: -2.5, z: 0}
-  - {x: -3.7, y: -2.5, z: 0}
-  - {x: -5.12, y: -2.5, z: 0}
-  - {x: -6.58, y: -2.5, z: 0}
-  - {x: -7.87, y: -2.5, z: 0}
   levelCompleteCoinBonus: 5
   buildingBalance: 3
   UI: {fileID: 278661917}
+--- !u!1 &418271967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1198655688962832618, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
+  m_PrefabInstance: {fileID: 9202931105862411814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &418677565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}
   m_PrefabInstance: {fileID: 1322229284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &420673219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2918224791993148690, guid: 791f40df965030b45a5869a5e8a042df, type: 3}
+  m_PrefabInstance: {fileID: 4176916796077556887}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1996,7 +2002,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 34295c66835e6fc4cb43178a9a485d5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81729cf7c0c26194fac701d617d5e310, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4482,6 +4488,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7781479719402660619, guid: 791f40df965030b45a5869a5e8a042df, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4517,6 +4527,10 @@ PrefabInstance:
       propertyPath: _sprite
       value: 
       objectReference: {fileID: 3350508268476364033}
+    - target: {fileID: -183616805731933954, guid: 9f506bb0ffaf55740bea01378eea85a8, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 783773343582935779, guid: 9f506bb0ffaf55740bea01378eea85a8, type: 3}
       propertyPath: m_Name
       value: RavenousRaven
@@ -4772,7 +4786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_Name
-      value: Petsitter
+      value: TeddyBear
       objectReference: {fileID: 0}
     - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4896,6 +4910,10 @@ PrefabInstance:
       propertyPath: _sprite
       value: 
       objectReference: {fileID: 7197546911690130408}
+    - target: {fileID: 400417886947751814, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 402060352485247927, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.72
@@ -4974,6 +4992,10 @@ PrefabInstance:
     - target: {fileID: 1198655688962832618, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431337850806243857, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5825991793212861376, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
       propertyPath: m_LocalPosition.x

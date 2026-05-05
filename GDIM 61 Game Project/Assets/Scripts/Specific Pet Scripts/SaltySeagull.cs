@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SaltySeagull : Pet
 {
+    [SerializeField] float attackBoost = 0.3f;
+    [SerializeField] float speedBoost = 0.1f;
 
     public override void FaceLeft()
     {
@@ -18,8 +20,16 @@ public class SaltySeagull : Pet
 
     protected override string ReturnAbilityText()
     {
-        _abilityText = "Wind dance - + 1 ATK after an ally attacks";
+        _abilityText = "Salty Seagull - Wind dance: +0.3 ATK and +0.1 speed after an ally attacks";
         return _abilityText;
+    }
+
+    public override void AllyAttacked()
+    {
+        StartCoroutine(FlashColor(0.1f, 0.1f, Color.white));
+        speed += speedBoost;
+        attack += attackBoost;
+
     }
 
 }

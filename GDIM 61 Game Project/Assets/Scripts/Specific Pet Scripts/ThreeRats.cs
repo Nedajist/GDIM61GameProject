@@ -52,7 +52,7 @@ public class ThreeRats : Pet
 
     protected override string ReturnAbilityText()
     {
-        _abilityText = "Swarm - Upon death, create two 5 / 1 copies of itself without this ability";
+        _abilityText = "Three Rats - Swarm: Upon death, create two copies of itself without this ability";
         return _abilityText;
     }
 

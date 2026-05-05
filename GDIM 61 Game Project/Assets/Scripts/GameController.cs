@@ -27,7 +27,8 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
-    public Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0) };
+    private Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0),
+                                                 new Vector3(-1.0f, -4.5f, 0), new Vector3(-2.3f, -4.5f, 0), new Vector3(-3.7f, -4.5f, 0), new Vector3(-5.12f, -4.5f, 0), new Vector3(-6.58f, -4.5f, 0), new Vector3(-7.87f, -4.5f, 0)};
     public int levelCompleteCoinBonus = 5;
     public int buildingBalance = 3;
 

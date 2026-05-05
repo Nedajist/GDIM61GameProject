@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Petsitter : Pet
+public class TeddyBear : Pet
 {
 
     public override void FaceLeft()
@@ -18,7 +18,7 @@ public class Petsitter : Pet
     
     protected override string ReturnAbilityText()
     {
-        _abilityText = "Teddy Bear - Nourishment: At the end of your turn, the adjacent allied pet with the least HP gains 1 HP";
+        _abilityText = "Teddy Bear - Nourishment: Heals friendly pets by colliding into them";
         return _abilityText;
     }
 
