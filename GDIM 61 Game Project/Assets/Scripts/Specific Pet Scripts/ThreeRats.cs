@@ -37,6 +37,7 @@ public class ThreeRats : Pet
         rat.petSide = petSide;
         rat.enemyList = enemyList;
         rat.teamList = teamList;
+        rat.GetComponent<HealthBar>().ShowHealthBar();
         //Debug.Log("Rat summoned!");
 
         if (petSide == Side.player)

@@ -4958,9 +4958,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 959477296491583895, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 959477296491583895, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2382846805434273690, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
       propertyPath: m_Name
       value: VampyreBat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771475478166200597, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771475478166200597, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4991,7 +5007,7 @@ PrefabInstance:
       objectReference: {fileID: 9202931105862411818}
     - target: {fileID: 1198655688962832618, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
       propertyPath: m_Name
-      value: Hyaena
+      value: Hyena
       objectReference: {fileID: 0}
     - target: {fileID: 1198655688962832618, guid: a2460c2488640fd44aba1b054468a43c, type: 3}
       propertyPath: m_IsActive

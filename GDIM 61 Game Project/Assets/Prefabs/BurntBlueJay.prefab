@@ -193,8 +193,8 @@ Transform:
   m_GameObject: {fileID: 2918224791993148690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.15, y: 1.79, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.12, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.12, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6403363998026937555}
@@ -280,8 +280,8 @@ MonoBehaviour:
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
   fireballPrefab: {fileID: 5977031208853036577, guid: ca93f7846d405a64c843c40e8de4983e, type: 3}
-  maxTime: 3
   launchForce: 3
+  fireballCooldown: 2
 --- !u!114 &1318169174792890982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 9.94
+  m_Radius: 7.6355295
 --- !u!1 &3495234753719846224
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.8666656, y: -29.66667}
+  m_AnchoredPosition: {x: 0.06, y: 11.93}
   m_SizeDelta: {x: 1.5127, y: 0.6088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &487764306905987780
