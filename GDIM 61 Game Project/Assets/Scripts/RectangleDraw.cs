@@ -31,12 +31,14 @@ public class RectangleDraw : MonoBehaviour
         {
             if (_currentRectangle.GetComponent<Rectangle>().placeable == true)
             {
+                GameController.instance.buildingBalance -= 1;
+                UIController.Instance.UpdateBuildingBalanceText();
                 TransitionDrawState(DrawState.finishedDrawing);
                 return;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _currentDrawState == DrawState.notDrawing)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _currentDrawState == DrawState.notDrawing && GameController.instance.buildingBalance > 0)
         {
             TransitionDrawState(DrawState.Drawing);
             return;

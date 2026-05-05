@@ -220,15 +220,15 @@ public class Pet : Entity
     {
         if (bought == false)
         {
-            GameController.instance.balance -= cost;
-            GameController.instance.UI.balanceText.text = GameController.instance.balance.ToString();
+            GameController.instance.coinBalance -= cost;
+            UIController.Instance.UpdateCoinBalanceText();
             GameController.instance.playerTeamList.Add(transform.gameObject);
             GameController.instance.playerShopList.Remove(transform.gameObject);
             bought = true;
         }
     }
 
-
+    
     public virtual void Die()
     {
         StartCoroutine(FadeAway(1));
@@ -327,7 +327,7 @@ public class Pet : Entity
 
                     if (Input.GetMouseButton(0))
                     {
-                        if (cost <= GameController.instance.balance || bought == true)
+                        if (cost <= GameController.instance.coinBalance || bought == true)
                         {
 
                             isClicked = true;

@@ -25,7 +25,9 @@ public class GameController : MonoBehaviour // this is a Singleton
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
     public Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0) };
-    public int balance = 15;
+    public int coinBalance = 15;
+    public int buildingBalance = 3;
+
     public UIController UI;
 
     private void Awake()

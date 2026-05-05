@@ -9,7 +9,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI attackText;
     [SerializeField] private TMPro.TextMeshProUGUI abilityText;
     [SerializeField] private TMPro.TextMeshProUGUI costText;
-    [SerializeField] public TMPro.TextMeshProUGUI balanceText;
+    [SerializeField] public TMPro.TextMeshProUGUI coinBalanceText;
+    [SerializeField] public TMPro.TextMeshProUGUI buildingBalanceText;
+
     [SerializeField] GameObject _commenceBattleButton;
     [SerializeField] GameObject _petHealthIcon;
     [SerializeField] GameObject _petAttackIcon;
@@ -49,7 +51,22 @@ public class UIController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    private void Start()
+    {
+        UpdateCoinBalanceText();
+        UpdateBuildingBalanceText();
+    }
+
+    public void UpdateCoinBalanceText()
+    {
+        coinBalanceText.text = GameController.instance.coinBalance.ToString();
+    }
+
+    public void UpdateBuildingBalanceText()
+    {
+        buildingBalanceText.text = GameController.instance.buildingBalance.ToString();
+    }
     public void ShowStats(float health, float attack, float cost, string ability)
     {
         healthText.text = health.ToString();
