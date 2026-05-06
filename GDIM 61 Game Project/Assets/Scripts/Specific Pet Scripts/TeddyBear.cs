@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TeddyBear : Pet
 {
+    public bool isCub = false;
     private int maxPossibleHealing = 50;
     private float currentHealing = 0;
     public override void FaceLeft()
