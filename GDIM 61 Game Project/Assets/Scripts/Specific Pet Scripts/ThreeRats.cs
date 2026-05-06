@@ -8,7 +8,6 @@ public class ThreeRats : Pet
     [SerializeField] GameObject _one_rat;
 
     private GameObject instantiatedRat;
-    bool alive = true; // to prevent infinite recursion via big bunny ability chaining
 
 
     public override void FaceLeft()

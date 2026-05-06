@@ -1152,6 +1152,7 @@ MonoBehaviour:
   - {fileID: 3772665782093960673}
   - {fileID: 420673219}
   - {fileID: 2068425638}
+  - {fileID: 799649941}
   enemyTeamList:
   - {fileID: 418677565}
   - {fileID: 1928461883}
@@ -1647,6 +1648,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728642656}
   m_CullTransparentMesh: 1
+--- !u!1 &799649941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2382846805434273690, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
+  m_PrefabInstance: {fileID: 7197546911690130404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &808624636
 GameObject:
   m_ObjectHideFlags: 0

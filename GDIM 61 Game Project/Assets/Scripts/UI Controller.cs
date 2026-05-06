@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject _petCostIcon;
     [SerializeField] GameObject _nextLevelButton;
     [SerializeField] GameObject _retryLevelButton;
+    [SerializeField] GameObject _nameAndAbilityBox;
+
 
     [SerializeField] public int nextLevelSceneIndex;
 
@@ -92,6 +94,7 @@ public class UIController : MonoBehaviour
             _petCostIcon.SetActive(false);
             _petAttackIcon.SetActive(false);
             _commenceBattleButton.SetActive(false);
+            _nameAndAbilityBox.SetActive(false);
         }
         GameController.instance.CommenceBattleButtonPressed();
     }

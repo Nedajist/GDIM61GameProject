@@ -888,6 +888,7 @@ MonoBehaviour:
   _petCostIcon: {fileID: 21244157}
   _nextLevelButton: {fileID: 1128629191}
   _retryLevelButton: {fileID: 1495483972}
+  _nameAndAbilityBox: {fileID: 939373863}
   nextLevelSceneIndex: 2
 --- !u!1 &304369946
 GameObject:
