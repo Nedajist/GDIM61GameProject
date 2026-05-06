@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87946d70d3aec64d8fc6dd84c71c421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 3
+  healthPoints: 6
   _sprite: {fileID: 2431337850806243857}
   _rb: {fileID: -22623424007582610}
   attack: 1

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VampyreBat : Pet
 {
+    private float maxHealing = 50;
+    private float currentHealing = 0;
     public override void FaceLeft()
     {
         _sprite.flipX = false;
@@ -16,8 +19,9 @@ public class VampyreBat : Pet
 
     protected override void DamageCheck(Pet other)
     {
-        if (other)
+        if (other && currentHealing < maxHealing)
         {
+            currentHealing += attack;
             other.ReceiveDamage(attack);
             ReceiveHealing(attack);
             GameController.instance.CullLists(teamList);

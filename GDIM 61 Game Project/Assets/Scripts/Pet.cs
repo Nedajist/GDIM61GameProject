@@ -29,19 +29,33 @@ public class Pet : Entity
     public float speedBoostPerCollision = 0.2f;
 
     private bool _movementActivated = false;
-
+    private float _chanceToTargetEnemyOnCollision = 0.3f;
 
     protected int _currentPosition = -1;
     protected string _abilityText = "Temp";
     protected float _movementTimer = 0f;
     private float timeRemaining = 0.5f;
 
+    private float maxSpeedMultiplier = 15f;
+    private float trueMaxHealth = 50f;
+
+    private void Awake()
+    {
+        maxHealthPoints = healthPoints;
+    }
 
     protected virtual void Start()
     {
         SetColor();
         StartCoroutine(MouseDetect());
-        maxHealthPoints = healthPoints;
+    }
+
+    protected void BoundaryCheck() // checks if pet is out of bounds
+    {
+        if (Mathf.Abs(transform.position.x) > 10 || Mathf.Abs(transform.position.y) > 6)
+        {
+            Die();
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -56,13 +70,15 @@ public class Pet : Entity
 
         */
 
+        BoundaryCheck();
+
         if (GameController.instance.currentGameState == GameState.Combat)
         {
             _movementTimer -= Time.fixedDeltaTime;
             if (_movementTimer <= 0)
             {
                 _movementTimer = _secondsBetweenMovement;
-                if (Random.Range(1,4) > 1)
+                if (Random.Range(0f, 1f) > _chanceToTargetEnemyOnCollision) 
                 {
                     SetVelocityInRandomDirection();
                 }
@@ -103,9 +119,23 @@ public class Pet : Entity
 
     protected void SetVelocityTowardsNearestEnemy()
     {
+        
+        GameObject nearestEnemy = GetNearestEnemy();
+
+        if (nearestEnemy == null) return;
+        if (nearestEnemy.GetComponent<Pet>() == null) return;
+
+        GameController.instance.CullLists(enemyList);
+        Vector2 randomVector2 = nearestEnemy.transform.position - transform.position;
+        randomVector2 = randomVector2.normalized;
+        _rb.velocity = (randomVector2 * speed * speedMultiplier);
+    }
+
+    protected GameObject GetNearestEnemy()
+    {
         if (enemyList.Count == 0)
         {
-            return;
+            return new GameObject();
         }
 
         GameController.instance.CullLists(enemyList);
@@ -123,15 +153,8 @@ public class Pet : Entity
                 nearestEnemy = enemy;
             }
         }
-
-        if (nearestEnemy == null) return;
-
-        GameController.instance.CullLists(enemyList);
-        Vector2 randomVector2 = nearestEnemy.transform.position - transform.position;
-        randomVector2 = randomVector2.normalized;
-        _rb.velocity = (randomVector2 * speed * speedMultiplier);
+        return (nearestEnemy);
     }
-
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
@@ -145,7 +168,7 @@ public class Pet : Entity
         Rectangle collidingRectangle = collision.transform.GetComponent<Rectangle>();
         _movementTimer = _secondsBetweenMovement; // resets auto move timer 
         speedMultiplier += speedBoostPerCollision;
-
+        speedMultiplier = Mathf.Clamp(speedMultiplier, 0, maxSpeedMultiplier);
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
         {
             collidingRectangle.ReceiveDamage(attack);
@@ -194,8 +217,12 @@ public class Pet : Entity
 
     public void ReceiveHealing(float amount)
     {
+        if (healthPoints + amount > trueMaxHealth) return;
         healthPoints += amount;
-        maxHealthPoints += amount;
+        if (healthPoints > maxHealthPoints)
+        {
+            maxHealthPoints = healthPoints;
+        }
         transform.GetComponent<HealthBar>().UpdateBarScales();
     }
 
@@ -238,7 +265,7 @@ public class Pet : Entity
             UIController.Instance.UpdateCoinBalanceText();
             GameController.instance.playerTeamList.Add(transform.gameObject);
             GameController.instance.playerShopList.Remove(transform.gameObject);
-            GameController.instance.saveData.playerSavedTeamList.Add(name);
+            GameController.instance.saveData.playerTempTeamList.Add(name);
             bought = true;
         }
     }
@@ -374,12 +401,16 @@ public class Pet : Entity
     {
         StartCoroutine(FlashColor(duration, 0.1f, Color.cyan));
         float timer = duration;
+        _rb.bodyType = RigidbodyType2D.Static;
+        _rb.gravityScale = 0f;
         while (timer > 0)
         {
             timer -= Time.deltaTime;
             FreezeVelocity();
             yield return new WaitForFixedUpdate();
         }
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        _rb.gravityScale = 0f;
     }
 
 

@@ -33,6 +33,13 @@ public class RavenousRaven : Pet
 
         if (damage > 0)
         {
+            RapidAcceleration();
+            Pet nearestEnemy = GetNearestEnemy().GetComponent<Pet>();
+            if (nearestEnemy != null)
+            {
+                nearestEnemy.speed = nearestEnemy.speed * 0.8f;
+                nearestEnemy.StartCoroutine(nearestEnemy.FlashColor(0.2f, 0.2f, Color.magenta));
+            }
             transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }
 
@@ -40,7 +47,7 @@ public class RavenousRaven : Pet
 
     protected override string ReturnAbilityText()
     {
-        _abilityText = "Ravenous Raven - Retaliate: If the user is attacked, its attributes are boosted significantly";
+        _abilityText = "Ravenous Raven - Retaliate: If this raven gets attacked, its attacker gets slowed while it speeds up!";
         return _abilityText;
     }
 }

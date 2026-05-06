@@ -26,7 +26,7 @@ public class SaltySeagull : Pet
 
     public override void AllyAttacked()
     {
-        StartCoroutine(FlashColor(0.1f, 0.1f, Color.white));
+        StartCoroutine(FlashColor(0.1f, 0.1f, Color.yellow));
         speed += speedBoost;
         attack += attackBoost;
 

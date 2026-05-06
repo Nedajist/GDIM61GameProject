@@ -9,6 +9,7 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
     public List<string> playerTempTeamList; // gets saved to playerSavedTeamList AFTER successfully beating a level 
 
     public List<GameObject> allPetsList;
+    public int savedPlayerCoinBalance = 0; // the true player coin balance. Only changes after completing a level, and at the start of the very first level.
     public int playerCoinBalance = 0; // player coin balance carries over between scenes. Every level grants them +X coins + all leftover coins 
     public int startingPlayerBalance = 20;
     private Vector3 startingSpawnCoordinate = new Vector3(-6.51f, 3.51f, 0);
@@ -18,6 +19,7 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
         playerTempTeamList = new List<string>();
         playerSavedTeamList = new List<string>();
         playerCoinBalance = startingPlayerBalance;
+        savedPlayerCoinBalance = startingPlayerBalance;
         UIController.Instance.UpdateCoinBalanceText();
     }
 
@@ -29,7 +31,17 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
         }
         playerTempTeamList.Clear();
         playerCoinBalance += GameController.instance.levelCompleteCoinBonus;
-        Debug.Log(playerCoinBalance);
+        savedPlayerCoinBalance = playerCoinBalance;
+    }
+
+    public void ResetPlayerCoinBalance()
+    {
+        playerCoinBalance = savedPlayerCoinBalance;
+    }
+
+    public void ResetPlayerTempTeamList()
+    {
+        playerTempTeamList.Clear();
     }
 
     public void InstantiateSavedPlayerTeam()

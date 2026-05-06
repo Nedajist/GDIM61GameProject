@@ -14,12 +14,6 @@ public class SweetSeagull : Pet
         _sprite.flipX = false;
     }
 
-    public override void AllyAttacked()
-    {
-        StartCoroutine(FlashColor(0.1f, 0.1f, Color.yellow));
-        speedMultiplier += 0.1f;
-        attack += 0.3f;
-    }
 
     public override void Die()
     {

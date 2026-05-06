@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TeddyBear : Pet
 {
-
+    private int maxPossibleHealing = 50;
+    private float currentHealing = 0;
     public override void FaceLeft()
     {
         _sprite.flipX = true;
@@ -29,9 +30,10 @@ public class TeddyBear : Pet
 
         if (GameController.instance.currentGameState == GameState.Combat)
         {
-            if (petCollider != null && petCollider.petSide == petSide)
+            if (petCollider != null && petCollider.petSide == petSide && currentHealing < maxPossibleHealing)
             {
                 petCollider.ReceiveHealing(3);
+                currentHealing += 3;
                 petCollider.StartCoroutine(petCollider.FlashColor(0.1f, 0.1f, Color.green));
             }
         }

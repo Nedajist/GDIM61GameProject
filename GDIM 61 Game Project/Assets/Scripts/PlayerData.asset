@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   playerSavedTeamList:
-  - ThreeRats
-  - Petsitter
-  - SaltySeagull
   - BigBunny
+  - ThreeRats
+  - BigBunny
+  - TeddyBear
   - SweetSeagull
+  - TeddyBear
+  - BigBunny
+  - Hyena
   playerTempTeamList: []
   allPetsList:
   - {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}
@@ -29,5 +32,6 @@ MonoBehaviour:
   - {fileID: 4698949654344002711, guid: d40ac6ce35485974086b918026c17fef, type: 3}
   - {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
   - {fileID: 2382846805434273690, guid: 55c4340c4769a1449b7278931d56f0cf, type: 3}
-  playerCoinBalance: 3
-  startingPlayerBalance: 20
+  savedPlayerCoinBalance: 26
+  playerCoinBalance: 26
+  startingPlayerBalance: 7

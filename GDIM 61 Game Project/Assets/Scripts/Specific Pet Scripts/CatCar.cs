@@ -18,7 +18,7 @@ public class CatCar : Pet
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        Freeze(1f);
+        StartCoroutine(Freeze(1f));
     }
 
 }

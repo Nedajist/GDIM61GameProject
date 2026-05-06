@@ -46,8 +46,14 @@ public class GameController : MonoBehaviour // this is a Singleton
         }
 
         if (_firstLevel) saveData.ResetEverything();
+        else
+        {
+            saveData.ResetPlayerCoinBalance();
+            saveData.ResetPlayerTempTeamList();
+        }
 
         saveData.InstantiateSavedPlayerTeam();
+        
 
         UI = GameObject.FindAnyObjectByType<UIController>();
         TransitionGameState(GameState.BuyPhase);

@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Hyena : Pet
 {
     [SerializeField] GameObject smallHyena;
+    [SerializeField] float secondsBetweenSummon;
+
+    private float summonTimer; 
+
     public override void FaceLeft()
     {
         _sprite.flipX = true;
@@ -15,6 +20,11 @@ public class Hyena : Pet
         _sprite.flipX = false;
     }
 
+    private void Update()
+    {
+        summonTimer -= Time.deltaTime;
+    }
+
     protected override void DamageCheck(Pet other) // given other pet that this pet has collided into, evaluates whether or not it should recieve dmg + if any of this pet's special abilities will activate
     {
         if (other.petSide != petSide)
@@ -22,7 +32,11 @@ public class Hyena : Pet
             other.ReceiveDamage(attack);
             GameController.instance.CullLists(teamList);
             AlertAlliesOfAttack();
-            SummonHyena(transform.position + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), 0));
+            if (summonTimer <= 0)
+            {
+                SummonHyena(transform.position + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), 0));
+                summonTimer = secondsBetweenSummon;
+            }
         }
     }
 
