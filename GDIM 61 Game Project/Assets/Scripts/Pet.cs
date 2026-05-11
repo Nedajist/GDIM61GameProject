@@ -258,7 +258,6 @@ public class Pet : Entity
 
     private void PurchaseCheck() // updates balance text, adds pet to playerteamlist 
     {
-        Debug.Log(bought);
         if (bought == false)
         {
             GameController.instance.saveData.playerCoinBalance -= cost;
@@ -351,6 +350,7 @@ public class Pet : Entity
 
     protected IEnumerator MouseDetect()
     {
+        bool hoveredOnPreviousFrame = false;
         while (GameController.instance.currentGameState == GameState.BuyPhase)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -366,7 +366,7 @@ public class Pet : Entity
                     ReturnAbilityText();
                     UIController.Instance.ShowStats(healthPoints, attack, cost, _abilityText);
                     _sprite.color = Color.grey;
-
+                    hoveredOnPreviousFrame = true;
                     if (Input.GetMouseButton(0))
                     {
                         if (cost <= GameController.instance.saveData.playerCoinBalance || bought == true)
@@ -379,9 +379,10 @@ public class Pet : Entity
                 }
 
             }
-            else
+            else if (isClicked == false && hoveredOnPreviousFrame == true)
             {
                 _sprite.color = originalColor;
+                hoveredOnPreviousFrame = false;
             }
 
             if (isClicked == true)
