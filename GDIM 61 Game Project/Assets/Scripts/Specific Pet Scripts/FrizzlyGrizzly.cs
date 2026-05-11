@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class FrizzlyGrizzly : Pet
 {
+    [SerializeField] SpriteRenderer spriteRender;
+    private TeddyBear teddyBear;
     void Update()
     {
-
+        if (teddyBear.isCubAlive == false)
+        {
+            RagePhase();
+        }
     }
     void RagePhase()
     {
-        //color = Color.red;
+        spriteRender.color = Color.red;
     }
 }

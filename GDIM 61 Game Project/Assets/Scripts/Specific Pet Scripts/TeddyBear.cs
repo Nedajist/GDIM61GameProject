@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeddyBear : Pet
 {
     public bool isCub = false;
+    public bool isCubAlive = true;
     private int maxPossibleHealing = 50;
     private float currentHealing = 0;
     public override void FaceLeft()
@@ -37,6 +38,14 @@ public class TeddyBear : Pet
                 currentHealing += 3;
                 petCollider.StartCoroutine(petCollider.FlashColor(0.1f, 0.1f, Color.green));
             }
+        }
+    }
+    public override void Die()
+    {
+        base.Die();
+        if (isCub == true)
+        {
+            isCubAlive = false;
         }
     }
 
