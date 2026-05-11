@@ -188,11 +188,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6355038947117243683, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
   m_PrefabInstance: {fileID: 18013223}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &18013225 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
-  m_PrefabInstance: {fileID: 18013223}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &21244157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,11 +1098,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6355038947117243683, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
   m_PrefabInstance: {fileID: 378016622}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &378016624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
-  m_PrefabInstance: {fileID: 378016622}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &405178577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,15 +1144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGameState: 0
   playerTeamList: []
-  playerShopList:
-  - {fileID: 1537644153}
-  - {fileID: 1440085548}
-  - {fileID: 781873506}
-  - {fileID: 929137639}
-  enemyTeamList:
-  - {fileID: 378016624}
-  - {fileID: 18013225}
-  - {fileID: 2088674235}
+  playerShopList: []
+  enemyTeamList: []
   dividingWall: {fileID: 609010107}
   rectangleDrawer: {fileID: 24209473}
   _firstLevel: 1
@@ -1748,11 +1731,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6355038947117243683, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
   m_PrefabInstance: {fileID: 781873504}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &781873506 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
-  m_PrefabInstance: {fileID: 781873504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &852278970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,7 +1750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &852278971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1927,11 +1905,8 @@ MonoBehaviour:
   _rb: {fileID: 852278972}
   _sprite: {fileID: 852278973}
   _collider: {fileID: 852278971}
---- !u!1 &929137639 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}
-  m_PrefabInstance: {fileID: 1311507382}
-  m_PrefabAsset: {fileID: 0}
+  _timeToSell: 2
+  _timeToFlash: 0.2
 --- !u!1 &939373863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,11 +2936,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6355038947117243683, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
   m_PrefabInstance: {fileID: 1440085546}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1440085548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
-  m_PrefabInstance: {fileID: 1440085546}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1495483972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,11 +3212,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535571501}
   m_CullTransparentMesh: 1
---- !u!1 &1537644153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
-  m_PrefabInstance: {fileID: 3845163943402651530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1537644156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6355038947117243683, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
@@ -3986,11 +3951,6 @@ PrefabInstance:
 --- !u!4 &2088674234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6355038947117243683, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
-  m_PrefabInstance: {fileID: 2088674233}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2088674235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5856242518791799300, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
   m_PrefabInstance: {fileID: 2088674233}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3498922571646538435

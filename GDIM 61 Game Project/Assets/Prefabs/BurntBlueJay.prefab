@@ -215,6 +215,7 @@ MonoBehaviour:
   healthPoints: 20
   _sprite: {fileID: 7781479719402660619}
   _rb: {fileID: 3954334294252382917}
+  petName: BurntBluejay
   attack: 0
   cost: 5
   speed: 1

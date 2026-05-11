@@ -52,7 +52,7 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
         {
             foreach (GameObject petObject in allPetsList) // NEVER edit petObject directly - these are the prefabs
             {
-                if (petName == petObject.name)
+                if (petName == petObject.GetComponent<Pet>().petName)
                 {
                     GameObject instantiated_pet = Instantiate(petObject, spawnCoordinates, Quaternion.identity);
                     spawnCoordinates += new Vector3(1.5f, 0, 0);

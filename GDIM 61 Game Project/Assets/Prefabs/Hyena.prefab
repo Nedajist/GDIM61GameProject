@@ -104,6 +104,7 @@ MonoBehaviour:
   healthPoints: 20
   _sprite: {fileID: 2431337850806243857}
   _rb: {fileID: -22623424007582610}
+  petName: Hyena
   attack: 3
   cost: 4
   speed: 3

@@ -530,6 +530,7 @@ MonoBehaviour:
   healthPoints: 20
   _sprite: {fileID: 2118233828884909265}
   _rb: {fileID: 8660405840948376501}
+  petName: SaltySeagull
   attack: 2
   cost: 5
   speed: 2

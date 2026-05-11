@@ -56,10 +56,27 @@ public class GameController : MonoBehaviour // this is a Singleton
         
 
         UI = GameObject.FindAnyObjectByType<UIController>();
+        SetPetLists();
         TransitionGameState(GameState.BuyPhase);
 
     }
 
+    private void SetPetLists()
+    {
+        Pet[] petList = GameObject.FindObjectsOfType<Pet>();
+        foreach (Pet pet in petList)
+        {
+            if (pet.petSide == Side.ai)
+            {
+                enemyTeamList.Add(pet.gameObject);
+            }
+            else if (pet.petSide == Side.player && pet.bought == false)
+            {
+                playerShopList.Add(pet.gameObject);
+            }
+        }
+
+    }
 
     public void CommenceBattleButtonPressed()
     {

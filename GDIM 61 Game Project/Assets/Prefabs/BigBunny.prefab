@@ -361,6 +361,7 @@ MonoBehaviour:
   petSide: 0
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
+  petName: BigBunny
   bought: 0
   maxHealthPoints: 0
   teamList:

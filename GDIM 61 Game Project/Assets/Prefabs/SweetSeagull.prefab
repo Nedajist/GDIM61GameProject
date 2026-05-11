@@ -468,6 +468,7 @@ MonoBehaviour:
   healthPoints: 15
   _sprite: {fileID: 6633788089192072924}
   _rb: {fileID: 4333545161564414174}
+  petName: SweetSeagull
   attack: 2
   cost: 4
   speed: 2.5

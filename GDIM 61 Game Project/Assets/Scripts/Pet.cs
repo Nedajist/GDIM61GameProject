@@ -15,6 +15,7 @@ public enum Side
 
 public class Pet : Entity
 {
+    [SerializeField] public string petName;
     [SerializeField] public float attack;
     [SerializeField] public int cost;
     [SerializeField] public float speed;
@@ -268,7 +269,7 @@ public class Pet : Entity
             UIController.Instance.UpdateCoinBalanceText();
             GameController.instance.playerTeamList.Add(transform.gameObject);
             GameController.instance.playerShopList.Remove(transform.gameObject);
-            GameController.instance.saveData.playerTempTeamList.Add(name);
+            GameController.instance.saveData.playerTempTeamList.Add(petName);
             bought = true;
         }
     }

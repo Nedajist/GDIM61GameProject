@@ -336,6 +336,7 @@ MonoBehaviour:
   healthPoints: 15
   _sprite: {fileID: 9072203941384291121}
   _rb: {fileID: 8075890894901261080}
+  petName: ThreeRats
   attack: 1
   cost: 2
   speed: 2.5

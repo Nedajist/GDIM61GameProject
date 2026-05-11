@@ -215,6 +215,7 @@ MonoBehaviour:
   healthPoints: 20
   _sprite: {fileID: 1208323399934278147}
   _rb: {fileID: -183616805731933954}
+  petName: RavenousRaven
   attack: 7
   cost: 7
   speed: 1
