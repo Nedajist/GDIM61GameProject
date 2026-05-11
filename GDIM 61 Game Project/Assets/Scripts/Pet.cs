@@ -36,8 +36,9 @@ public class Pet : Entity
     protected float _movementTimer = 0f;
     private float timeRemaining = 0.5f;
 
-    private float maxSpeedMultiplier = 15f;
-    private float trueMaxHealth = 50f;
+    private float _damageMultiplier = 1;
+    private float _maxSpeedMultiplier = 15f;
+    private float _trueMaxHealth = 50f;
 
     private void Awake()
     {
@@ -168,7 +169,11 @@ public class Pet : Entity
         Rectangle collidingRectangle = collision.transform.GetComponent<Rectangle>();
         _movementTimer = _secondsBetweenMovement; // resets auto move timer 
         speedMultiplier += speedBoostPerCollision;
-        speedMultiplier = Mathf.Clamp(speedMultiplier, 0, maxSpeedMultiplier);
+        speedMultiplier = Mathf.Clamp(speedMultiplier, 0, _maxSpeedMultiplier);
+        _damageMultiplier = 1 + speedMultiplier / _maxSpeedMultiplier * 2; // right now, max damage boost pets get is 50% from max speed 
+        attack = attack * _damageMultiplier;
+        Debug.Log(attack);
+        
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
         {
             collidingRectangle.ReceiveDamage(attack);
@@ -184,7 +189,6 @@ public class Pet : Entity
             if (approaching < 0)
             {
                 DamageCheck(collidingPet);
-
             }
 
         }
@@ -217,7 +221,7 @@ public class Pet : Entity
 
     public void ReceiveHealing(float amount)
     {
-        if (healthPoints + amount > trueMaxHealth) return;
+        if (healthPoints + amount > _trueMaxHealth) return;
         healthPoints += amount;
         if (healthPoints > maxHealthPoints)
         {
