@@ -16,7 +16,7 @@ public class StatusBar : MonoBehaviour
     [SerializeField] public int statusCount = 1;
     [HideInInspector] public Vector3 targetPosition;
     private float _standardHealthPointSize = 15;
-    private float _lerpDuration = 0.2f; // seconds it takes for a bar to move from its actual position to target position
+    private float _lerpDuration = 0.05f; // seconds it takes for a bar to move from its actual position to target position
     private float _lerpTimer = 0;
     private Vector3 _originalPosition;
     public Pet currentPet;

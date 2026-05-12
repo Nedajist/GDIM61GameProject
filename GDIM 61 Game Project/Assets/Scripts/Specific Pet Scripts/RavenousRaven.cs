@@ -39,6 +39,7 @@ public class RavenousRaven : Pet
             {
                 nearestEnemy.speed = nearestEnemy.speed * 0.8f;
                 nearestEnemy.StartCoroutine(nearestEnemy.FlashColor(0.2f, 0.2f, Color.magenta));
+                nearestEnemy.GetComponent<StatusBarManager>().StartStatus(StatusType.slow, 0.6f, "SLOWED");
             }
             transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }

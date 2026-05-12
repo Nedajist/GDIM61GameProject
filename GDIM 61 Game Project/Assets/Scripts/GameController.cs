@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour // this is a Singleton
     public PlayerData saveData;
     public static GameController instance = null;
 
+    private bool _levelOver = false;
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
     private Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0), new Vector3(-6.58f, -2.5f, 0), new Vector3(-7.87f, -2.5f, 0),
@@ -33,6 +34,8 @@ public class GameController : MonoBehaviour // this is a Singleton
     public int buildingBalance = 3;
 
     public UIController UI;
+
+
 
     private void Awake()
     {
@@ -203,17 +206,19 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     public void CheckForVictor()
     {
-        if (playerTeamList.Count == 0) // even if its a draw, the player still loses 
+        if (playerTeamList.Count == 0 && _levelOver == false) // even if its a draw, the player still loses 
         {
             Time.timeScale = 0;
             UIController.Instance.PlayerLost();
+            _levelOver = true;
         }
 
-        else if (enemyTeamList.Count == 0)
+        else if (enemyTeamList.Count == 0 && _levelOver == false)
         {
             Time.timeScale = 0;
             UIController.Instance.PlayerWon();
             saveData.LevelBeaten();
+            _levelOver = true;
         }
 
     }

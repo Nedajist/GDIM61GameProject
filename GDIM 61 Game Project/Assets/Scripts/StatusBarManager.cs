@@ -5,9 +5,10 @@ public enum StatusType
 {
     stun,
     heal,
-    drain,
+    sap,
     freeze,
     speed,
+    charge,
     slow
 }
 
@@ -17,8 +18,8 @@ public class StatusBarManager : MonoBehaviour
 
     private Pet _currentPet;
     private Dictionary<StatusType, GameObject> _statusBarDict = new Dictionary<StatusType, GameObject>();
-    private float _startingHeight = 1.3f;
-    private float _heightPerBar = 0.6f;
+    private float _startingHeight = 1.1f;
+    private float _heightPerBar = 0.4f;
 
 
     // Start is called before the first frame update

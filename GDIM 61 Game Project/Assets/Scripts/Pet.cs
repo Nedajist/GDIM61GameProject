@@ -52,13 +52,13 @@ public class Pet : Entity
         StartCoroutine(MouseDetect());
     }
 
-    protected void BoundaryCheck() // checks if pet is out of bounds
-    {
-        if (Mathf.Abs(transform.position.x) > 10 || Mathf.Abs(transform.position.y) > 6)
-        {
-            Die();
-        }
-    }
+    //protected void BoundaryCheck() // checks if pet is out of bounds
+    //{
+    //    if (Mathf.Abs(transform.position.x) > 10 || Mathf.Abs(transform.position.y) > 6)
+    //    {
+    //        Die();
+    //    }
+    //}
 
     protected virtual void FixedUpdate()
     {
@@ -71,8 +71,6 @@ public class Pet : Entity
         - update method sets the transform of the pet to match the cursor each frame
 
         */
-
-        BoundaryCheck();
 
         if (GameController.instance.currentGameState == GameState.Combat)
         {

@@ -22,6 +22,7 @@ public class BigBunny : Pet
     {
         if (transform == null) return;
         StartCoroutine(FlashColor(0.1f, 0.1f, Color.blue));
+        transform.GetComponent<StatusBarManager>().StartStatus(StatusType.charge, 0.5f, "CHARGING");
         speedMultiplier += 0.1f;
         _movementTimer = _secondsBetweenMovement;
         SetVelocityTowardsNearestEnemy();
