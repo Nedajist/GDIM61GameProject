@@ -57,16 +57,7 @@ public class StatusBar : MonoBehaviour
 
         transform.rotation = Quaternion.identity;
 
-        if (Vector3.Distance(transform.position, targetPosition) >= 0.1f)
-        {
-            transform.position = Vector3.Lerp(_originalPosition, targetPosition, _lerpTimer / _lerpDuration);
-            _lerpTimer += Time.deltaTime;
-        }
-        else
-        {
-            _lerpTimer = 0;
-            _originalPosition = transform.position;
-        }
+        transform.position = targetPosition;
 
     }
 
