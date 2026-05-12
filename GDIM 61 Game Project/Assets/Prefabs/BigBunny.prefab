@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 1738298173498913310}
   - component: {fileID: 8274530166292996820}
   - component: {fileID: 704186692905677020}
+  - component: {fileID: 9114484964233418752}
   - component: {fileID: 7546053811967259901}
   - component: {fileID: 1643762077755097354}
   m_Layer: 0
@@ -355,13 +356,13 @@ MonoBehaviour:
   healthPoints: 20
   _sprite: {fileID: 1738298173498913310}
   _rb: {fileID: 1643762077755097354}
+  petName: BigBunny
   attack: 3
   cost: 3
   speed: 1.5
   petSide: 0
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
-  petName: BigBunny
   bought: 0
   maxHealthPoints: 0
   teamList:
@@ -393,6 +394,19 @@ MonoBehaviour:
   _barBackground: {fileID: 7007450155950226721}
   _barCanvas: {fileID: 3788242341144022440}
   _healthBarImage: {fileID: 6614903266039856032}
+--- !u!114 &9114484964233418752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329828914360950584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d9015d86c0cee479c382c46f11cabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
 --- !u!58 &7546053811967259901
 CircleCollider2D:
   m_ObjectHideFlags: 0

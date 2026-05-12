@@ -51,10 +51,10 @@ public class Rectangle : Entity
             filter.NoFilter();
 
             Physics2D.OverlapCollider(_collider, filter, hits);
+            
 
 
-
-            if (hits.Count != 0 || Mathf.Abs(transform.localScale.x) * Mathf.Abs(transform.localScale.y) > _maxArea)
+            if (Mathf.Abs(transform.localScale.x) * Mathf.Abs(transform.localScale.y) > _maxArea)
             {
                 _sprite.color = new Color(Color.red.r, Color.red.g, Color.red.b, originalColor.a);
                 placeable = false;

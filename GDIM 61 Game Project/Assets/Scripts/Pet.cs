@@ -229,6 +229,7 @@ public class Pet : Entity
             maxHealthPoints = healthPoints;
         }
         transform.GetComponent<HealthBar>().UpdateBarScales();
+        transform.GetComponent<StatusBarManager>().StartStatus(StatusType.heal, 0.5f, "HEAL");
     }
 
     public void AlertAlliesOfAttack()
@@ -405,6 +406,7 @@ public class Pet : Entity
 
     public IEnumerator Freeze(float duration)
     {
+        transform.GetComponent<StatusBarManager>().StartStatus(StatusType.freeze, duration, "FROZEN");
         StartCoroutine(FlashColor(duration, 0.1f, Color.cyan));
         float timer = duration;
         _rb.bodyType = RigidbodyType2D.Static;

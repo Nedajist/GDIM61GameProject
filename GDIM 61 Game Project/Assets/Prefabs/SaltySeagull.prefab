@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 2118233828884909265}
   - component: {fileID: 83745002757939120}
   - component: {fileID: 8075181766541697659}
+  - component: {fileID: 8852003031255620839}
   - component: {fileID: 5987966235036616998}
   - component: {fileID: 8660405840948376501}
   m_Layer: 0
@@ -581,6 +582,19 @@ MonoBehaviour:
   _barBackground: {fileID: 7015893809092367580}
   _barCanvas: {fileID: 3038176463244639167}
   _healthBarImage: {fileID: 7451387768168208318}
+--- !u!114 &8852003031255620839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387082334784373310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d9015d86c0cee479c382c46f11cabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
 --- !u!58 &5987966235036616998
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 9072203941384291121}
   - component: {fileID: 6767366322903959115}
   - component: {fileID: 7341171833127076463}
+  - component: {fileID: 8409732254876866474}
   - component: {fileID: 506121960957908327}
   - component: {fileID: 7392235792665837134}
   - component: {fileID: 8075890894901261080}
@@ -375,6 +376,19 @@ MonoBehaviour:
   _barBackground: {fileID: 4363723729257229140}
   _barCanvas: {fileID: 7699062499662462884}
   _healthBarImage: {fileID: 5376734351124261340}
+--- !u!114 &8409732254876866474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5856242518791799300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d9015d86c0cee479c382c46f11cabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
 --- !u!222 &506121960957908327
 CanvasRenderer:
   m_ObjectHideFlags: 0

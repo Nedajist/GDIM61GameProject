@@ -27,6 +27,7 @@ public class SaltySeagull : Pet
     public override void AllyAttacked()
     {
         StartCoroutine(FlashColor(0.1f, 0.1f, Color.yellow));
+        transform.GetComponent<StatusBarManager>().StartStatus(StatusType.speed, 0.3f, "BOOSTED");
         speed += speedBoost;
         attack += attackBoost;
 

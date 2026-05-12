@@ -1122,6 +1122,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 256757327}
     m_Modifications:
+    - target: {fileID: 790002764610528220, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 790002764610528220, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065731514413954033, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065731514413954033, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114317080800638199, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114317080800638199, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4379112782039170753, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.56
@@ -1165,6 +1189,14 @@ PrefabInstance:
     - target: {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_Name
       value: TeddyBear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913392353884623725, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: petSide
@@ -1735,6 +1767,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 169500737}
     m_Modifications:
+    - target: {fileID: 790002764610528220, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 790002764610528220, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065731514413954033, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065731514413954033, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114317080800638199, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114317080800638199, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4379112782039170753, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.69
@@ -1778,6 +1834,14 @@ PrefabInstance:
     - target: {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_Name
       value: TeddyBear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3709,6 +3773,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 169500737}
     m_Modifications:
+    - target: {fileID: 790002764610528220, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 790002764610528220, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065731514413954033, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065731514413954033, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114317080800638199, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114317080800638199, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4379112782039170753, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.24
@@ -3752,6 +3840,14 @@ PrefabInstance:
     - target: {fileID: 7421687494128107907, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
       propertyPath: m_Name
       value: TeddyBear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890246227532026132, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

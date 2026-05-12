@@ -23,6 +23,7 @@ public class VampyreBat : Pet
         {
             currentHealing += attack;
             other.ReceiveDamage(attack);
+            other.transform.GetComponent<StatusBarManager>().StartStatus(StatusType.drain, 0.4f, "DRAIN");
             ReceiveHealing(attack);
             GameController.instance.CullLists(teamList);
             AlertAlliesOfAttack();

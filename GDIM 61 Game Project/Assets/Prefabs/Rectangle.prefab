@@ -103,7 +103,7 @@ MonoBehaviour:
   _sprite: {fileID: 2481769788024184962}
   _rb: {fileID: -7136207434556334153}
   _collider: {fileID: 1514342797483126017}
-  _maxArea: 3
+  _maxArea: 6
   placed: 0
   placeable: 0
 --- !u!50 &-7136207434556334153

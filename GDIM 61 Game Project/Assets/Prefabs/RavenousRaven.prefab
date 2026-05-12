@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1208323399934278147}
   - component: {fileID: -7604570970650699629}
   - component: {fileID: 3809229667694809478}
+  - component: {fileID: 4551500554199005263}
   - component: {fileID: -183616805731933954}
   - component: {fileID: 5783463103912333283}
   m_Layer: 0
@@ -247,6 +248,19 @@ MonoBehaviour:
   _barBackground: {fileID: 8906258039856453536}
   _barCanvas: {fileID: 7457617712087353337}
   _healthBarImage: {fileID: 1134511820053403238}
+--- !u!114 &4551500554199005263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783773343582935779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d9015d86c0cee479c382c46f11cabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
 --- !u!50 &-183616805731933954
 Rigidbody2D:
   serializedVersion: 4
