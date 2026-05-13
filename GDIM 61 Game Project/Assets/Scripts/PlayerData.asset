@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   playerSavedTeamList:
+  - TeddyBear
   - BigBunny
   - ThreeRats
-  - BigBunny
+  - ThreeRats
   - TeddyBear
-  - SweetSeagull
-  - TeddyBear
-  - BigBunny
-  - Hyena
+  - ThreeRats
   playerTempTeamList: []
   allPetsList:
   - {fileID: 6329828914360950584, guid: d92c313c303f88043a61ccb434aa5a77, type: 3}

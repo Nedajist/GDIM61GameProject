@@ -143,6 +143,8 @@ public class GameController : MonoBehaviour // this is a Singleton
             case GameState.Combat:
                 currentGameState = GameState.Combat;
                 rectangleDrawer.SetActive(true);
+
+                UnfreezeObstacles();
                 break;
 
             case GameState.PostCombat:
@@ -172,6 +174,16 @@ public class GameController : MonoBehaviour // this is a Singleton
         }
         
     }
+
+    void UnfreezeObstacles()
+    {
+        Obstacle[] obstacleList = GameObject.FindObjectsOfType<Obstacle>();
+        foreach (Obstacle obstacle in obstacleList)
+        {
+            obstacle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
+    }
+
     public void CullLists(List<GameObject> petList) // removes dead pets 
     {
         int deathCount = 0;
