@@ -96,7 +96,8 @@ public class FrizzlyGrizzly : Pet
                 Vector2 direction = (pets.transform.position - transform.position).normalized;
 
                 __rb.AddForce(direction * growlForce, ForceMode2D.Impulse);      
-            }     
+            }
+            speedMultiplier += 0.5f;
             yield return new WaitForSeconds(1f);
             
             growlOnam.SetActive(false);
