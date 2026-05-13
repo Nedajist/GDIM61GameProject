@@ -29,7 +29,7 @@ public class SaltySeagull : Pet
         StartCoroutine(FlashColor(0.1f, 0.1f, Color.yellow));
         transform.GetComponent<StatusBarManager>().StartStatus(StatusType.speed, 0.5f, "BOOSTED");
         speed += speedBoost;
-        attack += attackBoost;
+        _baseAttack += attackBoost;
 
     }
 

@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject _petCostIcon;
     [SerializeField] GameObject _nextLevelButton;
     [SerializeField] GameObject _retryLevelButton;
+    [SerializeField] GameObject _pauseButton;
+
     [SerializeField] GameObject _nameAndAbilityBox;
 
 
@@ -54,6 +56,18 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void ShowPauseButton()
+    {
+        _pauseButton.SetActive(true);
+    }
+
+
+    public void OnUnpausePress()
+    {
+        _pauseButton.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     private void Start()
     {
         UpdateCoinBalanceText();
@@ -63,6 +77,12 @@ public class UIController : MonoBehaviour
     public void UpdateCoinBalanceText()
     {
         coinBalanceText.text = GameController.instance.saveData.playerCoinBalance.ToString();
+    }
+
+    public void UpdateCoinBalanceTextWithVictoryCoins()
+    {
+        Debug.Log("Adding bonus");
+        coinBalanceText.text += " + " + GameController.instance.levelCompleteCoinBonus.ToString();
     }
 
     public void UpdateBuildingBalanceText()
