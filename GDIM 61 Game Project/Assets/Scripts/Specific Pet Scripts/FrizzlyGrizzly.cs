@@ -50,6 +50,7 @@ public class FrizzlyGrizzly : Pet
     {
         while (cooldown >= 0)
         {
+            cooldown -= Time.fixedDeltaTime;
             Instantiate(growlOnam, transform);
             foreach (GameObject pets in teamList)
             {
