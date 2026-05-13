@@ -26,12 +26,12 @@ public class NorthernNarwhal : Pet
         if (charge == false)
         {
             speed *= 10f;
-            charge = true;
+            isCharging = true;
         }
         else
         {
             speed /= 10f;
-            charge = false;
+            isCharging = false;
         }
     }
 }
