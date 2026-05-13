@@ -649,6 +649,7 @@ MonoBehaviour:
   _barBackground: {fileID: 5092358065700239335}
   _barCanvas: {fileID: 1156494021757175153}
   _healthBarImage: {fileID: 5218694718563108036}
+  _healthBarHeight: 1
 --- !u!114 &8100677038325953520
 MonoBehaviour:
   m_ObjectHideFlags: 0

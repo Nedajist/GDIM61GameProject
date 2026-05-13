@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] GameObject _barCanvas;
 
     [SerializeField] private Image _healthBarImage;
-
+    [SerializeField] private float _healthBarHeight = 1;
 
 
     private float _currentHealth;
@@ -52,7 +52,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
 
-        _barCanvas.transform.position = transform.position + new Vector3(0, 1f, 0);
+        _barCanvas.transform.position = transform.position + new Vector3(0, _healthBarHeight, 0);
         _barCanvas.transform.rotation = Quaternion.identity;
 
         _currentHealth = _currentPet.healthPoints;

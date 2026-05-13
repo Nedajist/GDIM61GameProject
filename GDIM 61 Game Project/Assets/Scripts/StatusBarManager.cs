@@ -18,7 +18,7 @@ public class StatusBarManager : MonoBehaviour
 
     private Pet _currentPet;
     private Dictionary<StatusType, GameObject> _statusBarDict = new Dictionary<StatusType, GameObject>();
-    private float _startingHeight = 1.2f;
+    [SerializeField] float _startingHeight = 1.2f;
     private float _heightPerBar = 0.4f;
 
 
