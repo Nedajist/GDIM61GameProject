@@ -7,12 +7,10 @@ public class FrizzlyGrizzly : Pet
     [SerializeField] private SpriteRenderer spriteRender;
     [SerializeField] private float growlDelay = 5f;
     [SerializeField] private GameObject growlOnam;
-    //Onam position modifiers
-            [SerializeField] private float xOnamPosModifier;
-            [SerializeField] private float yOnamPosModifier;
     [SerializeField] private float growlForce = 10f;
     //[SerializeField] private GameObject growlCollider;
     private Rigidbody2D rb;
+    private bool isGrowling;
     [SerializeField] TeddyBear teddyBear;
 
     private List<GameObject> allyList;
@@ -32,11 +30,14 @@ public class FrizzlyGrizzly : Pet
     }
     void Update()
     {
-        if (teddyBear.isCubAlive == false && _enraged == false)
+        if (teddyBear.isCubAlive == false && !_enraged)
         {
             RagePhase();
-            StartCoroutine(Growl(growlDelay));
-            speedMultiplier += 0.5f;
+            if (isGrowling == false)
+            {
+                StartCoroutine(Growl(growlDelay));
+            }
+           // speedMultiplier += 0.5f;
             _chanceToTargetEnemyOnCollision = 0.8f;
             _enraged = true;
         }
@@ -48,10 +49,10 @@ public class FrizzlyGrizzly : Pet
     }
     IEnumerator Growl(float cooldown)
     {
-        while (cooldown >= 0)
+        /*while (cooldown >= 0)
         {
             cooldown -= Time.fixedDeltaTime;
-            Instantiate(growlOnam, transform);
+            growlOnam.SetActive(true);
             foreach (GameObject pets in teamList)
             {
                 Rigidbody2D rb = pets.GetComponent<Rigidbody2D>();
@@ -62,6 +63,31 @@ public class FrizzlyGrizzly : Pet
                 rb.AddForce(transform.up * growlForce);
             }
             yield return new WaitForFixedUpdate();
+            growlOnam.SetActive(false);
+        }*/
+        isGrowling = true;
+
+        while (true)
+        {
+            growlOnam.SetActive(true);
+            foreach (GameObject pets in teamList)
+            {
+                Rigidbody2D rb = pets.GetComponent<Rigidbody2D>();
+                if (pets.transform.position.x < transform.position.x)
+                {
+                    growlForce *= -1;
+                }
+                rb.AddForce(transform.up * growlForce);
+                if (growlForce < 1)
+                {
+                    growlForce *= -1;
+                }
+            }     
+            yield return new WaitForSeconds(1f);
+            
+            growlOnam.SetActive(false);
+
+            yield return new WaitForSeconds(cooldown);
         }
     }
 }
