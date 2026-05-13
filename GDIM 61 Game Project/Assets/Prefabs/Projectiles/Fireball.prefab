@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7076136748618107984}
   - component: {fileID: 8030363660980820286}
   - component: {fileID: 926095644756668434}
-  - component: {fileID: 7960715510059728396}
+  - component: {fileID: 6424351492003830994}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.9682958, y: -0.10174843, z: 1.7954658}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4306d2a83bb951546a289610b3bf41a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 028b63058639e5d42b1a3aa45d608c96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,7 +133,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7960715510059728396
+--- !u!58 &6424351492003830994
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,4 +167,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 2.4

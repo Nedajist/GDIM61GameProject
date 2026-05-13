@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3875369a2d1baba48b3d075e4d3cdb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 50
+  healthPoints: 60
   _sprite: {fileID: 256447114076202559}
   _rb: {fileID: 7525258798503451245}
   petName: FrizzlyGrizzly
@@ -360,7 +360,7 @@ MonoBehaviour:
   speedBoostPerCollision: 0.1
   spriteRender: {fileID: 256447114076202559}
   growlDelay: 5
-  growlOnam: {fileID: 0}
+  growlOnam: {fileID: 6982691797784502234, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
   xOnamPosModifier: 0
   yOnamPosModifier: 0
   growlForce: 10

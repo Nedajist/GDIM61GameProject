@@ -30,7 +30,7 @@ public class Pet : Entity
     public float speedBoostPerCollision = 0.2f;
 
     private bool _movementActivated = false;
-    private float _chanceToTargetEnemyOnCollision = 0.3f;
+    protected float _chanceToTargetEnemyOnCollision = 0.3f;
 
     protected int _currentPosition = -1;
     protected string _abilityText = "Temp";

@@ -16,6 +16,7 @@ public class FrizzlyGrizzly : Pet
     [SerializeField] TeddyBear teddyBear;
 
     private List<GameObject> allyList;
+    private bool _enraged; 
     public override void FaceLeft()
     {
         _sprite.flipX = true;
@@ -31,29 +32,35 @@ public class FrizzlyGrizzly : Pet
     }
     void Update()
     {
-        if (teddyBear.isCubAlive == false)
+        if (teddyBear.isCubAlive == false && _enraged == false)
         {
             RagePhase();
             StartCoroutine(Growl(growlDelay));
+            speedMultiplier += 0.5f;
+            _chanceToTargetEnemyOnCollision = 0.8f;
+            _enraged = true;
         }
     }
     void RagePhase()
     {
-        spriteRender.color = Color.red;
+        spriteRender.color = new Color(0.831f, 0.082f, 0.255f);
+        SetColor();
     }
     IEnumerator Growl(float cooldown)
     {
-        yield return new WaitForSeconds(cooldown);
-
-        Instantiate(growlOnam, transform);       
-        foreach (GameObject pets in allyList)
+        while (cooldown >= 0)
         {
-            Rigidbody2D rb = pets.GetComponent<Rigidbody2D>();
-            if (pets.transform.position.y < transform.position.y)
+            Instantiate(growlOnam, transform);
+            foreach (GameObject pets in teamList)
             {
-                growlForce *= -1;
+                Rigidbody2D rb = pets.GetComponent<Rigidbody2D>();
+                if (pets.transform.position.y < transform.position.y)
+                {
+                    growlForce *= -1;
+                }
+                rb.AddForce(transform.up * growlForce);
             }
-            rb.AddForce(transform.up * growlForce);
+            yield return new WaitForFixedUpdate();
         }
     }
 }
