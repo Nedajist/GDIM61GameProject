@@ -168,10 +168,14 @@ public class Pet : Entity
 
         Pet collidingPet = collision.transform.GetComponent<Pet>();
         Rectangle collidingRectangle = collision.transform.GetComponent<Rectangle>();
+        Obstacle collidingObstacle = collision.transform.GetComponent<Obstacle>();
         _movementTimer = _secondsBetweenMovement; // resets auto move timer 
         speedMultiplier += speedBoostPerCollision;
         speedMultiplier = Mathf.Clamp(speedMultiplier, 0, _maxSpeedMultiplier);
-        _damageMultiplier = 1 + speedMultiplier / _maxSpeedMultiplier * 2; // right now, max damage boost pets get is 50% from max speed 
+
+        ClampVelocity();
+
+        _damageMultiplier = 1 + _rb.velocity.magnitude / _maxSpeedMultiplier * 2; // right now, max damage boost pets get is 50% from max speed 
         attack = _baseAttack * _damageMultiplier;
         
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
@@ -193,11 +197,16 @@ public class Pet : Entity
 
         }
 
+        if (collidingObstacle != null)
+        {
+            DeflectOff(collision.contacts[0].point, collidingObstacle.knockbackForce);
+            ReceiveDamage(collidingObstacle.damage);
+            return;
+        }
+
         if (Random.Range(1, 4) > 1) // deflects
         {
-            Vector2 lineFromCollider = (Vector2)transform.position - collision.contacts[0].point;
-            lineFromCollider = lineFromCollider.normalized;
-            _rb.velocity = (lineFromCollider * speedMultiplier);
+            DeflectOff(collision.contacts[0].point, 1);
         }
         else // prevents endless bouncing since timer reset each bounce and not enough time to auto target 
         {
@@ -208,6 +217,21 @@ public class Pet : Entity
 
     }
 
+    private void DeflectOff(Vector2 contactPoint, float force) // force is for OBSTACLES, normally set it to 1
+    {
+        Vector2 lineFromCollider = (Vector2)transform.position - contactPoint;
+        lineFromCollider = lineFromCollider.normalized;
+        _rb.velocity = (lineFromCollider * speedMultiplier * force);
+    }
+
+    private void ClampVelocity()
+    {
+        if (_rb.velocity.magnitude > _maxSpeedMultiplier)
+        {
+            _rb.velocity = _rb.velocity.normalized;
+            _rb.velocity *= _maxSpeedMultiplier;
+        }
+    }
 
     protected virtual void DamageCheck (Pet other) // given other pet that this pet has collided into, evaluates whether or not it should recieve dmg + if any of this pet's special abilities will activate
     {

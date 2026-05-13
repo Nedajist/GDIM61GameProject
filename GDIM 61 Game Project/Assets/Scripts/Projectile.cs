@@ -95,6 +95,12 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collision.transform.GetComponent<Obstacle>() != null)
+        {
+            collision.transform.GetComponent<Obstacle>().ReceiveDamage(damage);
+            Destroy(gameObject);
+        }
+
         else
         {
             if (Random.Range(1, 4) > 1) // deflects

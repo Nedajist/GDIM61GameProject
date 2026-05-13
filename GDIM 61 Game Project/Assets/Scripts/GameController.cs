@@ -143,6 +143,13 @@ public class GameController : MonoBehaviour // this is a Singleton
             case GameState.Combat:
                 currentGameState = GameState.Combat;
                 rectangleDrawer.SetActive(true);
+
+                Obstacle[] obstacleList = GameObject.FindObjectsOfType<Obstacle>();
+                foreach (Obstacle obstacle in obstacleList)
+                {
+                    obstacle.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                }
+
                 break;
 
             case GameState.PostCombat:
