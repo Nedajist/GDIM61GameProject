@@ -13,6 +13,7 @@ public class Obstacle : Entity
 
     private void Start()
     {
+        SetColor();
         _maxHealthPoints = healthPoints;
     }
 
@@ -30,7 +31,8 @@ public class Obstacle : Entity
 
         if (damage > 0)
         {
-            originalColor = new Color(originalColor.r, originalColor.g, originalColor.b, healthPoints / _maxHealthPoints);
+            float newAValue = healthPoints / _maxHealthPoints;
+            originalColor = new Color(originalColor.r, originalColor.g, originalColor.b, newAValue);
             _sprite.color = originalColor;
             StartCoroutine(FlashColor(0.1f, 0.1f, Color.red));
         }
@@ -45,6 +47,13 @@ public class Obstacle : Entity
             Vector2 lineFromCollider = (Vector2)transform.position - collision.contacts[0].point;
             lineFromCollider = lineFromCollider.normalized;
             _rb.velocity = (lineFromCollider * _speed);
+
+            Rectangle collidingRectangle = collision.transform.GetComponent<Rectangle>();
+            if (collidingRectangle != null)
+            {
+                collidingRectangle.ReceiveDamage(damage);
+            }
+
         }
     }
 

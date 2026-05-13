@@ -201,6 +201,7 @@ public class Pet : Entity
         {
             DeflectOff(collision.contacts[0].point, collidingObstacle.knockbackForce);
             ReceiveDamage(collidingObstacle.damage);
+            collidingObstacle.ReceiveDamage(attack);
             return;
         }
 
