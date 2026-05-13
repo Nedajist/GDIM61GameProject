@@ -165,7 +165,11 @@ public class GameController : MonoBehaviour // this is a Singleton
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            UI.ShowPauseButton();
+        }
         
     }
     public void CullLists(List<GameObject> petList) // removes dead pets 
@@ -217,6 +221,7 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             Time.timeScale = 0;
             UIController.Instance.PlayerWon();
+            UIController.Instance.UpdateCoinBalanceTextWithVictoryCoins();
             saveData.LevelBeaten();
             _levelOver = true;
         }

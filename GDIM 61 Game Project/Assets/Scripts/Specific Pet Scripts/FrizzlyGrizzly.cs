@@ -13,9 +13,8 @@ public class FrizzlyGrizzly : Pet
     [SerializeField] private float growlForce = 10f;
     //[SerializeField] private GameObject growlCollider;
     private Rigidbody2D rb;
-    private TeddyBear teddyBear;
+    [SerializeField] TeddyBear teddyBear;
 
-    private Pet pets;
     private List<GameObject> allyList;
     public override void FaceLeft()
     {
@@ -29,14 +28,13 @@ public class FrizzlyGrizzly : Pet
     protected override void Start()
     {
         base.Start();
-        allyList = pets.teamList;
     }
     void Update()
     {
         if (teddyBear.isCubAlive == false)
         {
             RagePhase();
-            Growl(growlDelay);
+            StartCoroutine(Growl(growlDelay));
         }
     }
     void RagePhase()

@@ -40,6 +40,7 @@ public class Pet : Entity
     private float _damageMultiplier = 1;
     private float _maxSpeedMultiplier = 15f;
     private float _trueMaxHealth = 50f;
+    protected float _baseAttack;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class Pet : Entity
 
     protected virtual void Start()
     {
+        _baseAttack = attack;
         SetColor();
         StartCoroutine(MouseDetect());
     }
@@ -170,8 +172,7 @@ public class Pet : Entity
         speedMultiplier += speedBoostPerCollision;
         speedMultiplier = Mathf.Clamp(speedMultiplier, 0, _maxSpeedMultiplier);
         _damageMultiplier = 1 + speedMultiplier / _maxSpeedMultiplier * 2; // right now, max damage boost pets get is 50% from max speed 
-        attack = attack * _damageMultiplier;
-        Debug.Log(attack);
+        attack = _baseAttack * _damageMultiplier;
         
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
         {
