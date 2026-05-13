@@ -7,7 +7,7 @@ public class FrizzlyGrizzly : Pet
     [SerializeField] private SpriteRenderer spriteRender;
     [SerializeField] private float growlDelay = 5f;
     [SerializeField] private GameObject growlOnam;
-    [SerializeField] private float growlForce = 10f;
+    [SerializeField] private float growlForce = 100f;
     //[SerializeField] private GameObject growlCollider;
     private Rigidbody2D rb;
     private bool isGrowling;
@@ -70,18 +70,32 @@ public class FrizzlyGrizzly : Pet
         while (true)
         {
             growlOnam.SetActive(true);
-            foreach (GameObject pets in teamList)
+            foreach (GameObject pets in enemyList)
             {
-                Rigidbody2D rb = pets.GetComponent<Rigidbody2D>();
-                if (pets.transform.position.x < transform.position.x)
+                Rigidbody2D __rb = pets.GetComponent<Rigidbody2D>();
+                /*if (pets.transform.position.x < transform.position.x)
                 {
-                    growlForce *= -1;
+                    growlForceX *= -1;
                 }
-                rb.AddForce(transform.up * growlForce);
-                if (growlForce < 1)
+                __rb.AddForce(transform.right * growlForceX);
+                Debug.Log("Pushed " + pets);
+                if (growlForceX < 1)
                 {
-                    growlForce *= -1;
+                    growlForceX *= -1;
                 }
+
+                if (pets.transform.position.y < transform.position.y)
+                {
+                    growlForceY *= -1;
+                }
+                __rb.AddForce(transform.up * growlForceY);
+                if (growlForceY < 1)
+                {
+                    growlForceY *= -1;
+                }   */
+                Vector2 direction = (pets.transform.position - transform.position).normalized;
+
+                __rb.AddForce(direction * growlForce, ForceMode2D.Impulse);      
             }     
             yield return new WaitForSeconds(1f);
             

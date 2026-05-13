@@ -1903,19 +1903,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2623675036779297543, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.66120005
+      value: 0.3997412
       objectReference: {fileID: 0}
     - target: {fileID: 2623675036779297543, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.66015005
+      value: 0.392123
       objectReference: {fileID: 0}
     - target: {fileID: 2623675036779297543, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.64
+      value: 4.7903
       objectReference: {fileID: 0}
     - target: {fileID: 2623675036779297543, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 2623675036779297543, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1971,11 +1971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5764604789617943928, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: growlForce
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5764604789617943928, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: healthPoints
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6155140930502398502, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_Name
