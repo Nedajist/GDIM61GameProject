@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour // Pet and Rectangle inherits from this
+public class Entity : Movable // Pet and Rectangle inherits from this
 {
     [SerializeField] public float healthPoints;
     [SerializeField] protected SpriteRenderer _sprite;
-    [SerializeField] protected Rigidbody2D _rb;
 
     protected Color originalColor;
 

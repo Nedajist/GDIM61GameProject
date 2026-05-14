@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : Movable
 {
 
     [SerializeField] protected float _lifespan = 6;
@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected float _minMovementSpeed = 2;
     [SerializeField] bool _initialLockon = true;
     [SerializeField] public float damage;
-    [SerializeField] public Rigidbody2D _rb;
 
 
     [HideInInspector] public Side side;

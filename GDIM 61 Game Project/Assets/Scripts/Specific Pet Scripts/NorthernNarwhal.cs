@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class NorthernNarwhal : Pet
 {
+    [SerializeField] private float _secondsBetweenProjectiles = 3f;
+
+    private void Update()
+    {
+
+    }
+
+
     private bool isCharging = false;
     public override void FaceLeft()
     {
-        _sprite.flipX = true;
+        _sprite.flipX = false;
     }
 
     public override void FaceRight()
     {
-        _sprite.flipX = false;
+        _sprite.flipX = true;
     }
 
     // Update is called once per frame
