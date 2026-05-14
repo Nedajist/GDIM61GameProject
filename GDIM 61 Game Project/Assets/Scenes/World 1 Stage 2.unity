@@ -412,6 +412,68 @@ Transform:
   - {fileID: 768169301}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &284902081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3110330813763364233, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_Name
+      value: Pet Shop Zone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.8601
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+--- !u!1 &284902082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3110330813763364233, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
+  m_PrefabInstance: {fileID: 284902081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304369946
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +584,7 @@ MonoBehaviour:
   enemyTeamList: []
   dividingWall: {fileID: 609010107}
   rectangleDrawer: {fileID: 24209473}
+  shopObject: {fileID: 284902082}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
   levelCompleteCoinBonus: 6
@@ -1999,6 +2062,7 @@ SceneRoots:
   - {fileID: 405178578}
   - {fileID: 826482883}
   - {fileID: 3498922571646538435}
+  - {fileID: 284902081}
   - {fileID: 1082976024}
   - {fileID: 123757736}
   - {fileID: 609010109}

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87946d70d3aec64d8fc6dd84c71c421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 6
+  healthPoints: 8
   _sprite: {fileID: 2431337850806243857}
   _rb: {fileID: -22623424007582610}
   petName: 
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!50 &-22623424007582610
 Rigidbody2D:
   serializedVersion: 4

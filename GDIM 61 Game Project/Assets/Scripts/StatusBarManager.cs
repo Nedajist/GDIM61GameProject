@@ -32,7 +32,6 @@ public class StatusBarManager : MonoBehaviour
 
     public void StartStatus(StatusType type, float duration, string text)
     {
-
         if (_statusBarDict.ContainsKey(type))
         {
             StatusBar existingBar = _statusBarDict[type].GetComponent<StatusBar>();

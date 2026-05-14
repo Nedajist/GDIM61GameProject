@@ -563,7 +563,7 @@ MonoBehaviour:
   speedMultiplier: 1
   speedBoostPerCollision: 0.15
   attackBoost: 0.3
-  speedBoost: 0.1
+  speedBoost: 0.05
 --- !u!114 &8075181766541697659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!58 &5987966235036616998
 CircleCollider2D:
   m_ObjectHideFlags: 0

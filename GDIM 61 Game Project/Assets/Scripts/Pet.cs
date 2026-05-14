@@ -50,6 +50,7 @@ public class Pet : Entity
     protected virtual void Start()
     {
         _baseAttack = attack;
+        _trueMaxHealth = healthPoints + 20f;
         SetColor();
         StartCoroutine(MouseDetect());
     }
@@ -247,6 +248,7 @@ public class Pet : Entity
     public void ReceiveHealing(float amount)
     {
         if (healthPoints + amount > _trueMaxHealth) return;
+        StartCoroutine(FlashColor(0.1f, 0.1f, Color.green));
         healthPoints += amount;
         if (healthPoints > maxHealthPoints)
         {

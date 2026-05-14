@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3a43c059d4c2342b7b7c98dea97ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 20
+  healthPoints: 30
   _sprite: {fileID: 2431337850806243857}
   _rb: {fileID: -22623424007582610}
   petName: Hyena
@@ -119,7 +119,7 @@ MonoBehaviour:
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
   smallHyena: {fileID: 1198655688962832618, guid: 19e6c408fde2d9148a08e31715da0515, type: 3}
-  secondsBetweenSummon: 2
+  secondsBetweenSummon: 3
 --- !u!114 &8990025617929868832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!50 &-22623424007582610
 Rigidbody2D:
   serializedVersion: 4

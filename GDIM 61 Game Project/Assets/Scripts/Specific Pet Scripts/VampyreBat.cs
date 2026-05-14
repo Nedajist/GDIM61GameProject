@@ -19,10 +19,18 @@ public class VampyreBat : Pet
 
     protected override void DamageCheck(Pet other)
     {
+        if (other.petSide != petSide)
+        {
+            other.ReceiveDamage(attack);
+        }
+
         if (other && currentHealing < maxHealing)
         {
+            if (other.petSide == petSide)
+            {
+                other.ReceiveDamage(attack);
+            }
             currentHealing += attack;
-            other.ReceiveDamage(attack);
             other.transform.GetComponent<StatusBarManager>().StartStatus(StatusType.sap, 0.5f, "SAPPED");
             ReceiveHealing(attack);
             GameController.instance.CullLists(teamList);

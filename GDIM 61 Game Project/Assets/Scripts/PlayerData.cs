@@ -25,6 +25,7 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
 
     public void LevelBeaten()
     {
+        playerSavedTeamList.Clear();
         foreach (string petName in playerTempTeamList)
         {
             playerSavedTeamList.Add(petName);
@@ -42,6 +43,10 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
     public void ResetPlayerTempTeamList()
     {
         playerTempTeamList.Clear();
+        foreach (string petName in playerSavedTeamList)
+        {
+            playerTempTeamList.Add(petName);
+        }
     }
 
     public void InstantiateSavedPlayerTeam()

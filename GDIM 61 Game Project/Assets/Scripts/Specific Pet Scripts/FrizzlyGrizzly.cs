@@ -9,8 +9,6 @@ public class FrizzlyGrizzly : Pet
     [SerializeField] private GameObject growlOnam;
     [SerializeField] private float growlForce = 100f;
     //[SerializeField] private GameObject growlCollider;
-    private Rigidbody2D rb;
-    private bool isGrowling;
     [SerializeField] TeddyBear teddyBear;
 
     private List<GameObject> allyList;
@@ -33,10 +31,8 @@ public class FrizzlyGrizzly : Pet
         if (teddyBear.isCubAlive == false && !_enraged)
         {
             RagePhase();
-            if (isGrowling == false)
-            {
-                StartCoroutine(Growl(growlDelay));
-            }
+            StartCoroutine(Growl(growlDelay));
+           
            // speedMultiplier += 0.5f;
             _chanceToTargetEnemyOnCollision = 0.8f;
             _enraged = true;
@@ -65,7 +61,6 @@ public class FrizzlyGrizzly : Pet
             yield return new WaitForFixedUpdate();
             growlOnam.SetActive(false);
         }*/
-        isGrowling = true;
 
         while (true)
         {
@@ -95,7 +90,7 @@ public class FrizzlyGrizzly : Pet
                 }   */
                 Vector2 direction = (pets.transform.position - transform.position).normalized;
 
-                __rb.AddForce(direction * growlForce, ForceMode2D.Impulse);      
+                __rb.AddForce(direction * growlForce, ForceMode2D.Impulse);
             }
             speedMultiplier += 0.5f;
             yield return new WaitForSeconds(1f);

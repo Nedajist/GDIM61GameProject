@@ -36,7 +36,6 @@ public class TeddyBear : Pet
             {
                 petCollider.ReceiveHealing(3);
                 currentHealing += 3;
-                petCollider.StartCoroutine(petCollider.FlashColor(0.1f, 0.1f, Color.green));
             }
         }
     }

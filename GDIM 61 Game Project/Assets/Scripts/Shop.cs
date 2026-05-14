@@ -42,6 +42,7 @@ public class Shop : MonoBehaviour
             if (_recipientIDs[pair.Key].petTimer <= 0)
             {
                 GameController.instance.saveData.playerCoinBalance += (_recipientIDs[pair.Key].petObject.GetComponent<Pet>().cost - 1); // sells pets for $1 less than what they're worth 
+                GameController.instance.saveData.playerTempTeamList.Remove(_recipientIDs[pair.Key].petObject.GetComponent<Pet>().petName);
                 Destroy(_recipientIDs[pair.Key].petObject);
                 UIController.Instance.UpdateCoinBalanceText();
                 _recipientIDs.Remove(pair.Key);
@@ -64,6 +65,7 @@ public class Shop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.transform.GetComponent<Pet>().bought == false) return;
         _listOfRecipients.Add(collision.transform.gameObject);
         PetTimerPair pair = new PetTimerPair();
         pair.petObject = collision.transform.gameObject;
@@ -75,9 +77,14 @@ public class Shop : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.transform.GetComponent<Pet>().bought == false) return;
         _listOfRecipients.Remove(collision.transform.gameObject);
-        _recipientIDs[collision.transform.GetInstanceID()].petTimer = _timeToSell;
-        collision.transform.GetComponent<CircleCollider2D>().isTrigger = false;
+        if (_recipientIDs.ContainsKey(collision.transform.GetInstanceID()))
+        {
+            _recipientIDs[collision.transform.GetInstanceID()].petTimer = _timeToSell;
+            collision.transform.GetComponent<CircleCollider2D>().isTrigger = false;
+        }
+
     }
 
 }

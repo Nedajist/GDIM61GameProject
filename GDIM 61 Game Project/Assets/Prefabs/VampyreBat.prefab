@@ -299,7 +299,7 @@ MonoBehaviour:
   _sprite: {fileID: 400417886947751814}
   _rb: {fileID: 3610745423054234821}
   petName: VampyreBat
-  attack: 2
+  attack: 1.5
   cost: 6
   speed: 1.5
   petSide: 0
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!114 &2704843607817009226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 0}
+  _startingHeight: 1.2
 --- !u!50 &3610745423054234821
 Rigidbody2D:
   serializedVersion: 4

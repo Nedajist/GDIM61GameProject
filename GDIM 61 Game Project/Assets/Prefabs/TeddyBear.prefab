@@ -628,7 +628,7 @@ MonoBehaviour:
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0
   isCub: 0
   isCubAlive: 1
 --- !u!114 &6249938899421204844
@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!58 &2278416031313544285
 CircleCollider2D:
   m_ObjectHideFlags: 0

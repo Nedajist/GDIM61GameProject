@@ -271,9 +271,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6231891357403227998}
   - {fileID: 3091746880412256165}
   - {fileID: 1101216067477307547}
   m_Father: {fileID: 0}
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3875369a2d1baba48b3d075e4d3cdb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 60
+  healthPoints: 90
   _sprite: {fileID: 256447114076202559}
   _rb: {fileID: 7525258798503451245}
   petName: FrizzlyGrizzly
@@ -360,10 +361,8 @@ MonoBehaviour:
   speedBoostPerCollision: 0.1
   spriteRender: {fileID: 256447114076202559}
   growlDelay: 5
-  growlOnam: {fileID: 6982691797784502234, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
-  xOnamPosModifier: 0
-  yOnamPosModifier: 0
-  growlForce: 10
+  growlOnam: {fileID: 4314072737924589409}
+  growlForce: 60
   teddyBear: {fileID: 0}
 --- !u!114 &1093099810276473062
 MonoBehaviour:
@@ -397,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
-  _startingHeight: 3.3
+  _startingHeight: 1.8
 --- !u!50 &7525258798503451245
 Rigidbody2D:
   serializedVersion: 4
@@ -529,7 +528,7 @@ RectTransform:
   m_Father: {fileID: 5508872321909693899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -5.0011, y: 0}
   m_SizeDelta: {x: -0.002, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -625,7 +624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3091746880412256165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -635,7 +634,7 @@ RectTransform:
   m_GameObject: {fileID: 8694998712987986475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8354810537923112637}
@@ -744,7 +743,7 @@ RectTransform:
   m_Father: {fileID: 7175685213589233001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -5.0011, y: 0}
   m_SizeDelta: {x: -0.002, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -874,3 +873,82 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &6573332950783080635
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2623675036779297543}
+    m_Modifications:
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.31230003
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3093
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.338
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.3212013
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982691797784502234, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_Name
+      value: GrowlOnam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982691797784502234, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+--- !u!1 &4314072737924589409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6982691797784502234, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+  m_PrefabInstance: {fileID: 6573332950783080635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6231891357403227998 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 956182960100548581, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
+  m_PrefabInstance: {fileID: 6573332950783080635}
+  m_PrefabAsset: {fileID: 0}
