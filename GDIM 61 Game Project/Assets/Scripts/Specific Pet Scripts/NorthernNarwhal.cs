@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NorthernNarwhal : Pet
 {
-<<<<<<< Updated upstream
     [SerializeField] private float _secondsBetweenProjectiles = 3f;
 
     private void Update()
@@ -13,11 +12,6 @@ public class NorthernNarwhal : Pet
     }
 
 
-=======
-    [SerializeField] GameObject aoePrefab;
-    [SerializeField] float aoeCooldown = 3f;
-    private bool triggerAOE = false;
->>>>>>> Stashed changes
     private bool isCharging = false;
     public override void FaceLeft()
     {
@@ -47,18 +41,5 @@ public class NorthernNarwhal : Pet
             speed /= 10f;
             isCharging = false;
         }
-    }
-
-    void AOE()
-    {
-        Instantiate(aoePrefab, transform);
-        aoePrefab.transform.localScale *= 2;
-    }
-
-    IEnumerator AOEManager()
-    {
-        yield return new WaitForSeconds(aoeCooldown);
-
-        triggerAOE = true;
     }
 }

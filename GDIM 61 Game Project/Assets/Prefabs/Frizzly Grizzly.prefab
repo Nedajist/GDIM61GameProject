@@ -343,35 +343,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3875369a2d1baba48b3d075e4d3cdb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   healthPoints: 90
-=======
-  healthPoints: 120
->>>>>>> Stashed changes
   _sprite: {fileID: 256447114076202559}
   _rb: {fileID: 7525258798503451245}
   petName: FrizzlyGrizzly
-  attack: 2
+  attack: 3
   cost: 0
   speed: 0.5
   petSide: 1
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
   bought: 0
-  maxHealthPoints: 120
+  maxHealthPoints: 50
   teamList: []
   enemyList: []
   speedMultiplier: 1
   speedBoostPerCollision: 0.1
   spriteRender: {fileID: 256447114076202559}
   growlDelay: 5
-<<<<<<< Updated upstream
   growlOnam: {fileID: 4314072737924589409}
   growlForce: 60
-=======
-  growlOnam: {fileID: 6982691797784502234, guid: 881c0b4fee1502e4d92e05ebca257404, type: 3}
-  growlForce: 10
->>>>>>> Stashed changes
   teddyBear: {fileID: 0}
 --- !u!114 &1093099810276473062
 MonoBehaviour:
