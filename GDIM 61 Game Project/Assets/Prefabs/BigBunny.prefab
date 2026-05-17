@@ -353,9 +353,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a9654544fdfbb4d906adbd6ddc7228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 1643762077755097354}
   healthPoints: 20
   _sprite: {fileID: 1738298173498913310}
-  _rb: {fileID: 1643762077755097354}
   petName: BigBunny
   attack: 3
   cost: 3
@@ -375,7 +375,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speedMultiplier: 1
-  speedBoostPerCollision: 0.15
+  speedBoostPerCollision: 0.1
 --- !u!114 &704186692905677020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!58 &7546053811967259901
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -213,22 +213,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef9d038052fd5a41b602bb1b49c9e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 3954334294252382917}
   healthPoints: 20
   _sprite: {fileID: 7781479719402660619}
-  _rb: {fileID: 3954334294252382917}
   petName: BurntBluejay
   attack: 0
-  cost: 5
+  cost: 8
   speed: 1
   petSide: 0
   petTooltipPrefab: {fileID: 0}
-  _secondsBetweenMovement: 2.8
+  _secondsBetweenMovement: 2
   bought: 0
   maxHealthPoints: 15
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0
   fireballPrefab: {fileID: 5977031208853036577, guid: ca93f7846d405a64c843c40e8de4983e, type: 3}
   launchForce: 3
   fireballCooldown: 2
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!50 &3954334294252382917
 Rigidbody2D:
   serializedVersion: 4

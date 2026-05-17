@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d562c3d9f2344454a9173ca7f27c5a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 926095644756668434}
   _lifespan: 6
   _movementSpeed: 4
   _minMovementSpeed: 2
   _initialLockon: 1
-  damage: 3
-  _rb: {fileID: 926095644756668434}
+  damage: 5
   side: 0
 --- !u!50 &926095644756668434
 Rigidbody2D:
