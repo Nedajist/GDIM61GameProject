@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VampyreBat : Pet
 {
-    private float maxHealing = 50;
+    private float maxHealing = 100;
     private float currentHealing = 0;
     public override void FaceLeft()
     {
@@ -19,6 +19,8 @@ public class VampyreBat : Pet
 
     protected override void DamageCheck(Pet other)
     {
+        CalculateAttack();
+
         if (other.petSide != petSide)
         {
             other.ReceiveDamage(attack);

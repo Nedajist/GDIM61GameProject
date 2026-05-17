@@ -6,8 +6,15 @@ public class TeddyBear : Pet
 {
     public bool isCub = false;
     public bool isCubAlive = true;
-    private int maxPossibleHealing = 50;
-    private float currentHealing = 0;
+    private int _maxPossibleHealing = 50;
+    private float _currentHealing = 0;
+    [SerializeField] float _healCooldown = 0.25f;
+
+    private float _healTimer = 0f;
+    private void Update()
+    {
+        _healTimer -= Time.deltaTime;
+    }
     public override void FaceLeft()
     {
         _sprite.flipX = true;
@@ -32,10 +39,11 @@ public class TeddyBear : Pet
 
         if (GameController.instance.currentGameState == GameState.Combat)
         {
-            if (petCollider != null && petCollider.petSide == petSide && currentHealing < maxPossibleHealing)
+            if (petCollider != null && petCollider.petSide == petSide && _currentHealing < _maxPossibleHealing && _healTimer <= 0)
             {
                 petCollider.ReceiveHealing(3);
-                currentHealing += 3;
+                _currentHealing += 3;
+                _healTimer = _healCooldown;
             }
         }
     }

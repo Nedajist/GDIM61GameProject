@@ -40,6 +40,8 @@ public class FrizzlyGrizzly : Pet
     }
     void RagePhase()
     {
+        _baseAttack += 1;
+        speed += 2;
         spriteRender.color = new Color(0.831f, 0.082f, 0.255f);
         SetColor();
     }

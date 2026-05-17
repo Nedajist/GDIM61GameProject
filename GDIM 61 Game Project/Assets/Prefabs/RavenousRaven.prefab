@@ -213,11 +213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21fa6bad41ac304c9ae3afa38a64ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 20
-  _sprite: {fileID: 1208323399934278147}
   _rb: {fileID: -183616805731933954}
+  healthPoints: 30
+  _sprite: {fileID: 1208323399934278147}
   petName: RavenousRaven
-  attack: 7
+  attack: 6
   cost: 7
   speed: 1
   petSide: 0
@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusBarObject: {fileID: 2254741104285468745, guid: 5efca8717cffbd244bd7e8aedb0cce9e, type: 3}
+  _startingHeight: 1.2
 --- !u!50 &-183616805731933954
 Rigidbody2D:
   serializedVersion: 4

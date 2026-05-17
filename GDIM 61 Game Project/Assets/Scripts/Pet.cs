@@ -16,7 +16,7 @@ public enum Side
 public class Pet : Entity
 {
     [SerializeField] public string petName;
-    [SerializeField] public float attack;
+    [SerializeField] public float attack; // set attack in inspector, baseattack is set to attack at start. Do not modify attack in script after that. Only modify base attack.
     [SerializeField] public int cost;
     [SerializeField] public float speed;
     [SerializeField] public Side petSide;
@@ -37,10 +37,12 @@ public class Pet : Entity
     protected float _movementTimer = 0f;
     private float timeRemaining = 0.5f;
 
-    private float _damageMultiplier = 1;
-    private float _maxSpeedMultiplier = 15f;
-    private float _trueMaxHealth = 50f;
+    protected float _damageMultiplier = 1;
+    protected float _maxSpeedMultiplier = 15f;
+    protected float _trueMaxHealth = 50f;
     protected float _baseAttack;
+    protected float _iframes = 0.2f; // invincibility frames from PET ATTACKS ONLY
+    protected float _iframeTimer = 0f;
 
     private void Awake()
     {
@@ -77,6 +79,7 @@ public class Pet : Entity
 
         if (GameController.instance.currentGameState == GameState.Combat)
         {
+            _iframeTimer -= Time.deltaTime;
             _movementTimer -= Time.fixedDeltaTime;
             if (_movementTimer <= 0)
             {
@@ -173,11 +176,10 @@ public class Pet : Entity
         _movementTimer = _secondsBetweenMovement; // resets auto move timer 
         speedMultiplier += speedBoostPerCollision;
         speedMultiplier = Mathf.Clamp(speedMultiplier, 0, _maxSpeedMultiplier);
-
+        
         ClampVelocity();
-
-        _damageMultiplier = 1 + _rb.velocity.magnitude / _maxSpeedMultiplier * 2; // right now, max damage boost pets get is 50% from max speed 
-        attack = _baseAttack * _damageMultiplier;
+        CalculateAttack();
+        
         
         if (collidingRectangle != null) // colliding with drawn rectangle confirmed
         {
@@ -237,12 +239,23 @@ public class Pet : Entity
 
     protected virtual void DamageCheck (Pet other) // given other pet that this pet has collided into, evaluates whether or not it should recieve dmg + if any of this pet's special abilities will activate
     {
-        if (other.petSide != petSide)
+        if (other.petSide != petSide && other.CanBeAttackedCheck())
         {
+            other.ResetIFrames();
             other.ReceiveDamage(attack);
             GameController.instance.CullLists(teamList);
             AlertAlliesOfAttack();
         }
+    }
+
+    public bool CanBeAttackedCheck()
+    {
+        return _iframeTimer <= 0;
+    }
+
+    public void ResetIFrames()
+    {
+        _iframeTimer = _iframes;
     }
 
     public void ReceiveHealing(float amount)
@@ -445,7 +458,11 @@ public class Pet : Entity
     }
 
 
-
+    protected void CalculateAttack()
+    {
+        _damageMultiplier = 1 + _rb.velocity.magnitude / _maxSpeedMultiplier * 2; // right now, max damage boost pets get is 50% from max speed 
+        attack = _baseAttack * _damageMultiplier;
+    }
 
 
 

@@ -295,12 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d048cd8402db34c8bb45348bcab4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 3610745423054234821}
   healthPoints: 15
   _sprite: {fileID: 400417886947751814}
-  _rb: {fileID: 3610745423054234821}
   petName: VampyreBat
   attack: 1.5
-  cost: 6
+  cost: 7
   speed: 1.5
   petSide: 0
   petTooltipPrefab: {fileID: 0}

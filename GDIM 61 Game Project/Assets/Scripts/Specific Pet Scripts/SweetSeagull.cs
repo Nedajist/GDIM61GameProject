@@ -20,7 +20,9 @@ public class SweetSeagull : Pet
         base.Die();
         foreach (GameObject pet in enemyList)
         {
+            if (pet == null) continue;
             pet.GetComponent<Pet>().StartCoroutine(pet.GetComponent<Pet>().Freeze(1.5f));
+            pet.GetComponent<Pet>().speedMultiplier *= 0.9f;
         }
     }
 
