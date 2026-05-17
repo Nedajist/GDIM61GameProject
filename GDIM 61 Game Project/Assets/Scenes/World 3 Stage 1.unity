@@ -589,7 +589,7 @@ MonoBehaviour:
   shopObject: {fileID: 72252550}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
-  levelCompleteCoinBonus: 6
+  levelCompleteCoinBonus: 5
   buildingBalance: 3
   UI: {fileID: 0}
 --- !u!1001 &411345249
@@ -1853,7 +1853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3590738283832537358, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: nextLevelSceneIndex
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7215870065688929184, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: m_Pivot.x
@@ -2029,9 +2029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c555812eb802cda4baa19053f6641320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 2412729814213469885}
   healthPoints: 30
   _sprite: {fileID: 6385941616019728683}
-  _rb: {fileID: 2412729814213469885}
   knockbackForce: 3
   damage: 3
   _speed: 5

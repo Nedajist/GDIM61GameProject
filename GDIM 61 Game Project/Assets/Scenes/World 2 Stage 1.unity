@@ -525,7 +525,7 @@ MonoBehaviour:
   shopObject: {fileID: 1156060240}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
-  levelCompleteCoinBonus: 5
+  levelCompleteCoinBonus: 4
   buildingBalance: 2
   UI: {fileID: 0}
 --- !u!1001 &408289383
@@ -887,6 +887,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4379112782039170753, guid: ae3c474455ff86240aa66b9727becffd, type: 3}
   m_PrefabInstance: {fileID: 886105859}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &945968382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309614756630226334, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715069665183267448, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
+      propertyPath: m_Name
+      value: BeachBall (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33fe8be6d8b9d964b9bf7e97167edd11, type: 3}
 --- !u!1 &1082976022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,3 +2000,4 @@ SceneRoots:
   - {fileID: 169500737}
   - {fileID: 304369949}
   - {fileID: 1620480350398763862}
+  - {fileID: 945968382}

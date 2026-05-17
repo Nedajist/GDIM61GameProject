@@ -983,7 +983,7 @@ MonoBehaviour:
   _retryLevelButton: {fileID: 1495483972}
   _pauseButton: {fileID: 0}
   _nameAndAbilityBox: {fileID: 939373863}
-  nextLevelSceneIndex: 6
+  nextLevelSceneIndex: 10
 --- !u!1 &291659522
 GameObject:
   m_ObjectHideFlags: 0

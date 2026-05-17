@@ -390,23 +390,20 @@ public class Pet : Entity
             bool isClicked = false;
 
 
-            if (hit.collider != null & petSide == Side.player && GameController.instance.currentGameState == GameState.BuyPhase)
+            if (hit.collider != null & petSide == Side.player && GameController.instance.currentGameState == GameState.BuyPhase && hit.transform == transform)
             {
-                if (hit.transform == transform)
+
+                ReturnAbilityText();
+                UIController.Instance.ShowStats(healthPoints, attack, cost, _abilityText);
+                _sprite.color = Color.grey;
+                hoveredOnPreviousFrame = true;
+                if (Input.GetMouseButton(0))
                 {
-
-                    ReturnAbilityText();
-                    UIController.Instance.ShowStats(healthPoints, attack, cost, _abilityText);
-                    _sprite.color = Color.grey;
-                    hoveredOnPreviousFrame = true;
-                    if (Input.GetMouseButton(0))
+                    if (cost <= GameController.instance.saveData.playerCoinBalance || bought == true)
                     {
-                        if (cost <= GameController.instance.saveData.playerCoinBalance || bought == true)
-                        {
 
-                            isClicked = true;
-                            PurchaseCheck();
-                        }
+                        isClicked = true;
+                        PurchaseCheck();
                     }
                 }
 

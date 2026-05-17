@@ -1081,7 +1081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3590738283832537358, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: nextLevelSceneIndex
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7215870065688929184, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: m_Pivot.x
