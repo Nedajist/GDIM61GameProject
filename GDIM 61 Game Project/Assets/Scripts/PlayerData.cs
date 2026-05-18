@@ -14,6 +14,8 @@ public class PlayerData : ScriptableObject // this is a scriptable object which 
     public int startingPlayerBalance = 20;
     private Vector3 startingSpawnCoordinate = new Vector3(-6.51f, 3.51f, 0);
 
+    public bool tutorialComplete = false;
+
     public void ResetEverything()
     {
         playerTempTeamList = new List<string>();
