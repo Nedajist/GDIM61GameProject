@@ -28,16 +28,7 @@ public class HealthBar : MonoBehaviour
     {
         _originalScale = _barCanvas.transform.localScale;
 
-        _currentPet = transform.GetComponent<Pet>();
-        if (_currentPet.petSide == Side.player)
-        {
-            _healthBarImage.color = Color.green;
-
-        }
-        else
-        {
-            _healthBarImage.color = Color.yellow;
-        }
+        SetBarColor();
 
         _healthBar.maxValue = _maxHealth;
         _healthBar.value = _currentHealth;
@@ -93,6 +84,20 @@ public class HealthBar : MonoBehaviour
         _barBackground.transform.localScale = new Vector3(barScale, 1, 1);
     }
 
+    public void SetBarColor()
+    {
+        _currentPet = transform.GetComponent<Pet>();
+        if (_currentPet.petSide == Side.player)
+        {
+            _healthBarImage.color = Color.green;
+
+        }
+        else
+        {
+            _healthBarImage.color = Color.yellow;
+        }
+
+    }
     public IEnumerator TempSizeChange(float easeIn, float easeOut, float scaleIncrease)
     {
         float duration = easeIn;

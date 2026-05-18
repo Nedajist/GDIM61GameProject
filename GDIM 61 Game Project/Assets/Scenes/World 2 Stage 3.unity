@@ -3539,6 +3539,63 @@ RectTransform:
   m_AnchoredPosition: {x: 7, y: -231}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1771887369
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289467699855256966, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_Name
+      value: Pet Shop Zone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
 --- !u!1001 &1878898608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3913,7 +3970,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -99
   m_Sprite: {fileID: 21300000, guid: 2326421d1fe46f34883995c2b6c6c116, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4154,6 +4211,7 @@ SceneRoots:
   - {fileID: 967317482}
   - {fileID: 753896272}
   - {fileID: 772464158}
+  - {fileID: 1771887369}
   - {fileID: 847970266}
   - {fileID: 221168528}
   - {fileID: 1958776234}

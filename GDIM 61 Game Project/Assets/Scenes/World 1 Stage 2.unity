@@ -127,6 +127,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6480119132978546635, guid: a5461c2429994be44add741231e61f33, type: 3}
   m_PrefabInstance: {fileID: 3498922571646538435}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &38635731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929184336791061807, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289467699855256966, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+      propertyPath: m_Name
+      value: Pet Shop Zone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
 --- !u!1 &123757735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1402,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -99
   m_Sprite: {fileID: 21300000, guid: 519959e4f35f51d4a8dbf302708d9b9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1706,3 +1763,4 @@ SceneRoots:
   - {fileID: 256757327}
   - {fileID: 169500737}
   - {fileID: 304369949}
+  - {fileID: 38635731}

@@ -29,8 +29,7 @@ public class GameController : MonoBehaviour // this is a Singleton
     private bool _levelOver = false;
     private float _secondsPassed = 0;
     private float _delayBetweenCombatPhases = 0.33f;
-    private Vector3[] playerShopPositionList = { new Vector3(-1.0f, -2.5f, 0), new Vector3(-2.3f, -2.5f, 0), new Vector3(-3.7f, -2.5f, 0), new Vector3(-5.12f, -2.5f, 0),
-                                                 new Vector3(-7.87f, -4.5f, 0), new Vector3(-6.58f, -4.5f, 0), new Vector3(-5.12f, -4.5f, 0), new Vector3(-3.7f, -4.5f, 0), new Vector3(-2.3f, -4.5f, 0), new Vector3(-1.0f, -4.5f, 0)  };
+    private Vector3[] playerShopPositionList = { new Vector3(-0.5f, -2.5f, 0), new Vector3(-2.6f, -2.5f, 0), new Vector3(-4f, -2.5f, 0), new Vector3(-5.5f, -2.5f, 0)};
     public int levelCompleteCoinBonus = 5;
     public int buildingBalance = 3;
 
@@ -65,7 +64,7 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     }
 
-    private void SetPetLists()
+    public void SetPetLists()
     {
         Pet[] petList = GameObject.FindObjectsOfType<Pet>();
         foreach (Pet pet in petList)
@@ -82,12 +81,35 @@ public class GameController : MonoBehaviour // this is a Singleton
 
     }
 
+    public void SetPetEnemyAndTeamLists()
+    {
+        foreach (GameObject pet in playerTeamList)
+        {
+            if (pet == null)
+            {
+                continue;
+            }
+            pet.GetComponent<Pet>().teamList = playerTeamList;
+            pet.GetComponent<Pet>().enemyList = enemyTeamList;
+            pet.GetComponent<HealthBar>().ShowHealthBar();
+        }
+
+        foreach (GameObject pet in enemyTeamList)
+        {
+            pet.GetComponent<Pet>().teamList = enemyTeamList;
+            pet.GetComponent<Pet>().enemyList = playerTeamList;
+            pet.GetComponent<HealthBar>().ShowHealthBar();
+        }
+    }
+
     public void CommenceBattleButtonPressed()
     {
         if (currentGameState == GameState.BuyPhase && playerTeamList.Count > 0)
         {
             TransitionGameState(GameState.PreCombat);
+            saveData.tutorialComplete = true;
         }
+
     }
 
     private void TransitionGameState(GameState newGameState)
@@ -116,25 +138,7 @@ public class GameController : MonoBehaviour // this is a Singleton
                 dividingWall.SetActive(false);
                 UIController.Instance.HideStats();
 
-                foreach (GameObject pet in playerTeamList)
-                {
-                    if (pet == null)
-                    {
-                        continue;
-                    }
-                    pet.GetComponent<Pet>().petSide = Side.player;
-                    pet.GetComponent<Pet>().teamList = playerTeamList;
-                    pet.GetComponent<Pet>().enemyList = enemyTeamList;
-                    pet.GetComponent<HealthBar>().ShowHealthBar();
-                }
-
-                foreach (GameObject pet in enemyTeamList)
-                {
-                    pet.GetComponent<Pet>().petSide = Side.ai;
-                    pet.GetComponent<Pet>().teamList = enemyTeamList;
-                    pet.GetComponent<Pet>().enemyList = playerTeamList;
-                    pet.GetComponent<HealthBar>().ShowHealthBar();
-                }
+                SetPetEnemyAndTeamLists();
 
                 foreach (GameObject pet in playerShopList)
                 {
@@ -166,7 +170,10 @@ public class GameController : MonoBehaviour // this is a Singleton
     // Start is called before the first frame update
     void Start()
     {
-
+        if (saveData.tutorialComplete == false)
+        {
+            TutorialUIController.Instance.StartTutorial();
+        }
     }
 
     // Update is called once per frame
@@ -180,6 +187,7 @@ public class GameController : MonoBehaviour // this is a Singleton
         
     }
 
+    public void SetPet() { }
     void UnfreezeObstacles()
     {
         Obstacle[] obstacleList = GameObject.FindObjectsOfType<Obstacle>();
