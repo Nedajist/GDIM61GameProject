@@ -1394,7 +1394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3110330813763364233, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
       propertyPath: m_Name
-      value: Pet Shop Zone
+      value: Pet Sale Zone
       objectReference: {fileID: 0}
     - target: {fileID: 4735517381820799048, guid: 2c5c8dcc6e35c8a4eb33d9d15844bc14, type: 3}
       propertyPath: m_LocalPosition.x
