@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993499ad721504c4ab0ab345b90990cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: -7136207434556334153}
   healthPoints: 15
   _sprite: {fileID: 2481769788024184962}
-  _rb: {fileID: -7136207434556334153}
   _collider: {fileID: 1514342797483126017}
   _maxArea: 6
   placed: 0
