@@ -9,14 +9,16 @@ public class Sphynx : Pet
 {
     // Start is called before the first frame update
     [SerializeField] private TextMeshPro livesText;
-    private Vector3 pos; 
+    [SerializeField] private float fadeawayDuration = 0.5f;
+    [SerializeField] private Collider2D _collider;
+    private Vector2 minBounds = new Vector2(-5f, -5f);
+    private Vector2 maxBounds = new Vector2(5f, 5f);
     private int remainingLives = 9;
     private bool phase2;
     private bool isDying;
     protected override void Start()
     {
         base.Start();
-        pos = transform.position;
         phase2 = false;
         isDying = false;
         livesText.text = remainingLives.ToString();
@@ -43,7 +45,7 @@ public class Sphynx : Pet
 
         if (healthPoints <= 0 && remainingLives > 0)
         {
-            StartCoroutine(OnDeath(0.5f));
+            StartCoroutine(OnDeath(fadeawayDuration));
             livesText.text = remainingLives.ToString();
 
             if (remainingLives <= 5)
@@ -80,12 +82,16 @@ public class Sphynx : Pet
     {
         isDying = true;
         healthPoints = maxHealthPoints;
+        _collider.enabled = false;
+        float random = UnityEngine.Random.Range(minBounds.x, maxBounds.x);
 
         yield return new WaitForSeconds(duration);
 
-        transform.position = pos;
-        remainingLives -= 1;
         isDying = false;
+        SetVelocityInRandomDirection();
+        transform.position = new Vector2(random, random);
+        remainingLives -= 1;
+        _collider.enabled = true;
     }
 
     private void FadeAway()
@@ -100,8 +106,8 @@ public class Sphynx : Pet
         else if (isDying == false)
         {
             _rb.bodyType = RigidbodyType2D.Dynamic;
+            currentColor.a = 1f;
+            _sprite.color = currentColor;
         }
-    }
-
-    
+    }  
 }

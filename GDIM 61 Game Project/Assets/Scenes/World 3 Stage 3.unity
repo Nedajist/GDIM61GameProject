@@ -1668,6 +1668,8 @@ MonoBehaviour:
   speedMultiplier: 1
   speedBoostPerCollision: 0.2
   livesText: {fileID: 1559752903}
+  fadeawayDuration: 0.5
+  _collider: {fileID: 1762102226}
 --- !u!50 &1762102222 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3443924587938091720, guid: 6d3f7c033c08805429f73eb79fa7dd82, type: 3}
@@ -1676,6 +1678,11 @@ Rigidbody2D:
 --- !u!212 &1762102225 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6389121536163968084, guid: 6d3f7c033c08805429f73eb79fa7dd82, type: 3}
+  m_PrefabInstance: {fileID: 2034318467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1762102226 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1716561459059089714, guid: 6d3f7c033c08805429f73eb79fa7dd82, type: 3}
   m_PrefabInstance: {fileID: 2034318467}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1923050890
