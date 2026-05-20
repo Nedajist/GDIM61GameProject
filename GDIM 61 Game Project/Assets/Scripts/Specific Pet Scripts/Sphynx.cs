@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.PlayerLoop;
 
 public class Sphynx : Pet
@@ -16,10 +18,12 @@ public class Sphynx : Pet
     private int remainingLives = 9;
     private bool phase2;
     private bool isDying;
+    private HealthBar healthBar;
     protected override void Start()
     {
         base.Start();
-        phase2 = false;
+        //set to false later
+        phase2 = true;
         isDying = false;
         livesText.text = remainingLives.ToString();
     }
@@ -70,8 +74,19 @@ public class Sphynx : Pet
         {
             if (other.petSide != petSide && other.CanBeAttackedCheck())
             {
+                SpriteRenderer otherSprite = other.GetSprite();
                 other.ResetIFrames();
-                other.ReceiveDamage(attack);
+
+                if (attack > other.healthPoints)
+                {
+                    other.petSide = Side.ai;
+
+                    other.healthPoints = Mathf.Round(maxHealthPoints * 0.5f);
+                    Debug.Log(other.healthPoints);
+                    otherSprite.color = Color.green;
+
+                  //  healthBar.SetBarColor();
+                }
                 GameController.instance.CullLists(teamList);
                 AlertAlliesOfAttack();
             }

@@ -28,7 +28,7 @@ public class FrizzlyGrizzly : Pet
     }
     void Update()
     {
-        if (teddyBear.isCubAlive == false && !_enraged)
+        if (teddyBear != null && teddyBear.isCubAlive == false && !_enraged)
         {
             RagePhase();
             StartCoroutine(Growl(growlDelay));
