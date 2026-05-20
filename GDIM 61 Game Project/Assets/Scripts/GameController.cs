@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour // this is a Singleton
     [SerializeField] GameObject dividingWall;
     [SerializeField] GameObject rectangleDrawer;
     [SerializeField] GameObject shopObject;
+    [SerializeField] GameObject shopZoneObject;
+
     [SerializeField] bool _firstLevel;
 
     public PlayerData saveData;
@@ -108,6 +110,7 @@ public class GameController : MonoBehaviour // this is a Singleton
         {
             TransitionGameState(GameState.PreCombat);
             saveData.tutorialComplete = true;
+            TutorialUIController.Instance.gameObject.SetActive(false);
         }
 
     }
@@ -153,6 +156,7 @@ public class GameController : MonoBehaviour // this is a Singleton
                 currentGameState = GameState.Combat;
                 rectangleDrawer.SetActive(true);
                 shopObject.SetActive(false);
+                shopZoneObject.SetActive(false);
                 UnfreezeObstacles();
                 break;
 

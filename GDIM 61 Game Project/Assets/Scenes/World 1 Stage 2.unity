@@ -184,6 +184,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+--- !u!1 &38635732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4289467699855256966, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+  m_PrefabInstance: {fileID: 38635731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &123757735
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +646,7 @@ MonoBehaviour:
   dividingWall: {fileID: 609010107}
   rectangleDrawer: {fileID: 24209473}
   shopObject: {fileID: 284902082}
+  shopZoneObject: {fileID: 38635732}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
   levelCompleteCoinBonus: 4
@@ -1754,6 +1760,7 @@ SceneRoots:
   - {fileID: 826482883}
   - {fileID: 3498922571646538435}
   - {fileID: 284902081}
+  - {fileID: 38635731}
   - {fileID: 1082976024}
   - {fileID: 123757736}
   - {fileID: 609010109}
@@ -1763,4 +1770,3 @@ SceneRoots:
   - {fileID: 256757327}
   - {fileID: 169500737}
   - {fileID: 304369949}
-  - {fileID: 38635731}

@@ -2167,6 +2167,7 @@ MonoBehaviour:
   dividingWall: {fileID: 41966609}
   rectangleDrawer: {fileID: 1220505307}
   shopObject: {fileID: 1587675922}
+  shopZoneObject: {fileID: 1771887370}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
   levelCompleteCoinBonus: 5
@@ -3596,6 +3597,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+--- !u!1 &1771887370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4289467699855256966, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+  m_PrefabInstance: {fileID: 1771887369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1878898608
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -312,6 +312,10 @@ PrefabInstance:
       propertyPath: petSide
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6767366322903959115, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
+      propertyPath: healthPoints
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -825,6 +829,10 @@ PrefabInstance:
       propertyPath: petSide
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6767366322903959115, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
+      propertyPath: healthPoints
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -961,6 +969,7 @@ MonoBehaviour:
   dividingWall: {fileID: 609010107}
   rectangleDrawer: {fileID: 24209473}
   shopObject: {fileID: 852278970}
+  shopZoneObject: {fileID: 5143759994825031264}
   _firstLevel: 1
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
   levelCompleteCoinBonus: 3
@@ -5140,6 +5149,10 @@ PrefabInstance:
       propertyPath: petSide
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6767366322903959115, guid: f6abdb471c9454940826be9548fbd4be, type: 3}
+      propertyPath: healthPoints
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5610,6 +5623,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+--- !u!1 &5143759994825031264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4289467699855256966, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+  m_PrefabInstance: {fileID: 5143759994825031263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6181637737374681033
 PrefabInstance:
   m_ObjectHideFlags: 0

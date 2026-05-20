@@ -958,6 +958,7 @@ MonoBehaviour:
   dividingWall: {fileID: 609010107}
   rectangleDrawer: {fileID: 24209473}
   shopObject: {fileID: 72252550}
+  shopZoneObject: {fileID: 1137941419}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
   levelCompleteCoinBonus: 5
@@ -2069,6 +2070,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+--- !u!1 &1137941419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4289467699855256966, guid: 2f6dba7431cd2be448c0f3602b5bf641, type: 3}
+  m_PrefabInstance: {fileID: 1137941418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317772606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3590738283832537358, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: nextLevelSceneIndex
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7215870065688929184, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: m_Pivot.x
