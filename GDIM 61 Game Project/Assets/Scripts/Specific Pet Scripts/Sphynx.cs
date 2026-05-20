@@ -18,10 +18,12 @@ public class Sphynx : Pet
     private int remainingLives = 9;
     private bool phase2;
     private bool isDying;
+    private HealthBar healthBar;
     protected override void Start()
     {
         base.Start();
-        phase2 = false;
+        //set to false later
+        phase2 = true;
         isDying = false;
         livesText.text = remainingLives.ToString();
     }
@@ -72,13 +74,19 @@ public class Sphynx : Pet
         {
             if (other.petSide != petSide && other.CanBeAttackedCheck())
             {
+                SpriteRenderer otherSprite = other.GetSprite();
                 other.ResetIFrames();
+
                 if (attack > other.healthPoints)
                 {
-                    
-                    //other.petSide == Side.ai;
+                    other.petSide = Side.ai;
+
+                    other.healthPoints = Mathf.Round(maxHealthPoints * 0.5f);
+                    Debug.Log(other.healthPoints);
+                    otherSprite.color = Color.green;
+
+                  //  healthBar.SetBarColor();
                 }
-                other.ReceiveDamage(attack);
                 GameController.instance.CullLists(teamList);
                 AlertAlliesOfAttack();
             }

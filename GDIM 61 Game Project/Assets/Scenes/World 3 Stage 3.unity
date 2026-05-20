@@ -1690,7 +1690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5764604789617943928, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: attack
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5764604789617943928, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: bought
@@ -1746,8 +1746,9 @@ MonoBehaviour:
   _rb: {fileID: 1762102222}
   healthPoints: 25
   _sprite: {fileID: 1762102225}
+  _getSprite: {fileID: 0}
   petName: Sphynx
-  attack: 2
+  attack: 5
   cost: 0
   speed: 2
   petSide: 1
@@ -2043,6 +2044,7 @@ MonoBehaviour:
   _rb: {fileID: 2412729814213469885}
   healthPoints: 30
   _sprite: {fileID: 6385941616019728683}
+  _getSprite: {fileID: 0}
   knockbackForce: 3
   damage: 3
   _speed: 5

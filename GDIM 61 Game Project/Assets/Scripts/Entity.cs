@@ -6,11 +6,9 @@ public class Entity : Movable // Pet and Rectangle inherits from this
 {
     [SerializeField] public float healthPoints;
     [SerializeField] protected SpriteRenderer _sprite;
+    public SpriteRenderer _getSprite;
 
     protected Color originalColor;
-
-
-
     protected void SetColor()
     {
         originalColor = _sprite.color;
@@ -68,6 +66,12 @@ public class Entity : Movable // Pet and Rectangle inherits from this
             yield return new WaitForFixedUpdate();
         }
         Destroy(gameObject);
+    }
+
+    public SpriteRenderer GetSprite()
+    {
+        _getSprite = GetComponent<SpriteRenderer>();
+        return _getSprite;
     }
 
 }
