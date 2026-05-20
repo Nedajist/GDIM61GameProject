@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.PlayerLoop;
 
 public class Sphynx : Pet
@@ -71,6 +73,11 @@ public class Sphynx : Pet
             if (other.petSide != petSide && other.CanBeAttackedCheck())
             {
                 other.ResetIFrames();
+                if (attack > other.healthPoints)
+                {
+                    
+                    //other.petSide == Side.ai;
+                }
                 other.ReceiveDamage(attack);
                 GameController.instance.CullLists(teamList);
                 AlertAlliesOfAttack();
