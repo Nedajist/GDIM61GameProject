@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
@@ -44,6 +45,7 @@ public class Pet : Entity
     protected float _iframes = 0.2f; // invincibility frames from PET ATTACKS ONLY
     protected float _iframeTimer = 0f;
 
+
     private void Awake()
     {
         maxHealthPoints = healthPoints;
@@ -55,7 +57,9 @@ public class Pet : Entity
         _trueMaxHealth = healthPoints + 20f;
         SetColor();
         StartCoroutine(MouseDetect());
+
     }
+
 
     //protected void BoundaryCheck() // checks if pet is out of bounds
     //{
