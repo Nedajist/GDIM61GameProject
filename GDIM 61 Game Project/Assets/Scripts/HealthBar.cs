@@ -37,6 +37,7 @@ public class HealthBar : MonoBehaviour
         _lazyBar.value = _currentHealth;
 
         UpdateBarScales();
+
     }
 
     // Update is called once per frame

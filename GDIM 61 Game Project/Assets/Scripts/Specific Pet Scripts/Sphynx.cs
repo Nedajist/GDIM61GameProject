@@ -10,7 +10,7 @@ using UnityEngine.PlayerLoop;
 public class Sphynx : Pet
 {
     // Start is called before the first frame update
-    [SerializeField] private TextMeshPro livesText;
+    [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private float fadeawayDuration = 0.5f;
     [SerializeField] private Collider2D _collider;
     private Vector2 minBounds = new Vector2(-5f, -5f);
@@ -18,14 +18,13 @@ public class Sphynx : Pet
     private int remainingLives = 9;
     private bool phase2;
     private bool isDying;
-    private HealthBar healthBar;
     protected override void Start()
     {
         base.Start();
-        //set to false later
-        phase2 = true;
+        phase2 = false;
         isDying = false;
-        livesText.text = remainingLives.ToString();
+
+        livesText.text = "9";
     }
 
     // Update is called once per frame
@@ -47,10 +46,12 @@ public class Sphynx : Pet
             transform.GetComponent<HealthBar>().StartCoroutine(transform.GetComponent<HealthBar>().TempSizeChange(0.15f, 0.15f, 0.5f));
         }
 
+
         if (healthPoints <= 0 && remainingLives > 0)
         {
             StartCoroutine(OnDeath(fadeawayDuration));
-            livesText.text = remainingLives.ToString();
+
+            UpdateLivesText(remainingLives);
 
             if (remainingLives <= 5)
             {
@@ -75,17 +76,25 @@ public class Sphynx : Pet
             if (other.petSide != petSide && other.CanBeAttackedCheck())
             {
                 SpriteRenderer otherSprite = other.GetSprite();
+                HealthBar otherHealthBar = other.GetComponent<HealthBar>();
+
                 other.ResetIFrames();
 
                 if (attack > other.healthPoints)
                 {
+                    other.maxHealthPoints = maxHealthPoints;
+                    other.healthPoints = maxHealthPoints;
+                    other.healthPoints *= 0.5f;
                     other.petSide = Side.ai;
 
-                    other.healthPoints = Mathf.Round(maxHealthPoints * 0.5f);
                     Debug.Log(other.healthPoints);
                     otherSprite.color = Color.green;
 
-                  //  healthBar.SetBarColor();
+                    otherHealthBar.SetBarColor();
+                }
+                else
+                {
+                    other.ReceiveDamage(attack);
                 }
                 GameController.instance.CullLists(teamList);
                 AlertAlliesOfAttack();
@@ -125,4 +134,9 @@ public class Sphynx : Pet
             _sprite.color = currentColor;
         }
     }  
+
+    private void UpdateLivesText(int currentLives)
+    {
+        livesText.text = currentLives.ToString();
+    }
 }
