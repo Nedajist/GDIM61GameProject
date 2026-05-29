@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class CatCar : Pet
 {
+    private bool isDriving;
+    private bool phase2;
+    protected override void Start()
+    {
+        base.Start();
+        isDriving = false;
+        phase2 = false;
+    }
+    void Update()
+    {
+        if (isDriving == false && phase2 == false)
+        {
+            StartCoroutine(Drive());
+        }
+    }
     public override void FaceLeft()
     {
         _sprite.flipX = true;
@@ -18,7 +33,20 @@ public class CatCar : Pet
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        StartCoroutine(Freeze(1f));
+    }
+
+    private IEnumerator Drive()
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        isDriving = true;
+        speed = 10f;
+
+        yield return new WaitForSeconds(2f);
+
+        speed = 0f;
+        isDriving = false;
     }
 
 }
