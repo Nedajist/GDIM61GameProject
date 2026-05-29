@@ -17,13 +17,13 @@ public class NorthernNarwhal : Pet
     private void Update()
     {
         _rb.freezeRotation = true;
-        if (transform.position.x <= 0)
-        {
-            FaceRight();
-        }
-        else if (transform.position.x > 0)
+        if (_rb.velocity.x < 0f)
         {
             FaceLeft();
+        }
+        else
+        {
+            FaceRight();
         }
         if (healthPoints <= maxHealthPoints * 0.5f)
         {

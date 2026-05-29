@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CatCar : Pet
@@ -11,13 +12,27 @@ public class CatCar : Pet
         base.Start();
         isDriving = false;
         phase2 = false;
+        speed = 0f;
     }
     void Update()
     {
+        _rb.freezeRotation = true;
         if (isDriving == false && phase2 == false)
         {
             StartCoroutine(Drive());
         }
+        if (_rb.velocity.x < 0f)
+        {
+            FaceLeft();
+        }
+        else
+        {
+            FaceRight();
+        }
+    }
+    protected override void FixedUpdate()
+    {
+        
     }
     public override void FaceLeft()
     {
@@ -40,8 +55,9 @@ public class CatCar : Pet
 
         yield return new WaitForSeconds(2f);
 
+        SetVelocityInRandomDirection();
         isDriving = true;
-        speed = 10f;
+        speed = 20f;
 
         yield return new WaitForSeconds(2f);
 
