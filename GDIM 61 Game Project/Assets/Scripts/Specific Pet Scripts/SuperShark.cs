@@ -7,9 +7,17 @@ public class SuperShark : Pet
     [SerializeField] private GameObject _whirlPool;
     [SerializeField] private float _projectileFireRadius;
     [SerializeField] private float _secondsBetweenProjectiles = 3f;
-
+    Pet whoDidIRunInto;
 
     private float _projectileTimer = 1f;
+    private bool isChasing;
+    private bool phase2;
+
+    protected override void Start()
+    {
+        base.Start();
+        phase2 = false;
+    }
 
     public override void FaceLeft()
     {
@@ -23,12 +31,17 @@ public class SuperShark : Pet
 
     private void Update()
     {
+        SmellBlood();
+        if(healthPoints <= 0.5 * maxHealthPoints)
+        {
+            phase2 = true;
+        }
         if (GameController.instance.currentGameState != GameState.Combat)
         {
             return;
         }
         _projectileTimer -= Time.deltaTime;
-        if (_projectileTimer <= 0)
+        if (_projectileTimer <= 0 && phase2 == true)
         {
             GameObject target = GetNearestEnemy();
             Vector3 lineToTarget = target.transform.position - transform.position;
@@ -52,16 +65,24 @@ public class SuperShark : Pet
         Pet collidingPet = collision.transform.GetComponent<Pet>();
         float approaching = Vector2.Dot(lineToCollider, collision.relativeVelocity); 
 
-        if (collidingPet != null && collidingPet.petSide != petSide && approaching >= 0)
+        if (collidingPet != null && collidingPet.petSide != petSide)
         {
-            SmellBlood(collidingPet);
+            isChasing = true;
+            whoDidIRunInto = collidingPet;
         }
     }
-    void SmellBlood(Pet whoDidIRunInto)
+    void SmellBlood()
     {
-        GameController.instance.CullLists(enemyList);
-        Vector2 randomVector2 = whoDidIRunInto.transform.position - transform.position;
-        randomVector2 = randomVector2.normalized;
-        _rb.velocity = (randomVector2 * speed * speedMultiplier);
+        if (isChasing == true && whoDidIRunInto != null)
+        {
+            GameController.instance.CullLists(enemyList);
+            Vector2 direction = ((Vector2)whoDidIRunInto.transform.position - _rb.position).normalized;
+
+            _rb.MovePosition(_rb.position + direction * speed * Time.fixedDeltaTime);
+        }
+        if (whoDidIRunInto == null || whoDidIRunInto.healthPoints <= 0)
+        {
+            isChasing = false;
+        }
     }
 }
