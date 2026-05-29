@@ -34,7 +34,7 @@ public class TutorialUIController : MonoBehaviour
 
     public void StartTutorial()
     {
-        tutorialUIList[0].SetActive(true);
+//        tutorialUIList[0].SetActive(true);
     }
 
     public void TutorialButtonPressed()

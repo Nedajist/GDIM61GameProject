@@ -1,14 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class NorthernNarwhal : Pet
 {
     [SerializeField] private float _secondsBetweenProjectiles = 3f;
+    private bool phase2;
+    protected override void Start()
+    {
+        base.Start();
+        phase2 = false;
+    }
+
 
     private void Update()
     {
-
+        _rb.freezeRotation = true;
+        if (transform.position.x <= 0)
+        {
+            FaceRight();
+        }
+        else if (transform.position.x > 0)
+        {
+            FaceLeft();
+        }
+        if (healthPoints <= maxHealthPoints * 0.5f)
+        {
+            phase2 = true;
+        }
     }
 
 
@@ -28,18 +48,34 @@ public class NorthernNarwhal : Pet
     {
         base.OnCollisionEnter2D(collision);
         Spearhead(isCharging);
+        GameObject otherPet;
+        otherPet = collision.gameObject;
+        Pet component = otherPet.GetComponent<Pet>();
+        if (component != null && phase2 == true)
+        {
+            otherPet.GetComponent<Pet>().StartCoroutine(otherPet.GetComponent<Pet>().Freeze(1.5f));     
+        }
     }
     void Spearhead(bool charge)
     {
         if (charge == false)
         {
-            speed *= 10f;
+            speed *= 3f;
             isCharging = true;
         }
         else
         {
-            speed /= 10f;
+            speed /= 3f;
             isCharging = false;
         }
     }
+   /* private IEnumerator FreezePet(Pet otherPet)
+    {
+        otherPet = RigidbodyType2D.Static;
+
+        yield return new WaitForSeconds(3f);
+
+        otherRb.bodyType = RigidbodyType2D.Dynamic;
+    }
+    */
 }
