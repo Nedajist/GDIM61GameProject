@@ -1866,6 +1866,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1535063685811346838, guid: 545e0db1c74208b4bbfb3b306330e18f, type: 3}
+      propertyPath: _rb
+      value: 
+      objectReference: {fileID: 1081343525}
+    - target: {fileID: 1535063685811346838, guid: 545e0db1c74208b4bbfb3b306330e18f, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535063685811346838, guid: 545e0db1c74208b4bbfb3b306330e18f, type: 3}
+      propertyPath: bulletOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535063685811346838, guid: 545e0db1c74208b4bbfb3b306330e18f, type: 3}
+      propertyPath: speedBoostPerCollision
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535063685811346838, guid: 545e0db1c74208b4bbfb3b306330e18f, type: 3}
+      propertyPath: _secondsBetweenMovement
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5219439433165329921, guid: 545e0db1c74208b4bbfb3b306330e18f, type: 3}
       propertyPath: m_Name
       value: CatCar
@@ -1930,6 +1950,9 @@ MonoBehaviour:
   enemyList: []
   speedMultiplier: 1
   speedBoostPerCollision: 0
+  planeSprite: {fileID: 21300000, guid: 2476b5b59bfb8b44c96de7150e03f5c0, type: 3}
+  bullet: {fileID: 2625325715519678450, guid: bbdc4f7716a4a7f4fa51419b904004d1, type: 3}
+  bulletOffset: 20
 --- !u!58 &1081343528
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1962,9 +1985,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25732827, y: 0.32243088}
+  m_Offset: {x: -0.25732827, y: 2.6620939}
   serializedVersion: 2
-  m_Radius: 7.402834
+  m_Radius: 5.2701826
 --- !u!1 &1082976022
 GameObject:
   m_ObjectHideFlags: 0

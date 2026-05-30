@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -22,6 +23,7 @@ public class Pet : Entity
     [SerializeField] public Side petSide;
     [SerializeField] protected GameObject petTooltipPrefab;
     [SerializeField] protected float _secondsBetweenMovement;
+    protected bool isCatCar = false;
     public bool bought = false;
     public float maxHealthPoints;
     public List<GameObject> teamList; // RELATIVE TO THIS PET
@@ -48,6 +50,7 @@ public class Pet : Entity
     private void Awake()
     {
         maxHealthPoints = healthPoints;
+        isCatCar = false;
     }
 
     protected virtual void Start()
@@ -56,6 +59,8 @@ public class Pet : Entity
         _trueMaxHealth = healthPoints + 20f;
         SetColor();
         StartCoroutine(MouseDetect());
+
+        
 
     }
 
@@ -202,8 +207,19 @@ public class Pet : Entity
             }
 
         }
-
-        if (collidingObstacle != null)
+        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+        if (bullet != null && isCatCar == false)
+        {
+            ReceiveDamage(1f);
+            Debug.Log("shot");
+            return;  
+        }
+        else if (bullet != null && isCatCar == true)
+        {
+            Destroy(bullet);
+            return;
+        }
+        else if (collidingObstacle != null)
         {
             DeflectOff(collision.contacts[0].point, collidingObstacle.knockbackForce);
             ReceiveDamage(collidingObstacle.damage);
