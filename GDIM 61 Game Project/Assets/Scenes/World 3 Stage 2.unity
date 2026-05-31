@@ -832,6 +832,7 @@ MonoBehaviour:
   _rb: {fileID: 361142812}
   healthPoints: 30
   _sprite: {fileID: 361142814}
+  _getSprite: {fileID: 0}
   knockbackForce: 3
   damage: 3
   _speed: 5
@@ -1193,6 +1194,7 @@ MonoBehaviour:
   _rb: {fileID: 473925771}
   healthPoints: 30
   _sprite: {fileID: 473925773}
+  _getSprite: {fileID: 0}
   knockbackForce: 3
   damage: 3
   _speed: 5
@@ -1859,6 +1861,7 @@ MonoBehaviour:
   _rb: {fileID: 760939670}
   healthPoints: 30
   _sprite: {fileID: 760939672}
+  _getSprite: {fileID: 0}
   knockbackForce: 3
   damage: 3
   _speed: 5
@@ -2316,7 +2319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3590738283832537358, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: nextLevelSceneIndex
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7215870065688929184, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: m_Pivot.x
@@ -2684,6 +2687,7 @@ MonoBehaviour:
   _rb: {fileID: 2412729814213469885}
   healthPoints: 30
   _sprite: {fileID: 6385941616019728683}
+  _getSprite: {fileID: 0}
   knockbackForce: 3
   damage: 3
   _speed: 5

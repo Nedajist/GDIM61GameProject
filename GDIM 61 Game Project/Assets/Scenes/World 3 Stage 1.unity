@@ -1598,7 +1598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3590738283832537358, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: nextLevelSceneIndex
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7215870065688929184, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
       propertyPath: m_Pivot.x
@@ -1777,6 +1777,7 @@ MonoBehaviour:
   _rb: {fileID: 2412729814213469885}
   healthPoints: 30
   _sprite: {fileID: 6385941616019728683}
+  _getSprite: {fileID: 0}
   knockbackForce: 3
   damage: 3
   _speed: 5
