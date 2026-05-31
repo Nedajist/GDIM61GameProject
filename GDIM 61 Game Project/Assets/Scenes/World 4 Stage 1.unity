@@ -659,7 +659,7 @@ MonoBehaviour:
   shopZoneObject: {fileID: 1030551488}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
-  levelCompleteCoinBonus: 5
+  levelCompleteCoinBonus: 6
   buildingBalance: 3
   UI: {fileID: 0}
 --- !u!1001 &414494830

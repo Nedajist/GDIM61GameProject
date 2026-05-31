@@ -1302,8 +1302,8 @@ MonoBehaviour:
   shopZoneObject: {fileID: 1079045859}
   _firstLevel: 0
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
-  levelCompleteCoinBonus: 5
-  buildingBalance: 3
+  levelCompleteCoinBonus: 6
+  buildingBalance: 4
   UI: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -2373,6 +2373,10 @@ PrefabInstance:
       propertyPath: teddyBear
       value: 
       objectReference: {fileID: 234977709}
+    - target: {fileID: 5764604789617943928, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
+      propertyPath: healthPoints
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6155140930502398502, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_Name
       value: Frizzly Grizzly (1)
@@ -3338,6 +3342,10 @@ PrefabInstance:
       propertyPath: teddyBear
       value: 
       objectReference: {fileID: 660928898}
+    - target: {fileID: 5764604789617943928, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
+      propertyPath: healthPoints
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6155140930502398502, guid: d62739e7bb2fd7d439ccd2c3a3f6655c, type: 3}
       propertyPath: m_Name
       value: Frizzly Grizzly

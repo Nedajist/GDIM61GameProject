@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 6687863972708667651}
-  healthPoints: 150
+  healthPoints: 110
   _sprite: {fileID: 5803671899654559455}
   _getSprite: {fileID: 0}
   petName: SuperShark

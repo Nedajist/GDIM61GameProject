@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3002249069536501682}
-  healthPoints: 200
+  healthPoints: 160
   _sprite: {fileID: 8687757734039893196}
   _getSprite: {fileID: 0}
   petName: NorthernNarwhal
@@ -313,7 +313,7 @@ MonoBehaviour:
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
   bought: 0
-  maxHealthPoints: 100
+  maxHealthPoints: 160
   teamList: []
   enemyList: []
   speedMultiplier: 1

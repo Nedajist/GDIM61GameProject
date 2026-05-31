@@ -1638,6 +1638,10 @@ PrefabInstance:
       propertyPath: livesText
       value: 
       objectReference: {fileID: 1166479262}
+    - target: {fileID: 1360703949749330863, guid: 6d3f7c033c08805429f73eb79fa7dd82, type: 3}
+      propertyPath: fadeawayDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1679851754835613365, guid: 6d3f7c033c08805429f73eb79fa7dd82, type: 3}
       propertyPath: m_IsActive
       value: 0
