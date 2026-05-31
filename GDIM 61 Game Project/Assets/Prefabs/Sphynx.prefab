@@ -424,6 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6532976071066155688}
   - component: {fileID: 6389121536163968084}
+  - component: {fileID: 1360703949749330863}
   - component: {fileID: 3547748827782372726}
   - component: {fileID: 1558374740990707749}
   - component: {fileID: 3443924587938091720}
@@ -503,6 +504,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1360703949749330863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553501257249317175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ab3374535234a4eb11f45216e63506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 3443924587938091720}
+  healthPoints: 25
+  _sprite: {fileID: 6389121536163968084}
+  _getSprite: {fileID: 6389121536163968084}
+  petName: Sphynx
+  attack: 5
+  cost: 0
+  speed: 2
+  petSide: 1
+  petTooltipPrefab: {fileID: 0}
+  _secondsBetweenMovement: 2
+  bought: 0
+  maxHealthPoints: 50
+  teamList: []
+  enemyList: []
+  speedMultiplier: 1
+  speedBoostPerCollision: 0.2
+  livesText: {fileID: 0}
+  fadeawayDuration: 0.5
+  _collider: {fileID: 1716561459059089714}
 --- !u!114 &3547748827782372726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +554,7 @@ MonoBehaviour:
   _barBackground: {fileID: 7316761381595052715}
   _barCanvas: {fileID: 1679851754835613365}
   _healthBarImage: {fileID: 7171172191420642761}
-  _healthBarHeight: 1
+  _healthBarHeight: 2
 --- !u!114 &1558374740990707749
 MonoBehaviour:
   m_ObjectHideFlags: 0

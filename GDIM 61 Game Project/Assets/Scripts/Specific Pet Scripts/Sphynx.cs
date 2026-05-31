@@ -11,7 +11,7 @@ public class Sphynx : Pet
 {
     // Start is called before the first frame update
     [SerializeField] private TextMeshProUGUI livesText;
-    [SerializeField] private float fadeawayDuration = 0.5f;
+    [SerializeField] private float fadeawayDuration = 1.5f;
     [SerializeField] private Collider2D _collider;
     private Vector2 minBounds = new Vector2(-5f, -5f);
     private Vector2 maxBounds = new Vector2(5f, 5f);
@@ -104,18 +104,25 @@ public class Sphynx : Pet
 
     IEnumerator OnDeath(float duration)
     {
+        transform.GetChild(0).transform.gameObject.SetActive(false); // hides healthbar
         isDying = true;
         healthPoints = maxHealthPoints;
         _collider.enabled = false;
+        _sprite.color = Color.clear;
         float random = UnityEngine.Random.Range(minBounds.x, maxBounds.x);
 
+        Debug.Log("SPRITE INVISIBLE");
+        Debug.Log("WAITING FOR " + duration.ToString());
         yield return new WaitForSeconds(duration);
+        Debug.Log("SPRITE VISIBLE");
+        transform.GetChild(0).transform.gameObject.SetActive(true); // shows healthbar 
 
         isDying = false;
         SetVelocityInRandomDirection();
         transform.position = new Vector2(random, random);
         remainingLives -= 1;
         _collider.enabled = true;
+        _sprite.color = originalColor;
     }
 
     private void FadeAway()
