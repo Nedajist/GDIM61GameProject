@@ -344,8 +344,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 7525258798503451245}
-  healthPoints: 100
+  healthPoints: 75
   _sprite: {fileID: 256447114076202559}
+  _getSprite: {fileID: 0}
   petName: FrizzlyGrizzly
   attack: 2
   cost: 0

@@ -44,6 +44,7 @@ public class SuperShark : Pet
         if (_projectileTimer <= 0 && phase2 == true)
         {
             GameObject target = GetNearestEnemy();
+            if (target == null) return;
             Vector3 lineToTarget = target.transform.position - transform.position;
             lineToTarget = lineToTarget.normalized * _projectileFireRadius;
 

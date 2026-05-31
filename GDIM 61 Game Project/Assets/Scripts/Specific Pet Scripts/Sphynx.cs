@@ -83,19 +83,21 @@ public class Sphynx : Pet
 
                 if (attack > other.healthPoints)
                 {
-                    other.maxHealthPoints = 5;
-                    other.healthPoints = 5;
-                    other.petSide = Side.ai;
-                    other.attack *= 0.3f;
-                    other.speedMultiplier = 0.5f;
+                    other.ReceiveDamage(attack);
 
-                    Debug.Log(other.healthPoints);
-                    otherSprite.color = Color.green;
+                    //other.maxHealthPoints = 5;
+                    //other.healthPoints = 5;
+                    //other.petSide = Side.ai;
+                    //other.attack *= 0.3f;
+                    //other.speedMultiplier = 0.5f;
 
-                    otherHealthBar.SetBarColor();
-                    GameController.instance.enemyTeamList.Add(other.gameObject);
-                    GameController.instance.playerTeamList.Remove(other.gameObject);
-                    GameController.instance.CheckForVictor();
+                    //Debug.Log(other.healthPoints);
+                    //otherSprite.color = Color.green;
+
+                    //otherHealthBar.SetBarColor();
+                    //GameController.instance.enemyTeamList.Add(other.gameObject);
+                    //GameController.instance.playerTeamList.Remove(other.gameObject);
+                    //GameController.instance.CheckForVictor();
                 }
                 else
                 {
