@@ -15,7 +15,7 @@ public class Sphynx : Pet
     [SerializeField] private Collider2D _collider;
     private Vector2 minBounds = new Vector2(-5f, -5f);
     private Vector2 maxBounds = new Vector2(5f, 5f);
-    private int remainingLives = 4;
+    private int remainingLives = 9;
     private bool phase2;
     private bool isDying;
     protected override void Start()
@@ -83,21 +83,20 @@ public class Sphynx : Pet
 
                 if (attack > other.healthPoints)
                 {
-                    other.ReceiveDamage(attack);
 
-                    //other.maxHealthPoints = 5;
-                    //other.healthPoints = 5;
-                    //other.petSide = Side.ai;
-                    //other.attack *= 0.3f;
-                    //other.speedMultiplier = 0.5f;
+                    other.maxHealthPoints = 5;
+                    other.healthPoints = 5;
+                    other.petSide = Side.ai;
+                    other.attack *= 0.3f;
+                    other.speedMultiplier = 0.5f;
 
-                    //Debug.Log(other.healthPoints);
-                    //otherSprite.color = Color.green;
+                    Debug.Log(other.healthPoints);
+                    otherSprite.color = Color.green;
 
-                    //otherHealthBar.SetBarColor();
-                    //GameController.instance.enemyTeamList.Add(other.gameObject);
-                    //GameController.instance.playerTeamList.Remove(other.gameObject);
-                    //GameController.instance.CheckForVictor();
+                    otherHealthBar.SetBarColor();
+                    GameController.instance.enemyTeamList.Add(other.gameObject);
+                    GameController.instance.playerTeamList.Remove(other.gameObject);
+                    GameController.instance.CheckForVictor();
                 }
                 else
                 {

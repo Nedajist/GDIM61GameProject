@@ -23,6 +23,10 @@ public class GameController : MonoBehaviour // this is a Singleton
     [SerializeField] GameObject shopObject;
     [SerializeField] GameObject shopZoneObject;
 
+    [SerializeField] AudioClip buyPhaseOST; 
+    [SerializeField] AudioClip combatOst;
+    [SerializeField] AudioSource audioSource;
+
     [SerializeField] bool _firstLevel;
 
     public PlayerData saveData;
@@ -134,6 +138,9 @@ public class GameController : MonoBehaviour // this is a Singleton
                     enemyTeamList[i].transform.GetComponent<Pet>().FaceLeft();
                 }
 
+                audioSource.clip = buyPhaseOST;
+                audioSource.Play();
+
 
                 break;
             case GameState.PreCombat:
@@ -158,6 +165,10 @@ public class GameController : MonoBehaviour // this is a Singleton
                 shopObject.SetActive(false);
                 shopZoneObject.SetActive(false);
                 UnfreezeObstacles();
+
+                audioSource.clip = combatOst;
+                audioSource.Play();
+
                 break;
 
             case GameState.PostCombat:
@@ -165,6 +176,10 @@ public class GameController : MonoBehaviour // this is a Singleton
                 //Debug.Log("ENTERING POSTCOMBAT");
                 playerTeamList = null;
                 enemyTeamList = null;
+
+                audioSource.clip = buyPhaseOST;
+                audioSource.Play();
+
                 break;
 
         }
@@ -188,7 +203,6 @@ public class GameController : MonoBehaviour // this is a Singleton
             Time.timeScale = 0;
             UI.ShowPauseButton();
         }
-        
     }
 
     public void SetPet() { }

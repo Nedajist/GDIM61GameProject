@@ -549,11 +549,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 7541110092658771277}
-  healthPoints: 500
+  healthPoints: 600
   _sprite: {fileID: 6664533551770215460}
   _getSprite: {fileID: 6664533551770215460}
   petName: CatCar
-  attack: 2
+  attack: 1
   cost: 0
   speed: 5
   petSide: 1
@@ -564,7 +564,7 @@ MonoBehaviour:
   teamList: []
   enemyList: []
   speedMultiplier: 1
-  speedBoostPerCollision: 0.2
+  speedBoostPerCollision: 0
   planeSprite: {fileID: 21300000, guid: 2476b5b59bfb8b44c96de7150e03f5c0, type: 3}
   bullet: {fileID: 2625325715519678450, guid: bbdc4f7716a4a7f4fa51419b904004d1, type: 3}
   bulletOffset: 1

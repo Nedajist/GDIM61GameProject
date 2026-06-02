@@ -15,6 +15,7 @@ public class CatCar : Pet
     protected override void Start()
     {
         base.Start();
+        speedBoostPerCollision = 0f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDriving = false;
         phase2 = false;
