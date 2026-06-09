@@ -979,7 +979,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 0a31e9d732b4d9e4584cae4f1756aaf2, type: 2}
   levelCompleteCoinBonus: 3
   buildingBalance: 1
-  UI: {fileID: 0}
+  UI: {fileID: 1520595680}
 --- !u!82 &405178580
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3875,6 +3875,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503305195}
   m_CullTransparentMesh: 1
+--- !u!114 &1520595680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3590738283832537358, guid: c30be97dff21ca749a72e14ccd65b52c, type: 3}
+  m_PrefabInstance: {fileID: 3277405266915111625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dd9738065b157449e0c8b1d7f1f54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1665607361
 GameObject:
   m_ObjectHideFlags: 0
