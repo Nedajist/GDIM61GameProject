@@ -517,18 +517,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3443924587938091720}
-  healthPoints: 20
+  healthPoints: 40
   _sprite: {fileID: 6389121536163968084}
   _getSprite: {fileID: 6389121536163968084}
   petName: Sphynx
-  attack: 4
+  attack: 1
   cost: 0
   speed: 2
   petSide: 1
   petTooltipPrefab: {fileID: 0}
   _secondsBetweenMovement: 2
   bought: 0
-  maxHealthPoints: 20
+  maxHealthPoints: 40
   teamList: []
   enemyList: []
   speedMultiplier: 1

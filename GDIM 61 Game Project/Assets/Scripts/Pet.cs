@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.U2D;
